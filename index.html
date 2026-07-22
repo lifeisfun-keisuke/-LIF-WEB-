@@ -79,23 +79,44 @@
  @media(max-width:680px){ .nav-links a:not(.cta){display:none;} }
 
  /* ---------- hero ---------- */
- .hero{padding:96px 0 84px;position:relative;overflow:hidden;}
+ .hero{padding:80px 0 84px;position:relative;overflow:hidden;}
+ .hero-inner{
+ display:grid;
+ grid-template-columns:1.1fr 1fr;
+ gap:40px;
+ align-items:center;
+ }
  .hero .eyebrow{margin-bottom:26px;}
  .hero h1{
  font-family:"Zen Kaku Gothic New",sans-serif;
  font-weight:900;
- font-size:clamp(40px,8vw,82px);
- line-height:1.12;
+ font-size:clamp(36px,5vw,68px);
+ line-height:1.15;
  letter-spacing:.01em;
- margin-bottom:30px;
+ margin-bottom:24px;
  }
  .hero h1 .bar{
  display:inline-block;width:.5em;height:.12em;background:var(--accent);
  vertical-align:middle;margin:0 .08em;border-radius:2px;
  }
  .hero p.lead{
- font-size:clamp(15px,1.7vw,17px);
- color:var(--ink-soft);max-width:30em;line-height:2;
+ font-size:clamp(14px,1.5vw,16px);
+ color:var(--ink-soft);max-width:32em;line-height:2;
+ }
+ .hero-media{
+ position:relative;
+ width:100%;
+ border-radius:16px;
+ overflow:hidden;
+ border:1px solid var(--hair);
+ box-shadow:0 12px 32px rgba(15,23,42,0.06);
+ background:var(--ink);
+ }
+ .hero-video{
+ display:block;
+ width:100%;
+ height:380px;
+ object-fit:cover;
  }
  .ghost{
  position:absolute;right:-4%;top:42%;
@@ -109,6 +130,16 @@
  .reveal.d2{animation-delay:.18s;}
  .reveal.d3{animation-delay:.28s;}
  @keyframes rise{to{opacity:1;transform:none;}}
+
+ @media(max-width:880px){
+ .hero-inner{
+ grid-template-columns:1fr;
+ gap:32px;
+ }
+ .hero-video{
+ height:260px;
+ }
+ }
 
  /* ---------- section frame ---------- */
  section.block{padding:74px 0;border-top:1px solid var(--hair);}
@@ -295,13 +326,22 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
  <div class="ghost" aria-hidden="true">LIF</div>
- <div class="wrap">
+ <div class="wrap hero-inner">
+ <div class="hero-text">
  <p class="eyebrow reveal">WEB ・ SNS ・ AD ・ IT — Digital Marketing</p>
  <h1 class="reveal d1">いいお店を、<br><span class="bar"></span>埋もれさせない。</h1>
  <p class="lead reveal d2">
  株式会社LIF（リフ）は、SNS運用・WEB制作・広告運用・IT開発で、<br>
  お店やブランドが選ばれる仕組みをつくる会社です。
  </p>
+ </div>
+ <div class="hero-media reveal d3">
+ <!-- ★ 動画ファイル名を指定（hero-movie.mp4） -->
+ <video autoplay loop muted playsinline class="hero-video">
+ <source src="hero-movie.mp4" type="video/mp4">
+ お使いのブラウザは動画の再生に対応していません。
+ </video>
+ </div>
  </div>
 </section>
 
