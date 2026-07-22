@@ -6,6 +6,10 @@
 <!-- Google Search Console 所有権確認タグ -->
 <meta name="google-site-verification" content="vBWb79NmxfMytSRtN057ODzosl5NAf9DRW_5SfjNvWU" />
 <title>株式会社LIF（リフ）｜SNS運用・WEB制作・広告運用・IT開発</title>
+
+<!-- ファビコン設定 -->
+<link rel="icon" href="favicon.png" type="image/png">
+
 <meta name="description" content="株式会社LIF（リフ）は、SNS運用・WEB制作・広告運用・IT開発で、お店やブランドが選ばれる仕組みをつくる会社です。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,9 +62,14 @@
  letter-spacing:.04em;
  color:var(--ink);
  text-decoration:none;
- display:flex;align-items:baseline;gap:8px;
+ display:flex;align-items:center;gap:10px;
  }
- .mark .dot{color:var(--accent);}
+ .mark-logo{
+ height:32px;
+ width:auto;
+ display:block;
+ object-fit:contain;
+ }
  .mark .yomi{
  font-family:"Zen Kaku Gothic New",sans-serif;
  font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.1em;
@@ -106,7 +115,7 @@
  left:0;
  width:100%;
  height:100%;
- background:rgba(15, 23, 42, 0.65); /* 暗めの透過レイヤー */
+ background:rgba(15, 23, 42, 0.65);
  z-index:2;
  }
  /* コンテンツを画像の上に配置 */
@@ -316,7 +325,10 @@
 
 <header>
  <div class="wrap nav">
- <a href="#" class="mark">LIF<span class="dot">.</span><span class="yomi">株式会社リフ</span></a>
+ <a href="#" class="mark">
+ <img src="logo.png" alt="LIF Logo" class="mark-logo">
+ <span><span class="yomi">株式会社リフ</span></span>
+ </a>
  <nav class="nav-links">
  <a href="#mission">ミッション</a>
  <a href="#service">事業内容</a>
@@ -329,8 +341,8 @@
 
 <!-- ===== HERO (全面背景画像) ===== -->
 <section class="hero">
- <!-- 背景画像（hero-img.jpg） -->
- <img src="hero-img.jpg" alt="株式会社LIF メインビジュアル" class="hero-bg-img">
+ <!-- 背景画像（hero-img.jpeg） -->
+ <img src="hero-img.jpeg" alt="株式会社LIF メインビジュアル" class="hero-bg-img">
 
  <!-- 暗めオーバーレイ (文字を見やすくするため) -->
  <div class="hero-overlay"></div>
@@ -485,7 +497,7 @@
 <footer>
  <div class="wrap foot">
  <div>
- <a href="#" class="mark">LIF<span class="dot">.</span></a>
+ <img src="logo.png" alt="LIF Logo" class="mark-logo" style="height:20px; margin-bottom:8px;">
  <span>© 2026 株式会社LIF（リフ） / lif.jp</span>
  </div>
  <div class="foot-links">
