@@ -78,7 +78,7 @@
  .nav-links .cta:hover{background:var(--ink);color:var(--paper);}
  @media(max-width:680px){ .nav-links a:not(.cta){display:none;} }
 
- /* ---------- hero (全面背景動画デザイン) ---------- */
+ /* ---------- hero (全面背景画像デザイン) ---------- */
  .hero{
  position:relative;
  min-height:80vh;
@@ -89,8 +89,8 @@
  color:#FFFFFF;
  padding:100px 0;
  }
- /* 背景動画本体 */
- .hero-bg-video{
+ /* 背景画像 */
+ .hero-bg-img{
  position:absolute;
  top:0;
  left:0;
@@ -109,7 +109,7 @@
  background:rgba(15, 23, 42, 0.65); /* 暗めの透過レイヤー */
  z-index:2;
  }
- /* コンテンツを動画の上に配置 */
+ /* コンテンツを画像の上に配置 */
  .hero-content{
  position:relative;
  z-index:3;
@@ -117,7 +117,7 @@
  }
  .hero .eyebrow{
  margin-bottom:26px;
- color:#94A3B8; /* 文字が見えやすい薄いグレー */
+ color:#94A3B8;
  }
  .hero h1{
  font-family:"Zen Kaku Gothic New",sans-serif;
@@ -327,12 +327,10 @@
  </div>
 </header>
 
-<!-- ===== HERO (全面背景動画) ===== -->
+<!-- ===== HERO (全面背景画像) ===== -->
 <section class="hero">
- <!-- 背景動画 -->
- <video autoplay loop muted playsinline class="hero-bg-video">
- <source src="hero-movie.mp4" type="video/mp4">
- </video>
+ <!-- 背景画像（hero-img.jpg） -->
+ <img src="hero-img.jpg" alt="株式会社LIF メインビジュアル" class="hero-bg-img">
 
  <!-- 暗めオーバーレイ (文字を見やすくするため) -->
  <div class="hero-overlay"></div>
