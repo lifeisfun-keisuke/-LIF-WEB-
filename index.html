@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Google Search Console 所有権確認タグ -->
 <meta name="google-site-verification" content="vBWb79NmxfMytSRtN057ODzosl5NAf9DRW_5SfjNvWU" />
-<title>株式会社LIF（リフ）｜SNS運用・WEB制作・広告運用・IT開発</title>
+<title>株式会社LIF（リフ）｜WEB・SNS・AD・IT — Simple Marketing</title>
 
 <!-- ファビコン設定 -->
 <link rel="icon" href="favicon.png" type="image/png">
 
-<meta name="description" content="株式会社LIF（リフ）は、SNS運用・WEB制作・広告運用・IT開発で、お店やブランドが選ばれる仕組みをつくる会社です。">
+<meta name="description" content="株式会社LIF（リフ）は、WEB制作・SNS運用・広告運用・システム開発で、複雑なマーケティングをシンプルな仕組みに変える会社です。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -98,7 +98,6 @@
  color:#FFFFFF;
  padding:100px 0;
  }
- /* 背景画像 */
  .hero-bg-img{
  position:absolute;
  top:0;
@@ -108,7 +107,6 @@
  object-fit:cover;
  z-index:1;
  }
- /* 文字を見やすくするためのダークフィルター */
  .hero-overlay{
  position:absolute;
  top:0;
@@ -118,7 +116,6 @@
  background:rgba(15, 23, 42, 0.65);
  z-index:2;
  }
- /* コンテンツを画像の上に配置 */
  .hero-content{
  position:relative;
  z-index:3;
@@ -131,21 +128,20 @@
  .hero h1{
  font-family:"Zen Kaku Gothic New",sans-serif;
  font-weight:900;
- font-size:clamp(40px,7vw,76px);
- line-height:1.15;
+ font-size:clamp(32px,5.5vw,60px);
+ line-height:1.25;
  letter-spacing:.01em;
  margin-bottom:26px;
  color:#FFFFFF;
  text-shadow:0 2px 10px rgba(0,0,0,0.3);
  }
- .hero h1 .bar{
- display:inline-block;width:.5em;height:.12em;background:var(--accent);
- vertical-align:middle;margin:0 .08em;border-radius:2px;
+ .hero h1 .accent-text{
+ color:#60A5FA;
  }
  .hero p.lead{
  font-size:clamp(15px,1.8vw,18px);
  color:#E2E8F0;
- max-width:34em;
+ max-width:36em;
  line-height:2;
  text-shadow:0 1px 5px rgba(0,0,0,0.3);
  }
@@ -167,14 +163,14 @@
  .mission .statement{
  font-family:"Zen Kaku Gothic New",sans-serif;
  font-weight:900;
- font-size:clamp(28px,5vw,52px);
- line-height:1.32;letter-spacing:.01em;
+ font-size:clamp(26px,4.5vw,46px);
+ line-height:1.35;letter-spacing:.01em;
  margin-bottom:30px;
  }
  .mission .statement .accent{color:var(--accent);}
  .mission p.body{
  font-size:clamp(14px,1.6vw,16px);
- color:var(--ink-soft);max-width:40em;line-height:2.1;
+ color:var(--ink-soft);max-width:42em;line-height:2.1;
  }
 
  /* ---------- services ---------- */
@@ -195,7 +191,7 @@
  /* ---------- strengths ---------- */
  .str{border-top:1px solid var(--ink);}
  .str .item{
- display:grid;grid-template-columns:200px 1fr;gap:28px;
+ display:grid;grid-template-columns:220px 1fr;gap:28px;
  padding:32px 4px;border-bottom:1px solid var(--hair);align-items:start;
  }
  .str .item .label{
@@ -246,7 +242,7 @@
  font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;
  font-size:clamp(26px,4vw,36px);margin-bottom:12px;letter-spacing:.02em;
  }
- .contact-head p{color:var(--ink-soft);font-size:14px;}
+ .contact-head p{color:var(--ink-soft);font-size:15px;line-height:1.8;}
  
 .contact-form{display:flex;flex-direction:column;gap:24px;}
 .form-group{display:flex;flex-direction:column;gap:8px;}
@@ -289,7 +285,6 @@
 .direct-mail{text-align:center;margin-top:24px;font-size:13px;color:var(--muted);}
 .direct-mail a{color:var(--ink-soft);text-decoration:underline;}
 
-/* 送信完了メッセージエリア */
 #form-thanks{
  display:none;
  text-align:center;
@@ -339,21 +334,16 @@
  </div>
 </header>
 
-<!-- ===== HERO (全面背景画像) ===== -->
+<!-- ===== HERO ===== -->
 <section class="hero">
- <!-- 背景画像（hero-img.jpg に修正済） -->
  <img src="hero-img.jpg" alt="株式会社LIF メインビジュアル" class="hero-bg-img">
-
- <!-- 暗めオーバーレイ (文字を見やすくするため) -->
  <div class="hero-overlay"></div>
-
- <!-- キャッチコピー等 -->
  <div class="wrap hero-content">
- <p class="eyebrow reveal">WEB ・ SNS ・ AD ・ IT — Digital Marketing</p>
- <h1 class="reveal d1">いいお店を、<br><span class="bar"></span>埋もれさせない。</h1>
+ <p class="eyebrow reveal">WEB ・ SNS ・ AD ・ IT — Simple Marketing</p>
+ <h1 class="reveal d1">マーケティングの複雑さ、<br><span class="accent-text">私たちがすべてシンプルにします。</span></h1>
  <p class="lead reveal d2">
- 株式会社LIF（リフ）は、SNS運用・WEB制作・広告運用・IT開発で、<br>
- お店やブランドが選ばれる仕組みをつくる会社です。
+ 株式会社LIF（リフ）は、WEB制作・SNS運用・広告運用・IT開発をつなぎ、<br>
+ 売上につながるシンプルな仕組みをまるごと設計する会社です。
  </p>
  </div>
 </section>
@@ -365,10 +355,12 @@
  <span class="eyebrow">Mission</span>
  <h2>ミッション</h2>
  </div>
- <p class="statement">知られなければ、<br><span class="accent">選ばれない。</span></p>
+ <p class="statement">複雑にしない。<br>それが、<span class="accent">成果への最短ルート。</span></p>
  <p class="body">
- どれだけいいお店でも、出会えなければ存在しないのと同じです。<br>
- 集客とマーケティングを軸に、SNS・WEB・広告・ITをつなげて、お店やブランドが本来の価値で選ばれる状態をつくります。
+ 専門用語、無数の選択肢、バラバラな施策——マーケティングは放っておくとどんどん複雑化します。<br><br>
+ その複雑な設計や運用は、すべて私たちが引き受けます。<br>
+ お客様にお渡しするのは、迷わない「シンプルな答え」だけ。<br><br>
+ WEB・SNS・広告・システムを断片化させず、一気通貫のひとつの仕組みとしてつなげる。それが株式会社LIFのスタイルです。
  </p>
  </div>
 </section>
@@ -384,22 +376,22 @@
  <div class="card">
  <span class="num">WEB</span>
  <h3>WEB制作</h3>
- <p>見た目をつくるだけで終わりません。問い合わせや予約までの導線を設計した、集客の受け皿になるサイトを制作します。</p>
+ <p>つくって終わりにしません。問い合わせや予約まで迷わずたどり着ける、シンプルな1本の導線を設計します。</p>
  </div>
  <div class="card">
  <span class="num">SNS</span>
  <h3>SNS運用代行</h3>
- <p>Instagramを中心に、投稿の設計から日々の運用までを代行。「見られる」アカウントを、お客様とつながるアカウントへ育てます。</p>
+ <p>投稿ネタに悩む時間は、もう必要ありません。Instagramを中心に、アカウント設計から日々の運用まで私たちが代行します。</p>
  </div>
  <div class="card">
  <span class="num">AD</span>
  <h3>広告運用</h3>
- <p>META広告でLPから登録、来店までのファネルを設計。数値を見ながら改善を続け、費用対効果を高めます。</p>
+ <p>複雑な配信管理やターゲット設定は、すべて引き受けます。META広告を中心に獲得までのファネルを設計し、数値で改善し続けます。</p>
  </div>
  <div class="card">
  <span class="num">IT</span>
  <h3>IT・ソフトウェア開発</h3>
- <p>Webサイトやマーケティングで得た知見をもとに、業務効率化ツールや予約・顧客管理システムなど、事業成長を支えるソフトウェア開発にも対応します。</p>
+ <p>手作業のまま放置されている業務を仕組みへ。Webシステムや業務ツールの開発で、現場のムダをシンプルに削ぎ落とします。</p>
  </div>
  </div>
  </div>
@@ -414,16 +406,16 @@
  </div>
  <div class="str">
  <div class="item">
- <div class="label">導線を設計する<span class="en">Design the flow</span></div>
- <p class="desc">つくるのは、サイトやコンテンツそのものではなく、<strong>問い合わせや来店までの導線</strong>です。「見られる」で止めず、お客様が行動を起こすところまで設計します。</p>
+ <div class="label">シンプルに、考える<span class="en">Simple by design</span></div>
+ <p class="desc">情報があふれるマーケティングの世界で、私たちはあえて選択肢を削ぎ落とします。<strong>「今やるべきこと」だけに絞ってお伝えする</strong>ので、迷うことがありません。</p>
  </div>
  <div class="item">
  <div class="label">一社で、一気通貫<span class="en">All in one</span></div>
- <p class="desc">認知をつくるSNS、受け皿になるWEB、広げる広告。<strong>本来バラバラになりがちな3つを一社でつなげる</strong>から、集客の流れに無駄が出ません。</p>
+ <p class="desc">SNS・WEB・広告・システム。本来バラバラになりがちな4つを一社で完結。<strong>窓口も判断もひとつにまとまる</strong>ため、やり取りのストレスもありません。</p>
  </div>
  <div class="item">
- <div class="label">数字で、改善し続ける<span class="en">Improve with data</span></div>
- <p class="desc">広告もサイトも、公開して終わりにしません。<strong>数値を見て何が効いているかを確かめ</strong>、改善を重ねることで、成果を伸ばし続けます。</p>
+ <div class="label">数字で、迷わない<span class="en">Improve with data</span></div>
+ <p class="desc">感覚や思い込みではなく、<strong>数値データだけを判断基準に</strong>。何が成果につながっているかが一目でわかるため、改善もブレずにまっすぐ進みます。</p>
  </div>
  </div>
  </div>
@@ -455,10 +447,9 @@
  <div class="contact-head">
  <span class="eyebrow">Contact</span>
  <h2>お問い合わせ</h2>
- <p>WEB制作・SNS運用・広告運用・IT開発に関するご相談は、下記フォームよりお気軽にご連絡ください。</p>
+ <p>難しく考えなくて大丈夫です。まずは今抱えている課題や「こうしたい」というイメージをお気軽にご相談ください。<br>複雑な部分は、すべて私たちが引き受けます。</p>
  </div>
 
- <!-- 裏送信用の非表示iframe -->
  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){showThanks();}"></iframe>
 
  <form id="gform" class="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeCKhhuEAR2RddyUwc-3MxMvJb54quSKJJhkVkZ0G26_gxOOA/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
@@ -484,7 +475,6 @@
  </div>
  </form>
 
- <!-- 完了時メッセージ -->
  <div id="form-thanks">
  <h3>お問い合わせを受け付けました</h3>
  <p>ご連絡いただきありがとうございます。内容を確認のうえ、担当者より順次ご連絡いたします。</p>
