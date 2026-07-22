@@ -9,350 +9,400 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#F7F6F2;
-    --paper-2:#FFFFFF;
-    --ink:#14141C;
-    --ink-soft:#4A4A55;
-    --muted:#7A7A85;
-    --accent:#FF4527;
-    --hair:#E2E0D9;
-    --maxw:1080px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:"Noto Sans JP",sans-serif;
-    font-weight:400;
-    line-height:1.8;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
-  .eyebrow{
-    font-family:"Space Grotesk",sans-serif;
-    font-weight:500;
-    font-size:12px;
-    letter-spacing:.32em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-  .accent{color:var(--accent);}
+ :root{
+ --paper:#F7F6F2;
+ --paper-2:#FFFFFF;
+ --ink:#14141C;
+ --ink-soft:#4A4A55;
+ --muted:#7A7A85;
+ --accent:#FF4527;
+ --hair:#E2E0D9;
+ --maxw:1080px;
+ }
+ *{box-sizing:border-box;margin:0;padding:0;}
+ html{scroll-behavior:smooth;}
+ body{
+ background:var(--paper);
+ color:var(--ink);
+ font-family:"Noto Sans JP",sans-serif;
+ font-weight:400;
+ line-height:1.8;
+ -webkit-font-smoothing:antialiased;
+ text-rendering:optimizeLegibility;
+ }
+ .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+ .eyebrow{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:500;
+ font-size:12px;
+ letter-spacing:.32em;
+ text-transform:uppercase;
+ color:var(--muted);
+ }
+ .accent{color:var(--accent);}
 
-  /* ---------- nav ---------- */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(247,246,242,.86);
-    backdrop-filter:saturate(140%) blur(10px);
-    border-bottom:1px solid var(--hair);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;height:66px;}
-  .mark{
-    font-family:"Space Grotesk",sans-serif;
-    font-weight:700;
-    font-size:24px;
-    letter-spacing:.04em;
-    color:var(--ink);
-    text-decoration:none;
-    display:flex;align-items:baseline;gap:8px;
-  }
-  .mark .dot{color:var(--accent);}
-  .mark .yomi{
-    font-family:"Zen Kaku Gothic New",sans-serif;
-    font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.1em;
-  }
-  .nav-links{display:flex;gap:28px;align-items:center;}
-  .nav-links a{
-    font-size:13px;font-weight:500;color:var(--ink-soft);
-    text-decoration:none;letter-spacing:.06em;transition:color .2s;
-  }
-  .nav-links a:hover{color:var(--accent);}
-  .nav-links .cta{
-    border:1.5px solid var(--ink);border-radius:999px;
-    padding:9px 20px;color:var(--ink);
-  }
-  .nav-links .cta:hover{background:var(--ink);color:var(--paper);}
-  @media(max-width:680px){ .nav-links a:not(.cta){display:none;} }
+ /* ---------- nav ---------- */
+ header{
+ position:sticky;top:0;z-index:50;
+ background:rgba(247,246,242,.86);
+ backdrop-filter:saturate(140%) blur(10px);
+ border-bottom:1px solid var(--hair);
+ }
+ .nav{display:flex;align-items:center;justify-content:space-between;height:66px;}
+ .mark{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;
+ font-size:24px;
+ letter-spacing:.04em;
+ color:var(--ink);
+ text-decoration:none;
+ display:flex;align-items:baseline;gap:8px;
+ }
+ .mark .dot{color:var(--accent);}
+ .mark .yomi{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.1em;
+ }
+ .nav-links{display:flex;gap:28px;align-items:center;}
+ .nav-links a{
+ font-size:13px;font-weight:500;color:var(--ink-soft);
+ text-decoration:none;letter-spacing:.06em;transition:color .2s;
+ }
+ .nav-links a:hover{color:var(--accent);}
+ .nav-links .cta{
+ border:1.5px solid var(--ink);border-radius:999px;
+ padding:9px 20px;color:var(--ink);
+ }
+ .nav-links .cta:hover{background:var(--ink);color:var(--paper);}
+ @media(max-width:680px){ .nav-links a:not(.cta){display:none;} }
 
-  /* ---------- hero ---------- */
-  .hero{padding:96px 0 84px;position:relative;overflow:hidden;}
-  .hero .eyebrow{margin-bottom:26px;}
-  .hero h1{
-    font-family:"Zen Kaku Gothic New",sans-serif;
-    font-weight:900;
-    font-size:clamp(40px,8vw,82px);
-    line-height:1.12;
-    letter-spacing:.01em;
-    margin-bottom:30px;
-  }
-  .hero h1 .bar{
-    display:inline-block;width:.5em;height:.12em;background:var(--accent);
-    vertical-align:middle;margin:0 .08em;border-radius:2px;
-  }
-  .hero p.lead{
-    font-size:clamp(15px,1.7vw,17px);
-    color:var(--ink-soft);max-width:30em;line-height:2;
-  }
-  .ghost{
-    position:absolute;right:-4%;top:42%;
-    font-family:"Space Grotesk",sans-serif;font-weight:700;
-    font-size:clamp(180px,34vw,420px);line-height:.8;
-    color:var(--ink);opacity:.04;pointer-events:none;z-index:-1;
-    letter-spacing:-.03em;
-  }
-  .reveal{opacity:0;transform:translateY(16px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards;}
-  .reveal.d1{animation-delay:.08s;}
-  .reveal.d2{animation-delay:.18s;}
-  .reveal.d3{animation-delay:.28s;}
-  @keyframes rise{to{opacity:1;transform:none;}}
+ /* ---------- hero ---------- */
+ .hero{padding:96px 0 84px;position:relative;overflow:hidden;}
+ .hero .eyebrow{margin-bottom:26px;}
+ .hero h1{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(40px,8vw,82px);
+ line-height:1.12;
+ letter-spacing:.01em;
+ margin-bottom:30px;
+ }
+ .hero h1 .bar{
+ display:inline-block;width:.5em;height:.12em;background:var(--accent);
+ vertical-align:middle;margin:0 .08em;border-radius:2px;
+ }
+ .hero p.lead{
+ font-size:clamp(15px,1.7vw,17px);
+ color:var(--ink-soft);max-width:30em;line-height:2;
+ }
+ .ghost{
+ position:absolute;right:-4%;top:42%;
+ font-family:"Space Grotesk",sans-serif;font-weight:700;
+ font-size:clamp(180px,34vw,420px);line-height:.8;
+ color:var(--ink);opacity:.04;pointer-events:none;z-index:-1;
+ letter-spacing:-.03em;
+ }
+ .reveal{opacity:0;transform:translateY(16px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards;}
+ .reveal.d1{animation-delay:.08s;}
+ .reveal.d2{animation-delay:.18s;}
+ .reveal.d3{animation-delay:.28s;}
+ @keyframes rise{to{opacity:1;transform:none;}}
 
-  /* ---------- section frame ---------- */
-  section.block{padding:74px 0;border-top:1px solid var(--hair);}
-  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:46px;flex-wrap:wrap;}
-  .sec-head h2{
-    font-family:"Zen Kaku Gothic New",sans-serif;
-    font-weight:700;font-size:clamp(24px,3.4vw,34px);letter-spacing:.02em;
-  }
-  .sec-head .eyebrow{transform:translateY(-2px);}
+ /* ---------- section frame ---------- */
+ section.block{padding:74px 0;border-top:1px solid var(--hair);}
+ .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:46px;flex-wrap:wrap;}
+ .sec-head h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:700;font-size:clamp(24px,3.4vw,34px);letter-spacing:.02em;
+ }
+ .sec-head .eyebrow{transform:translateY(-2px);}
 
-  /* ---------- mission ---------- */
-  .mission .statement{
-    font-family:"Zen Kaku Gothic New",sans-serif;
-    font-weight:900;
-    font-size:clamp(28px,5vw,52px);
-    line-height:1.32;letter-spacing:.01em;
-    margin-bottom:30px;
-  }
-  .mission .statement .accent{color:var(--accent);}
-  .mission p.body{
-    font-size:clamp(14px,1.6vw,16px);
-    color:var(--ink-soft);max-width:40em;line-height:2.1;
-  }
+ /* ---------- mission ---------- */
+ .mission .statement{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(28px,5vw,52px);
+ line-height:1.32;letter-spacing:.01em;
+ margin-bottom:30px;
+ }
+ .mission .statement .accent{color:var(--accent);}
+ .mission p.body{
+ font-size:clamp(14px,1.6vw,16px);
+ color:var(--ink-soft);max-width:40em;line-height:2.1;
+ }
 
-  /* ---------- services ---------- */
-  .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);
-       border:1px solid var(--hair);}
-  .svc .card{background:var(--paper-2);padding:38px 30px 42px;}
-  .svc .card .num{
-    font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:13px;
-    color:var(--accent);letter-spacing:.1em;display:block;margin-bottom:22px;
-  }
-  .svc .card h3{
-    font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;
-    font-size:21px;margin-bottom:14px;letter-spacing:.02em;
-  }
-  .svc .card p{font-size:14px;color:var(--ink-soft);line-height:1.95;}
-  @media(max-width:760px){ .svc{grid-template-columns:1fr;} }
+ /* ---------- services ---------- */
+ .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);
+ border:1px solid var(--hair);}
+ .svc .card{background:var(--paper-2);padding:38px 30px 42px;}
+ .svc .card .num{
+ font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:13px;
+ color:var(--accent);letter-spacing:.1em;display:block;margin-bottom:22px;
+ }
+ .svc .card h3{
+ font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;
+ font-size:21px;margin-bottom:14px;letter-spacing:.02em;
+ }
+ .svc .card p{font-size:14px;color:var(--ink-soft);line-height:1.95;}
+ @media(max-width:760px){ .svc{grid-template-columns:1fr;} }
 
-  /* ---------- strengths ---------- */
-  .str{border-top:1px solid var(--ink);}
-  .str .item{
-    display:grid;grid-template-columns:200px 1fr;gap:28px;
-    padding:32px 4px;border-bottom:1px solid var(--hair);align-items:start;
-  }
-  .str .item .label{
-    font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;
-    font-size:19px;letter-spacing:.03em;position:relative;padding-left:18px;
-  }
-  .str .item .label::before{
-    content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;
-    background:var(--accent);border-radius:1px;
-  }
-  .str .item .label .en{
-    display:block;font-family:"Space Grotesk",sans-serif;font-weight:500;
-    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--muted);margin-top:8px;padding-left:0;
-  }
-  .str .item .desc{font-size:15px;color:var(--ink-soft);line-height:2;}
-  .str .item .desc strong{font-weight:700;color:var(--ink);}
-  @media(max-width:680px){
-    .str .item{grid-template-columns:1fr;gap:12px;padding:26px 4px;}
-  }
+ /* ---------- strengths ---------- */
+ .str{border-top:1px solid var(--ink);}
+ .str .item{
+ display:grid;grid-template-columns:200px 1fr;gap:28px;
+ padding:32px 4px;border-bottom:1px solid var(--hair);align-items:start;
+ }
+ .str .item .label{
+ font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;
+ font-size:19px;letter-spacing:.03em;position:relative;padding-left:18px;
+ }
+ .str .item .label::before{
+ content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;
+ background:var(--accent);border-radius:1px;
+ }
+ .str .item .label .en{
+ display:block;font-family:"Space Grotesk",sans-serif;font-weight:500;
+ font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+ color:var(--muted);margin-top:8px;padding-left:0;
+ }
+ .str .item .desc{font-size:15px;color:var(--ink-soft);line-height:2;}
+ .str .item .desc strong{font-weight:700;color:var(--ink);}
+ @media(max-width:680px){
+ .str .item{grid-template-columns:1fr;gap:12px;padding:26px 4px;}
+ }
 
-  /* ---------- company table ---------- */
-  .info{border-top:1px solid var(--ink);}
-  .info .row{
-    display:grid;grid-template-columns:200px 1fr;gap:24px;
-    padding:20px 4px;border-bottom:1px solid var(--hair);
-  }
-  .info .row dt{
-    font-family:"Zen Kaku Gothic New",sans-serif;font-weight:500;
-    font-size:14px;color:var(--muted);letter-spacing:.08em;
-    position:relative;padding-left:16px;
-  }
-  .info .row dt::before{
-    content:"";position:absolute;left:0;top:.7em;width:6px;height:6px;
-    background:var(--accent);border-radius:1px;
-  }
-  .info .row dd{font-size:15px;color:var(--ink);line-height:1.85;}
-  @media(max-width:640px){
-    .info .row{grid-template-columns:1fr;gap:4px;padding:16px 4px;}
-  }
+ /* ---------- company table ---------- */
+ .info{border-top:1px solid var(--ink);}
+ .info .row{
+ display:grid;grid-template-columns:200px 1fr;gap:24px;
+ padding:20px 4px;border-bottom:1px solid var(--hair);
+ }
+ .info .row dt{
+ font-family:"Zen Kaku Gothic New",sans-serif;font-weight:500;
+ font-size:14px;color:var(--muted);letter-spacing:.08em;
+ position:relative;padding-left:16px;
+ }
+ .info .row dt::before{
+ content:"";position:absolute;left:0;top:.7em;width:6px;height:6px;
+ background:var(--accent);border-radius:1px;
+ }
+ .info .row dd{font-size:15px;color:var(--ink);line-height:1.85;}
+ @media(max-width:640px){
+ .info .row{grid-template-columns:1fr;gap:4px;padding:16px 4px;}
+ }
 
-  /* ---------- contact ---------- */
-  .contact{text-align:center;padding:88px 0;}
-  .contact .eyebrow{margin-bottom:22px;}
-  .contact h2{
-    font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;
-    font-size:clamp(26px,4vw,40px);margin-bottom:18px;letter-spacing:.02em;
-  }
-  .contact p{color:var(--ink-soft);font-size:15px;margin-bottom:34px;}
-  .mailbtn{
-    display:inline-block;font-family:"Space Grotesk",sans-serif;font-weight:700;
-    font-size:16px;letter-spacing:.04em;text-decoration:none;
-    color:var(--paper);background:var(--ink);
-    padding:16px 40px;border-radius:999px;transition:transform .2s,background .2s;
-  }
-  .mailbtn:hover{background:var(--accent);transform:translateY(-2px);}
+ /* ---------- contact form ---------- */
+ .contact{padding:88px 0;background:var(--paper-2);border-top:1px solid var(--hair);}
+ .contact .wrap{max-width:680px;}
+ .contact-head{text-align:center;margin-bottom:42px;}
+ .contact-head .eyebrow{margin-bottom:16px;}
+ .contact-head h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;
+ font-size:clamp(26px,4vw,36px);margin-bottom:12px;letter-spacing:.02em;
+ }
+ .contact-head p{color:var(--ink-soft);font-size:14px;}
+ 
+.contact-form{display:flex;flex-direction:column;gap:24px;}
+.form-group{display:flex;flex-direction:column;gap:8px;}
+.form-group label{
+ font-size:14px;font-weight:700;color:var(--ink);
+ display:flex;align-items:center;gap:8px;
+}
+.form-group label .req{
+ font-size:11px;color:var(--paper);background:var(--accent);
+ padding:2px 6px;border-radius:4px;font-weight:500;
+}
+.form-group label .opt{
+ font-size:11px;color:var(--muted);background:var(--hair);
+ padding:2px 6px;border-radius:4px;font-weight:500;
+}
+.form-group input,
+.form-group textarea{
+ font-family:inherit;font-size:15px;padding:14px 16px;
+ background:var(--paper);border:1px solid var(--hair);
+ border-radius:8px;color:var(--ink);outline:none;
+ transition:border-color .2s;
+}
+.form-group input:focus,
+.form-group textarea:focus{border-color:var(--ink);}
+.form-group textarea{resize:vertical;min-height:140px;}
 
-  /* ---------- footer ---------- */
-  footer{border-top:1px solid var(--hair);padding:30px 0;}
-  .foot{display:flex;justify-content:space-between;align-items:center;
-        font-size:12px;color:var(--muted);letter-spacing:.06em;flex-wrap:wrap;gap:10px;}
-  .foot .mark{font-size:16px;}
+.form-submit{text-align:center;margin-top:12px;}
+.submitbtn{
+ display:inline-block;font-family:"Space Grotesk",sans-serif;font-weight:700;
+ font-size:16px;letter-spacing:.04em;color:var(--paper);background:var(--ink);
+ padding:16px 56px;border-radius:999px;border:none;cursor:pointer;
+ transition:transform .2s,background .2s;
+}
+.submitbtn:hover{background:var(--accent);transform:translateY(-2px);}
+.direct-mail{text-align:center;margin-top:24px;font-size:13px;color:var(--muted);}
+.direct-mail a{color:var(--ink-soft);text-decoration:underline;}
 
-  @media(prefers-reduced-motion:reduce){
-    .reveal{animation:none;opacity:1;transform:none;}
-    html{scroll-behavior:auto;}
-  }
+ /* ---------- footer ---------- */
+ footer{border-top:1px solid var(--hair);padding:30px 0;}
+ .foot{display:flex;justify-content:space-between;align-items:center;
+ font-size:12px;color:var(--muted);letter-spacing:.06em;flex-wrap:wrap;gap:10px;}
+ .foot .mark{font-size:16px;}
+
+ @media(prefers-reduced-motion:reduce){
+ .reveal{animation:none;opacity:1;transform:none;}
+ html{scroll-behavior:auto;}
+ }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap nav">
-    <a href="#" class="mark">LIF<span class="dot">.</span><span class="yomi">株式会社リフ</span></a>
-    <nav class="nav-links">
-      <a href="#mission">ミッション</a>
-      <a href="#service">事業内容</a>
-      <a href="#strength">強み</a>
-      <a href="#company">会社概要</a>
-      <a href="#contact" class="cta">お問い合わせ</a>
-    </nav>
-  </div>
+ <div class="wrap nav">
+ <a href="#" class="mark">LIF<span class="dot">.</span><span class="yomi">株式会社リフ</span></a>
+ <nav class="nav-links">
+ <a href="#mission">ミッション</a>
+ <a href="#service">事業内容</a>
+ <a href="#strength">強み</a>
+ <a href="#company">会社概要</a>
+ <a href="#contact" class="cta">お問い合わせ</a>
+ </nav>
+ </div>
 </header>
 
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="ghost" aria-hidden="true">LIF</div>
-  <div class="wrap">
-    <p class="eyebrow reveal">WEB ・ SNS ・ AD — Digital Marketing</p>
-    <h1 class="reveal d1">フォロワーを、<br><span class="bar"></span>お客様に。</h1>
-    <p class="lead reveal d2">
-      株式会社LIF（リフ）は、SNS運用・WEB制作・広告運用で、<br>
-      「見られる」を「来店」と「売上」に変える会社です。
-    </p>
-  </div>
+ <div class="ghost" aria-hidden="true">LIF</div>
+ <div class="wrap">
+ <p class="eyebrow reveal">WEB ・ SNS ・ AD — Digital Marketing</p>
+ <h1 class="reveal d1">フォロワーを、<br><span class="bar"></span>お客様に。</h1>
+ <p class="lead reveal d2">
+ 株式会社LIF（リフ）は、SNS運用・WEB制作・広告運用で、<br>
+ 「見られる」を「来店」と「売上」に変える会社です。
+ </p>
+ </div>
 </section>
 
 <!-- ===== MISSION ===== -->
 <section class="block mission" id="mission">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Mission</span>
-      <h2>ミッション</h2>
-    </div>
-    <p class="statement">「見られる」を、<br><span class="accent">「選ばれる」</span>へ。</p>
-    <p class="body">
-      WEBサイトもSNSも広告も、見られただけでは売上になりません。
-      私たちは、見た目をつくる会社ではなく、お客様との出会いから来店・売上までの「仕組み」を設計する会社です。
-      お店やブランドが、次のお客様と出会い続ける状態を。それをつくることが、株式会社LIFの仕事です。
-    </p>
-  </div>
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Mission</span>
+ <h2>ミッション</h2>
+ </div>
+ <p class="statement">「見られる」を、<br><span class="accent">「選ばれる」</span>へ。</p>
+ <p class="body">
+ WEBサイトもSNSも広告も、見られただけでは売上になりません。
+ 私たちは、見た目をつくる会社ではなく、お客様との出会いから来店・売上までの「仕組み」を設計する会社です。
+ お店やブランドが、次のお客様と出会い続ける状態を。それをつくることが、株式会社LIFの仕事です。
+ </p>
+ </div>
 </section>
 
 <!-- ===== SERVICE ===== -->
 <section class="block" id="service">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Service</span>
-      <h2>事業内容</h2>
-    </div>
-    <div class="svc">
-      <div class="card">
-        <span class="num">WEB</span>
-        <h3>WEB制作</h3>
-        <p>見た目をつくるだけで終わりません。問い合わせや予約までの導線を設計した、集客の受け皿になるサイトを制作します。</p>
-      </div>
-      <div class="card">
-        <span class="num">SNS</span>
-        <h3>SNS運用代行</h3>
-        <p>Instagramを中心に、投稿の設計から日々の運用までを代行。「見られる」アカウントを、お客様とつながるアカウントへ育てます。</p>
-      </div>
-      <div class="card">
-        <span class="num">AD</span>
-        <h3>広告運用</h3>
-        <p>META広告でLPから登録、来店までのファネルを設計。数値を見ながら改善を続け、費用対効果を高めます。</p>
-      </div>
-    </div>
-  </div>
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Service</span>
+ <h2>事業内容</h2>
+ </div>
+ <div class="svc">
+ <div class="card">
+ <span class="num">WEB</span>
+ <h3>WEB制作</h3>
+ <p>見た目をつくるだけで終わりません。問い合わせや予約までの導線を設計した、集客の受け皿になるサイトを制作します。</p>
+ </div>
+ <div class="card">
+ <span class="num">SNS</span>
+ <h3>SNS運用代行</h3>
+ <p>Instagramを中心に、投稿の設計から日々の運用までを代行。「見られる」アカウントを、お客様とつながるアカウントへ育てます。</p>
+ </div>
+ <div class="card">
+ <span class="num">AD</span>
+ <h3>広告運用</h3>
+ <p>META広告でLPから登録、来店までのファネルを設計。数値を見ながら改善を続け、費用対効果を高めます。</p>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- ===== STRENGTH ===== -->
 <section class="block" id="strength">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Why LIF</span>
-      <h2>私たちの強み</h2>
-    </div>
-    <div class="str">
-      <div class="item">
-        <div class="label">導線を設計する<span class="en">Design the flow</span></div>
-        <p class="desc">つくるのは、サイトやコンテンツそのものではなく、<strong>問い合わせや来店までの導線</strong>です。「見られる」で止めず、お客様が行動を起こすところまで設計します。</p>
-      </div>
-      <div class="item">
-        <div class="label">一社で、一気通貫<span class="en">All in one</span></div>
-        <p class="desc">認知をつくるSNS、受け皿になるWEB、広げる広告。<strong>本来バラバラになりがちな3つを一社でつなげる</strong>から、集客の流れに無駄が出ません。</p>
-      </div>
-      <div class="item">
-        <div class="label">数字で、改善し続ける<span class="en">Improve with data</span></div>
-        <p class="desc">広告もサイトも、公開して終わりにしません。<strong>数値を見て何が効いているかを確かめ</strong>、改善を重ねることで、成果を伸ばし続けます。</p>
-      </div>
-    </div>
-  </div>
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Why LIF</span>
+ <h2>私たちの強み</h2>
+ </div>
+ <div class="str">
+ <div class="item">
+ <div class="label">導線を設計する<span class="en">Design the flow</span></div>
+ <p class="desc">つくるのは、サイトやコンテンツそのものではなく、<strong>問い合わせや来店までの導線</strong>です。「見られる」で止めず、お客様が行動を起こすところまで設計します。</p>
+ </div>
+ <div class="item">
+ <div class="label">一社で、一気通貫<span class="en">All in one</span></div>
+ <p class="desc">認知をつくるSNS、受け皿になるWEB、広げる広告。<strong>本来バラバラになりがちな3つを一社でつなげる</strong>から、集客の流れに無駄が出ません。</p>
+ </div>
+ <div class="item">
+ <div class="label">数字で、改善し続ける<span class="en">Improve with data</span></div>
+ <p class="desc">広告もサイトも、公開して終わりにしません。<strong>数値を見て何が効いているかを確かめ</strong>、改善を重ねることで、成果を伸ばし続けます。</p>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- ===== COMPANY ===== -->
 <section class="block" id="company">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Company</span>
-      <h2>会社概要</h2>
-    </div>
-    <dl class="info">
-      <div class="row"><dt>会社名</dt><dd>株式会社LIF（リフ）</dd></div>
-      <!-- EDIT ↓ 設立日：登記申請日が確定したら差し替え -->
-      <div class="row"><dt>設立</dt><dd>2026年</dd></div>
-      <div class="row"><dt>代表者</dt><dd>代表取締役　吉田 圭佑</dd></div>
-      <!-- EDIT ↓ 所在地：番地まで出す場合はここに追記 -->
-      <div class="row"><dt>所在地</dt><dd>東京都渋谷区</dd></div>
-      <!-- EDIT ↓ 資本金：金額を記入 -->
-      <div class="row"><dt>資本金</dt><dd>—</dd></div>
-      <div class="row"><dt>事業内容</dt><dd>WEBサイトの企画・制作・運用代行／SNS運用代行・広告運用／ソフトウェアの開発　ほか</dd></div>
-      <!-- EDIT ↓ メールアドレス：実際のアドレスに差し替え -->
-      <div class="row"><dt>連絡先</dt><dd>contact@lif.jp</dd></div>
-    </dl>
-  </div>
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Company</span>
+ <h2>会社概要</h2>
+ </div>
+ <dl class="info">
+ <div class="row"><dt>会社名</dt><dd>株式会社LIF（リフ）</dd></div>
+ <div class="row"><dt>設立</dt><dd>2026年</dd></div>
+ <div class="row"><dt>代表者</dt><dd>代表取締役 吉田 圭佑</dd></div>
+ <div class="row"><dt>所在地</dt><dd>東京都渋谷区代々木5丁目47番2号 サンガム 代々木の杜 401</dd></div>
+ <div class="row"><dt>資本金</dt><dd>100,000円</dd></div>
+ <div class="row"><dt>事業内容</dt><dd>WEBサイトの企画・制作・運用代行／SNS運用代行・広告運用／ソフトウェアの開発 ほか</dd></div>
+ <div class="row"><dt>連絡先</dt><dd>contact@lif.jp</dd></div>
+ </dl>
+ </div>
 </section>
 
 <!-- ===== CONTACT ===== -->
 <section class="contact" id="contact">
-  <div class="wrap">
-    <span class="eyebrow">Contact</span>
-    <h2>お問い合わせ</h2>
-    <p>WEB制作・SNS運用・広告運用に関するご相談は、こちらから。</p>
-    <!-- EDIT ↓ メールアドレス -->
-    <a href="mailto:contact@lif.jp" class="mailbtn">contact@lif.jp</a>
-  </div>
+ <div class="wrap">
+ <div class="contact-head">
+ <span class="eyebrow">Contact</span>
+ <h2>お問い合わせ</h2>
+ <p>WEB制作・SNS運用・広告運用に関するご相談は、下記フォームよりお気軽にご連絡ください。</p>
+ </div>
+
+ <form class="contact-form" action="https://formspree.io/f/xknkzooo" method="POST">
+ <div class="form-group">
+ <label for="company-name">貴社名・屋号 <span class="opt">任意</span></label>
+ <input type="text" id="company-name" name="company" placeholder="株式会社〇〇">
+ </div>
+ <div class="form-group">
+ <label for="user-name">お名前 <span class="req">必須</span></label>
+ <input type="text" id="user-name" name="name" required placeholder="山田 太郎">
+ </div>
+ <div class="form-group">
+ <label for="user-email">メールアドレス <span class="req">必須</span></label>
+ <input type="email" id="user-email" name="email" required placeholder="example@lif.jp">
+ </div>
+ <div class="form-group">
+ <label for="message">お問い合わせ内容 <span class="req">必須</span></label>
+ <textarea id="message" name="message" required placeholder="ご相談内容やご質問をご記入ください。"></textarea>
+ </div>
+ <div class="form-submit">
+ <button type="submit" class="submitbtn">送信する</button>
+ </div>
+ </form>
+ <p class="direct-mail">直接のご連絡はこちら: <a href="mailto:contact@lif.jp">contact@lif.jp</a></p>
+ </div>
 </section>
 
 <footer>
-  <div class="wrap foot">
-    <a href="#" class="mark">LIF<span class="dot">.</span></a>
-    <span>© 2026 株式会社LIF（リフ） / lif.jp</span>
-  </div>
+ <div class="wrap foot">
+ <a href="#" class="mark">LIF<span class="dot">.</span></a>
+ <span>© 2026 株式会社LIF（リフ） / lif.jp</span>
+ </div>
 </footer>
 
 </body>
