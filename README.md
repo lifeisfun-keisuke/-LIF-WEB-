@@ -1,1 +1,1 @@
-# lif-corporate
+# 株式会社LIF WEBサイト
