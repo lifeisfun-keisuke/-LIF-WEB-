@@ -78,68 +78,72 @@
  .nav-links .cta:hover{background:var(--ink);color:var(--paper);}
  @media(max-width:680px){ .nav-links a:not(.cta){display:none;} }
 
- /* ---------- hero ---------- */
- .hero{padding:80px 0 84px;position:relative;overflow:hidden;}
- .hero-inner{
- display:grid;
- grid-template-columns:1.1fr 1fr;
- gap:40px;
+ /* ---------- hero (全面背景動画デザイン) ---------- */
+ .hero{
+ position:relative;
+ min-height:80vh;
+ display:flex;
  align-items:center;
+ overflow:hidden;
+ background:var(--ink);
+ color:#FFFFFF;
+ padding:100px 0;
  }
- .hero .eyebrow{margin-bottom:26px;}
+ /* 背景動画本体 */
+ .hero-bg-video{
+ position:absolute;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ z-index:1;
+ }
+ /* 文字を見やすくするためのダークフィルター */
+ .hero-overlay{
+ position:absolute;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ background:rgba(15, 23, 42, 0.65); /* 暗めの透過レイヤー */
+ z-index:2;
+ }
+ /* コンテンツを動画の上に配置 */
+ .hero-content{
+ position:relative;
+ z-index:3;
+ width:100%;
+ }
+ .hero .eyebrow{
+ margin-bottom:26px;
+ color:#94A3B8; /* 文字が見えやすい薄いグレー */
+ }
  .hero h1{
  font-family:"Zen Kaku Gothic New",sans-serif;
  font-weight:900;
- font-size:clamp(36px,5vw,68px);
+ font-size:clamp(40px,7vw,76px);
  line-height:1.15;
  letter-spacing:.01em;
- margin-bottom:24px;
+ margin-bottom:26px;
+ color:#FFFFFF;
+ text-shadow:0 2px 10px rgba(0,0,0,0.3);
  }
  .hero h1 .bar{
  display:inline-block;width:.5em;height:.12em;background:var(--accent);
  vertical-align:middle;margin:0 .08em;border-radius:2px;
  }
  .hero p.lead{
- font-size:clamp(14px,1.5vw,16px);
- color:var(--ink-soft);max-width:32em;line-height:2;
- }
- .hero-media{
- position:relative;
- width:100%;
- border-radius:16px;
- overflow:hidden;
- border:1px solid var(--hair);
- box-shadow:0 12px 32px rgba(15,23,42,0.06);
- background:var(--ink);
- }
- .hero-video{
- display:block;
- width:100%;
- height:380px;
- object-fit:cover;
- }
- .ghost{
- position:absolute;right:-4%;top:42%;
- font-family:"Space Grotesk",sans-serif;font-weight:700;
- font-size:clamp(180px,34vw,420px);line-height:.8;
- color:var(--ink);opacity:.04;pointer-events:none;z-index:-1;
- letter-spacing:-.03em;
+ font-size:clamp(15px,1.8vw,18px);
+ color:#E2E8F0;
+ max-width:34em;
+ line-height:2;
+ text-shadow:0 1px 5px rgba(0,0,0,0.3);
  }
  .reveal{opacity:0;transform:translateY(16px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards;}
  .reveal.d1{animation-delay:.08s;}
  .reveal.d2{animation-delay:.18s;}
- .reveal.d3{animation-delay:.28s;}
  @keyframes rise{to{opacity:1;transform:none;}}
-
- @media(max-width:880px){
- .hero-inner{
- grid-template-columns:1fr;
- gap:32px;
- }
- .hero-video{
- height:260px;
- }
- }
 
  /* ---------- section frame ---------- */
  section.block{padding:74px 0;border-top:1px solid var(--hair);}
@@ -323,25 +327,24 @@
  </div>
 </header>
 
-<!-- ===== HERO ===== -->
+<!-- ===== HERO (全面背景動画) ===== -->
 <section class="hero">
- <div class="ghost" aria-hidden="true">LIF</div>
- <div class="wrap hero-inner">
- <div class="hero-text">
+ <!-- 背景動画 -->
+ <video autoplay loop muted playsinline class="hero-bg-video">
+ <source src="hero-movie.mp4" type="video/mp4">
+ </video>
+
+ <!-- 暗めオーバーレイ (文字を見やすくするため) -->
+ <div class="hero-overlay"></div>
+
+ <!-- キャッチコピー等 -->
+ <div class="wrap hero-content">
  <p class="eyebrow reveal">WEB ・ SNS ・ AD ・ IT — Digital Marketing</p>
  <h1 class="reveal d1">いいお店を、<br><span class="bar"></span>埋もれさせない。</h1>
  <p class="lead reveal d2">
  株式会社LIF（リフ）は、SNS運用・WEB制作・広告運用・IT開発で、<br>
  お店やブランドが選ばれる仕組みをつくる会社です。
  </p>
- </div>
- <div class="hero-media reveal d3">
- <!-- ★ 動画ファイル名を指定（hero-movie.mp4） -->
- <video autoplay loop muted playsinline class="hero-video">
- <source src="hero-movie.mp4" type="video/mp4">
- お使いのブラウザは動画の再生に対応していません。
- </video>
- </div>
  </div>
 </section>
 
