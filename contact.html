@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>お問い合わせ｜株式会社LIF（リフ）</title>
-<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="/favicon.png" type="image/png">
 <meta name="description" content="株式会社LIF（リフ）へのお問い合わせフォームです。WEB制作・SNS運用・広告運用・IT開発に関するご相談はこちらからお気軽にどうぞ。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -232,7 +232,7 @@
 <header>
  <div class="wrap nav">
  <a href="/" class="mark">
- <img src="logo.png" alt="LIF Logo" class="mark-logo">
+ <img src="/logo.png" alt="LIF Logo" class="mark-logo">
  <span><span class="yomi">株式会社リフ</span></span>
  </a>
 
@@ -246,8 +246,9 @@
  <a href="/#mission" class="nav-item">ミッション</a>
  <a href="/#service" class="nav-item">事業内容</a>
  <a href="/#strength" class="nav-item">強み</a>
- <a href="company.html" class="nav-item">会社概要</a>
- <a href="contact.html" class="cta nav-item">お問い合わせ</a>
+ <a href="/blog" class="nav-item">ブログ</a>
+ <a href="/company" class="nav-item">会社概要</a>
+ <a href="/contact" class="cta nav-item">お問い合わせ</a>
  </nav>
  </div>
 </header>
@@ -279,7 +280,7 @@
  <label for="message">お問い合わせ内容 <span class="req">必須</span></label>
  <textarea id="message" name="entry.1812763490" required placeholder="ご相談内容やご質問をご記入ください。"></textarea>
  </div>
- <p class="privacy-notice">送信することで、<a href="privacy.html">個人情報保護方針（プライバシーポリシー）</a>に同意したものとみなされます。</p>
+ <p class="privacy-notice">送信することで、<a href="/privacy">個人情報保護方針（プライバシーポリシー）</a>に同意したものとみなされます。</p>
  <div class="form-submit">
  <button type="submit" class="submitbtn">送信する</button>
  </div>
@@ -297,18 +298,25 @@
 <footer>
  <div class="wrap foot">
  <div>
- <img src="logo.png" alt="LIF Logo" class="mark-logo" style="height:20px; margin-bottom:8px;">
+ <img src="/logo.png" alt="LIF Logo" class="mark-logo" style="height:20px; margin-bottom:8px;">
  <div>© 2026 株式会社LIF（リフ） / lif.jp</div>
  </div>
  <div class="foot-links">
- <a href="company.html">会社概要</a>
- <a href="contact.html">お問い合わせ</a>
- <a href="privacy.html">プライバシーポリシー</a>
+ <a href="/blog">ブログ</a>
+ <a href="/company">会社概要</a>
+ <a href="/contact">お問い合わせ</a>
+ <a href="/privacy">プライバシーポリシー</a>
  </div>
  </div>
 </footer>
 
 <script>
+var submitted = false;
+function showThanks() {
+ document.getElementById('gform').style.display = 'none';
+ document.getElementById('form-thanks').style.display = 'block';
+}
+
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 const navItems = document.querySelectorAll('.nav-item');
