@@ -4,6 +4,7 @@
   "rewrites": [
     { "source": "/mission", "destination": "/#mission" },
     { "source": "/service", "destination": "/#service" },
-    { "source": "/strength", "destination": "/#strength" }
+    { "source": "/strength", "destination": "/#strength" },
+    { "source": "/post/:id", "destination": "/post.html" }
   ]
 }
