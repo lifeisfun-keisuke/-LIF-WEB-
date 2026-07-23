@@ -3,9 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>会社概要｜株式会社LIF（リフ）</title>
+<!-- Google Search Console 所有権確認タグ -->
+<meta name="google-site-verification" content="vBWb79NmxfMytSRtN057ODzosl5NAf9DRW_5SfjNvWU" />
+<title>株式会社LIF（リフ）｜WEB・SNS・AD・IT — Simple Marketing</title>
+
+<!-- ファビコン設定 -->
 <link rel="icon" href="favicon.png" type="image/png">
-<meta name="description" content="株式会社LIF（リフ）の会社概要・沿革・代表者情報をご紹介します。">
+
+<meta name="description" content="株式会社LIF（リフ）は、WEB制作・SNS運用・広告運用・システム開発で、複雑なマーケティングをシンプルな仕組みに変える会社です。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -59,8 +64,16 @@
  text-decoration:none;
  display:flex;align-items:center;gap:8px;
  }
- .mark-logo{height:28px;width:auto;display:block;object-fit:contain;}
- .mark .yomi{font-family:"Zen Kaku Gothic New",sans-serif;font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.08em;}
+ .mark-logo{
+ height:28px;
+ width:auto;
+ display:block;
+ object-fit:contain;
+ }
+ .mark .yomi{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.08em;
+ }
  .nav-links{display:flex;gap:20px;align-items:center;}
  .nav-links a{
  font-size:13px;font-weight:500;color:var(--ink-soft);
@@ -139,39 +152,189 @@
  }
  }
 
- /* ---------- page title ---------- */
- .page-head{
- padding:60px 0 32px;
- border-bottom:1px solid var(--hair);
- background:var(--paper-2);
+ /* ---------- hero ---------- */
+ .hero{
+ position:relative;
+ min-height:calc(100vh - 66px);
+ display:flex;
+ align-items:center;
+ overflow:hidden;
+ background:var(--ink);
+ color:#FFFFFF;
+ padding:80px 0;
  }
- .page-head .eyebrow{margin-bottom:8px;}
- .page-head h1{
+ .hero-bg-img{
+ position:absolute;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ z-index:1;
+ }
+ .hero-overlay{
+ position:absolute;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ background:rgba(15, 23, 42, 0.72);
+ z-index:2;
+ }
+ .hero-content{
+ position:relative;
+ z-index:3;
+ width:100%;
+ }
+ .hero .eyebrow{
+ margin-bottom:20px;
+ color:#94A3B8;
+ }
+ .hero h1{
  font-family:"Zen Kaku Gothic New",sans-serif;
  font-weight:900;
- font-size:clamp(26px,4.5vw,42px);
+ font-size:clamp(24px, 5.2vw, 50px);
+ line-height:1.35;
  letter-spacing:.01em;
+ margin-bottom:22px;
+ color:#FFFFFF;
+ text-shadow:0 2px 10px rgba(0,0,0,0.3);
+ word-break: keep-all;
+ overflow-wrap: break-word;
+ }
+ .hero h1 span.line{
+ display: inline-block;
+ }
+ .hero h1 .accent-text{
+ color:#60A5FA;
+ }
+ .hero p.lead{
+ font-size:clamp(14px,1.8vw,17px);
+ color:#E2E8F0;
+ max-width:38em;
+ line-height:1.9;
+ text-shadow:0 1px 5px rgba(0,0,0,0.3);
+ }
+ .reveal{opacity:0;transform:translateY(16px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards;}
+ .reveal.d1{animation-delay:.08s;}
+ .reveal.d2{animation-delay:.18s;}
+ @keyframes rise{to{opacity:1;transform:none;}}
+
+ @media(max-width:768px){
+ .hero{
+ min-height:calc(100vh - 58px);
+ padding:40px 0;
+ }
+ .hero .eyebrow{font-size:10px;margin-bottom:14px;letter-spacing:.18em;}
+ .hero p.lead br{display:none;}
  }
 
- /* ---------- company table ---------- */
- .block{padding:54px 0;}
- .info{border-top:1px solid var(--ink);}
- .info .row{
- display:grid;grid-template-columns:180px 1fr;gap:20px;
- padding:20px 4px;border-bottom:1px solid var(--hair);
+ /* ---------- section frame ---------- */
+ section.block{padding:64px 0;border-top:1px solid var(--hair);}
+ .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:36px;flex-wrap:wrap;}
+ .sec-head h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:700;font-size:clamp(22px,3.2vw,32px);letter-spacing:.02em;
  }
- .info .row dt{
+ .sec-head .eyebrow{transform:translateY(-2px);}
+
+ /* ---------- mission ---------- */
+ .mission .statement{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(24px,4.2vw,44px);
+ line-height:1.4;letter-spacing:.01em;
+ margin-bottom:24px;
+ }
+ .mission .statement .accent{color:var(--accent);}
+ .mission p.body{
+ font-size:clamp(14px,1.6vw,16px);
+ color:var(--ink-soft);max-width:42em;line-height:2.0;
+ }
+
+ /* ---------- services ---------- */
+ .svc{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hair);
+ border:1px solid var(--hair);}
+ .svc .card{background:var(--paper-2);padding:32px 24px 36px;}
+ .svc .card .num{
+ font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:12px;
+ color:var(--accent);letter-spacing:.1em;display:block;margin-bottom:16px;
+ }
+ .svc .card h3{
  font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;
- font-size:15px;color:var(--ink);letter-spacing:.06em;
- position:relative;padding-left:14px;
+ font-size:19px;margin-bottom:12px;letter-spacing:.02em;
  }
- .info .row dt::before{
- content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;
+ .svc .card p{font-size:14px;color:var(--ink-soft);line-height:1.85;}
+ @media(max-width:760px){ 
+ .svc{grid-template-columns:1fr;} 
+ .svc .card{padding:26px 20px 30px;}
+ }
+
+ /* ---------- strengths ---------- */
+ .str{border-top:1px solid var(--ink);}
+ .str .item{
+ display:grid;grid-template-columns:220px 1fr;gap:24px;
+ padding:28px 4px;border-bottom:1px solid var(--hair);align-items:start;
+ }
+ .str .item .label{
+ font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;
+ font-size:18px;letter-spacing:.03em;position:relative;padding-left:16px;
+ }
+ .str .item .label::before{
+ content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;
  background:var(--accent);border-radius:1px;
  }
- .info .row dd{font-size:14px;color:var(--ink-soft);line-height:1.85;}
- @media(max-width:640px){
- .info .row{grid-template-columns:1fr;gap:4px;padding:16px 4px;}
+ .str .item .label .en{
+ display:block;font-family:"Space Grotesk",sans-serif;font-weight:500;
+ font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+ color:var(--muted);margin-top:6px;padding-left:0;
+ }
+ .str .item .desc{font-size:14px;color:var(--ink-soft);line-height:1.9;}
+ .str .item .desc strong{font-weight:700;color:var(--ink);}
+ @media(max-width:680px){
+ .str .item{grid-template-columns:1fr;gap:10px;padding:22px 4px;}
+ }
+
+ /* ---------- top CTA section ---------- */
+ .top-cta{
+ padding:72px 0;
+ background:var(--paper-2);
+ border-top:1px solid var(--hair);
+ text-align:center;
+ }
+ .top-cta .wrap{max-width:680px;}
+ .top-cta h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(22px,3.8vw,32px);
+ margin-bottom:14px;
+ }
+ .top-cta p{
+ color:var(--ink-soft);
+ font-size:14px;
+ margin-bottom:28px;
+ line-height:1.8;
+ }
+ .top-cta-btn{
+ display:inline-block;
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;
+ font-size:15px;
+ letter-spacing:.04em;
+ color:var(--paper-2);
+ background:var(--ink);
+ padding:16px 48px;
+ border-radius:999px;
+ text-decoration:none;
+ transition:transform .2s,background .2s;
+ }
+ .top-cta-btn:hover{
+ background:var(--accent);
+ transform:translateY(-2px);
+ }
+ @media(max-width:680px){
+ .top-cta{padding:54px 0;}
+ .top-cta-btn{width:100%;max-width:300px;padding:14px 0;}
  }
 
  /* ---------- footer ---------- */
@@ -183,6 +346,11 @@
  @media(max-width:680px){
  .foot{flex-direction:column;align-items:flex-start;gap:16px;}
  .foot-links a{margin-left:0;margin-right:14px;display:inline-block;}
+ }
+
+ @media(prefers-reduced-motion:reduce){
+ .reveal{animation:none;opacity:1;transform:none;}
+ html{scroll-behavior:auto;}
  }
 </style>
 </head>
@@ -212,25 +380,97 @@
  </div>
 </header>
 
-<section class="page-head">
- <div class="wrap">
- <span class="eyebrow">Company Info</span>
- <h1>会社概要</h1>
+<section class="hero">
+ <img src="hero-img.jpg" alt="株式会社LIF メインビジュアル" class="hero-bg-img">
+ <div class="hero-overlay"></div>
+ <div class="wrap hero-content">
+ <p class="eyebrow reveal">WEB ・ SNS ・ AD ・ IT — Simple Marketing</p>
+ <h1 class="reveal d1">
+ <span class="line">マーケティングは、難しい。</span><br>
+ <span class="line accent-text">それ、私たちがシンプルにします。</span>
+ </h1>
+ <p class="lead reveal d2">
+ 株式会社LIF（リフ）は、WEB制作・SNS運用・広告運用・IT開発をつなぎ、<br>
+ 売上につながるシンプルな仕組みをまるごと設計する会社です。
+ </p>
  </div>
 </section>
 
-<section class="block">
+<section class="block mission" id="mission">
  <div class="wrap">
- <dl class="info">
- <div class="row"><dt>会社名</dt><dd>株式会社LIF（リフ）</dd></div>
- <div class="row"><dt>設立</dt><dd>2026年</dd></div>
- <div class="row"><dt>代表者</dt><dd>代表取締役 吉田 圭佑</dd></div>
- <div class="row"><dt>所在地</dt><dd>東京都渋谷区代々木5丁目47番2号 サンガム 代々木の杜 401</dd></div>
- <div class="row"><dt>資本金</dt><dd>100,000円</dd></div>
- <div class="row"><dt>事業内容</dt><dd>WEBサイトの企画・制作・運用代行／SNS運用代行・広告運用／ソフトウェアの開発 ほか</dd></div>
- <div class="row"><dt>沿革</dt><dd>2021年、個人事業として創業。SNS運用・WEB制作・広告運用を中心に事業を展開。事業拡大と信頼性向上のため、2026年に法人化し株式会社LIFを設立。</dd></div>
- <div class="row"><dt>連絡先</dt><dd>contact@lif.jp</dd></div>
- </dl>
+ <div class="sec-head">
+ <span class="eyebrow">Mission</span>
+ <h2>ミッション</h2>
+ </div>
+ <p class="statement">複雑にしない。<br><span class="accent">それが、いちばんの近道。</span></p>
+ <p class="body">
+ マーケティングは、専門用語も選択肢も多く、放っておくとどんどん複雑になります。<br><br>
+ その複雑さは、すべて私たちが引き受けます。お客様にお渡しするのは、迷わない「シンプルな答え」だけ。<br><br>
+ WEBもSNSも広告もシステムも、バラバラに考えない。<br>
+ ひとつの仕組みとしてつなげること。それが、株式会社LIFのやり方です。
+ </p>
+ </div>
+</section>
+
+<section class="block" id="service">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Service</span>
+ <h2>事業内容</h2>
+ </div>
+ <div class="svc">
+ <div class="card">
+ <span class="num">WEB</span>
+ <h3>WEB制作</h3>
+ <p>つくって終わりにしません。問い合わせや予約まで迷わずたどり着ける、シンプルな1本の導線を設計します。</p>
+ </div>
+ <div class="card">
+ <span class="num">SNS</span>
+ <h3>SNS運用代行</h3>
+ <p>投稿ネタに悩む時間は、もう必要ありません。Instagramを中心に、アカウント設計から日々の運用まで私たちが代行します。</p>
+ </div>
+ <div class="card">
+ <span class="num">AD</span>
+ <h3>広告運用</h3>
+ <p>複雑な設定も配信管理も、私たちが引き受けます。META広告を中心に、登録・来店までのファネルを設計し、数値で改善し続けます。</p> 
+ </div>
+ <div class="card">
+ <span class="num">IT</span>
+ <h3>IT・ソフトウェア開発</h3>
+ <p>手作業のままになっている業務を、仕組みに。Webシステムや業務ツールの開発で、現場のムダをシンプルに減らします。</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<section class="block" id="strength">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Why LIF</span>
+ <h2>私たちの強み</h2>
+ </div>
+ <div class="str">
+ <div class="item">
+ <div class="label">シンプルに、考える<span class="en">Simple by design</span></div>
+ <p class="desc">情報も選択肢も多いマーケティングの世界で、私たちはあえて選択肢を絞ります。<strong>今やるべきことだけをお伝えする</strong>から、迷いません。</p>
+ </div>
+ <div class="item">
+ <div class="label">一社で、一気通貫<span class="en">All in one</span></div>
+ <p class="desc">SNS・WEB・広告・システム。バラバラになりがちな4つを一社で完結。<strong>窓口も判断もひとつ</strong>だから、余計なやりとりが発生しません。</p>
+ </div>
+ <div class="item">
+ <div class="label">数字で、迷わない<span class="en">Improve with data</span></div>
+ <p class="desc">感覚や勘ではなく、<strong>数値だけを判断基準に</strong>。何が効いているかがはっきり分かるから、改善もまっすぐ進みます。</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<section class="top-cta">
+ <div class="wrap">
+ <h2>お問い合わせ</h2>
+ <p>難しく考えなくて大丈夫です。まずは今の課題だけ、お聞かせください。<br>複雑な部分は、私たちが引き受けます。</p>
+ <a href="contact.html" class="top-cta-btn">お問い合わせフォームへ</a>
  </div>
 </section>
 
