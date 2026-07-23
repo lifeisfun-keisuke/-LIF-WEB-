@@ -87,7 +87,6 @@
  }
  .nav-links .cta:hover{background:var(--ink);color:var(--paper);}
 
- /* ハンバーガーボタン（PC非表示） */
  .menu-toggle{
  display:none;
  background:none;
@@ -114,7 +113,6 @@
  .menu-toggle.active span:nth-child(2){ opacity:0; }
  .menu-toggle.active span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
 
- /* スマホ用ナビ調整 */
  @media(max-width:768px){ 
  .wrap{padding:0 16px;}
  .nav{height:58px;}
@@ -154,10 +152,10 @@
  }
  }
 
- /* ---------- hero（スマホで画面全面表示 100vh） ---------- */
+ /* ---------- hero ---------- */
  .hero{
  position:relative;
- min-height:calc(100vh - 66px); /* PCでもほぼ全高 */
+ min-height:calc(100vh - 66px);
  display:flex;
  align-items:center;
  overflow:hidden;
@@ -224,7 +222,7 @@
 
  @media(max-width:768px){
  .hero{
- min-height:calc(100vh - 58px); /* スマホ画面全体に表示 */
+ min-height:calc(100vh - 58px);
  padding:40px 0;
  }
  .hero .eyebrow{font-size:10px;margin-bottom:14px;letter-spacing:.18em;}
@@ -360,12 +358,12 @@
 
 <header>
  <div class="wrap nav">
- <a href="index.html" class="mark">
+ <!-- ★ href を "/" に変更 -->
+ <a href="/" class="mark">
  <img src="logo.png" alt="LIF Logo" class="mark-logo">
  <span><span class="yomi">株式会社リフ</span></span>
  </a>
 
- <!-- ハンバーガーボタン（3本線） -->
  <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
  <span></span>
  <span></span>
@@ -382,7 +380,6 @@
  </div>
 </header>
 
-<!-- ===== HERO（スマホ画面全面 100vh） ===== -->
 <section class="hero">
  <img src="hero-img.jpg" alt="株式会社LIF メインビジュアル" class="hero-bg-img">
  <div class="hero-overlay"></div>
@@ -399,7 +396,6 @@
  </div>
 </section>
 
-<!-- ===== MISSION ===== -->
 <section class="block mission" id="mission">
  <div class="wrap">
  <div class="sec-head">
@@ -416,7 +412,6 @@
  </div>
 </section>
 
-<!-- ===== SERVICE ===== -->
 <section class="block" id="service">
  <div class="wrap">
  <div class="sec-head">
@@ -448,7 +443,6 @@
  </div>
 </section>
 
-<!-- ===== STRENGTH ===== -->
 <section class="block" id="strength">
  <div class="wrap">
  <div class="sec-head">
@@ -465,14 +459,13 @@
  <p class="desc">SNS・WEB・広告・システム。バラバラになりがちな4つを一社で完結。<strong>窓口も判断もひとつ</strong>だから、余計なやりとりが発生しません。</p>
  </div>
  <div class="item">
- <div class="label">数字で、迷わない<span class="en">Improve with data</span></div>
+ <div class="label">数字で, 迷わない<span class="en">Improve with data</span></div>
  <p class="desc">感覚や勘ではなく、<strong>数値だけを判断基準に</strong>。何が効いているかがはっきり分かるから、改善もまっすぐ進みます。</p>
  </div>
  </div>
  </div>
 </section>
 
-<!-- ===== TOP CTA ===== -->
 <section class="top-cta">
  <div class="wrap">
  <h2>お問い合わせ</h2>
@@ -496,7 +489,6 @@
 </footer>
 
 <script>
-// ハンバーガーメニュー制御スクリプト
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 const navItems = document.querySelectorAll('.nav-item');
@@ -506,7 +498,6 @@ menuToggle.addEventListener('click', () => {
  navLinks.classList.toggle('active');
 });
 
-// メニュー項目をタップしたらメニューを自動で閉じる
 navItems.forEach(item => {
  item.addEventListener('click', () => {
  menuToggle.classList.remove('active');
