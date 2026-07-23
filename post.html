@@ -17,7 +17,7 @@
  --muted:#64748B;
  --accent:#2563EB;
  --hair:#E2E8F0;
- --maxw:1000px; /* ★ここで幅を広げました★ */
+ --maxw:1000px;
  }
  *{box-sizing:border-box;margin:0;padding:0;}
  html{scroll-behavior:smooth;}
@@ -146,8 +146,17 @@ menuToggle.addEventListener('click', () => {
 const SERVICE_DOMAIN = "lif-blog";
 const API_KEY = "aNSRRWHVUP1dB7GOytLS0gqqwyEItBHXDJho";
 
+// URLから記事IDを取得（/post/first-post でも ?id=first-post でも対応）
+const pathParts = window.location.pathname.split('/').filter(Boolean);
 const urlParams = new URLSearchParams(window.location.search);
-const contentId = urlParams.get('id');
+let contentId = urlParams.get('id');
+
+if (!contentId && pathParts.length > 0) {
+  contentId = pathParts[pathParts.length - 1];
+  if (contentId === 'post' || contentId === 'post.html') {
+    contentId = null;
+  }
+}
 
 if (contentId) {
  fetch(`https://${SERVICE_DOMAIN}.microcms.io/api/v1/blogs/${contentId}`, {
