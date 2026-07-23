@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ブログ記事｜株式会社LIF（リフ）</title>
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+ :root{
+ --paper:#F5F7FA;
+ --paper-2:#FFFFFF;
+ --ink:#0F172A;
+ --ink-soft:#334155;
+ --muted:#64748B;
+ --accent:#2563EB;
+ --hair:#E2E8F0;
+ --maxw:800px;
+ }
+ *{box-sizing:border-box;margin:0;padding:0;}
+ html{scroll-behavior:smooth;}
+ body{
+ background:var(--paper);
+ color:var(--ink);
+ font-family:"Noto Sans JP",sans-serif;
+ font-weight:400;
+ line-height:1.8;
+ -webkit-font-smoothing:antialiased;
+ text-rendering:optimizeLegibility;
+ }
+ .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+ .eyebrow{font-family:"Space Grotesk",sans-serif;font-weight:500;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);}
+
+ /* nav */
+ header{position:sticky;top:0;z-index:50;background:rgba(245,247,250,.92);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--hair);}
+ .nav{display:flex;align-items:center;justify-content:space-between;height:66px;max-width:1080px;margin:0 auto;padding:0 24px;}
+ .mark{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:24px;letter-spacing:.04em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px;}
+ .mark-logo{height:28px;width:auto;display:block;object-fit:contain;}
+ .mark .yomi{font-family:"Zen Kaku Gothic New",sans-serif;font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.08em;}
+ .nav-links{display:flex;gap:20px;align-items:center;}
+ .nav-links a{font-size:13px;font-weight:500;color:var(--ink-soft);text-decoration:none;letter-spacing:.04em;transition:color .2s;}
+ .nav-links a:hover{color:var(--accent);}
+ .nav-links .cta{border:1.5px solid var(--ink);border-radius:999px;padding:7px 16px;color:var(--ink);font-size:12px;}
+ .nav-links .cta:hover{background:var(--ink);color:var(--paper);}
+
+ .menu-toggle{display:none;background:none;border:none;cursor:pointer;width:32px;height:32px;position:relative;z-index:100;flex-direction:column;justify-content:center;gap:6px;padding:0;}
+ .menu-toggle span{display:block;width:100%;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s, opacity .3s;}
+ .menu-toggle.active span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+ .menu-toggle.active span:nth-child(2){ opacity:0; }
+ .menu-toggle.active span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+ @media(max-width:768px){ 
+ .nav{height:58px;}
+ .mark-logo{height:24px;}
+ .mark .yomi{display:none;}
+ .menu-toggle{display:flex;}
+ .nav-links{position:fixed;top:0;right:-100%;width:100%;height:100vh;background:rgba(15, 23, 42, 0.96);backdrop-filter:blur(12px);flex-direction:column;justify-content:center;align-items:center;gap:28px;transition:right .3s ease;z-index:90;}
+ .nav-links.active{right:0;}
+ .nav-links a{color:#FFFFFF;font-size:18px;font-weight:700;}
+ .nav-links .cta{border-color:#FFFFFF;color:#FFFFFF;font-size:16px;padding:12px 32px;margin-top:12px;}
+ }
+
+ article{padding:60px 0;background:var(--paper-2);margin-top:20px;margin-bottom:40px;border-radius:12px;border:1px solid var(--hair);}
+ .post-date{font-size:13px;color:var(--muted);margin-bottom:12px;display:block;}
+ .post-title{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:clamp(24px,4vw,36px);line-height:1.4;margin-bottom:24px;}
+ .post-eyecatch{width:100%;height:auto;max-height:450px;object-fit:cover;border-radius:8px;margin-bottom:32px;}
+ .post-content{font-size:16px;color:var(--ink-soft);line-height:2.1;}
+ .post-content h2{font-size:22px;color:var(--ink);margin:40px 0 16px;border-bottom:2px solid var(--hair);padding-bottom:8px;}
+ .post-content h3{font-size:18px;color:var(--ink);margin:32px 0 12px;}
+ .post-content p{margin-bottom:20px;}
+ .post-content img{max-width:100%;height:auto;border-radius:6px;margin:20px 0;}
+
+ .back-link{display:inline-block;margin-top:40px;color:var(--accent);text-decoration:none;font-weight:700;}
+
+ footer{border-top:1px solid var(--hair);padding:28px 0;margin-top:60px;}
+ .foot{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);letter-spacing:.04em;flex-wrap:wrap;gap:14px;max-width:1080px;margin:0 auto;padding:0 24px;}
+ .foot-links a{color:var(--muted);text-decoration:none;margin-left:14px;}
+ .foot-links a:hover{color:var(--accent);text-decoration:underline;}
+ @media(max-width:680px){
+ .foot{flex-direction:column;align-items:flex-start;gap:16px;}
+ .foot-links a{margin-left:0;margin-right:14px;display:inline-block;}
+ }
+</style>
+</head>
+<body>
+
+<header>
+ <div class="nav">
+ <a href="/" class="mark">
+ <img src="/logo.png" alt="LIF Logo" class="mark-logo">
+ <span><span class="yomi">株式会社リフ</span></span>
+ </a>
+ <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
+ <span></span><span></span><span></span>
+ </button>
+ <nav class="nav-links" id="navLinks">
+ <a href="/#mission" class="nav-item">ミッション</a>
+ <a href="/#service" class="nav-item">事業内容</a>
+ <a href="/#strength" class="nav-item">強み</a>
+ <a href="/blog" class="nav-item">ブログ</a>
+ <a href="/company" class="nav-item">会社概要</a>
+ <a href="/contact" class="cta nav-item">お問い合わせ</a>
+ </nav>
+ </div>
+</header>
+
+<main class="wrap">
+ <article>
+ <div class="wrap">
+ <span class="post-date" id="post-date"></span>
+ <h1 class="post-title" id="post-title">読み込み中...</h1>
+ <img id="post-eyecatch" class="post-eyecatch" style="display:none;" alt="">
+ <div class="post-content" id="post-content"></div>
+ <a href="/blog" class="back-link">← ブログ一覧へ戻る</a>
+ </div>
+ </article>
+</main>
+
+<footer>
+ <div class="foot">
+ <div>
+ <img src="/logo.png" alt="LIF Logo" class="mark-logo" style="height:20px; margin-bottom:8px;">
+ <div>© 2026 株式会社LIF（リフ） / lif.jp</div>
+ </div>
+ <div class="foot-links">
+ <a href="/blog">ブログ</a>
+ <a href="/company">会社概要</a>
+ <a href="/contact">お問い合わせ</a>
+ <a href="/privacy">プライバシーポリシー</a>
+ </div>
+ </div>
+</footer>
+
+<script>
+// メニュー制御
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => {
+ menuToggle.classList.toggle('active');
+ navLinks.classList.toggle('active');
+});
+
+// microCMSから記事詳細を取得
+const SERVICE_DOMAIN = "lif-blog";
+const API_KEY = "aNSRRWHVUP1dB7GOytLS0gqqwyEItBHXDJho";
+
+const urlParams = new URLSearchParams(window.location.search);
+const contentId = urlParams.get('id');
+
+if (contentId) {
+ fetch(`https://${SERVICE_DOMAIN}.microcms.io/api/v1/blogs/${contentId}`, {
+ headers: { "X-MICROCMS-API-KEY": API_KEY }
+ })
+ .then(res => res.json())
+ .then(data => {
+ document.title = `${data.title}｜株式会社LIF（リフ）`;
+ document.getElementById('post-title').textContent = data.title;
+ document.getElementById('post-date').textContent = new Date(data.publishedAt || data.createdAt).toLocaleDateString('ja-JP');
+ document.getElementById('post-content').innerHTML = data.content;
+
+ if (data.eyecatch) {
+ const imgEl = document.getElementById('post-eyecatch');
+ imgEl.src = data.eyecatch.url;
+ imgEl.style.display = 'block';
+ }
+ })
+ .catch(err => {
+ console.error(err);
+ document.getElementById('post-title').textContent = '記事が見つかりませんでした。';
+ });
+} else {
+ document.getElementById('post-title').textContent = '記事が指定されていません。';
+}
+</script>
+
+</body>
+</html>
