@@ -36,8 +36,7 @@
  font-family:"Space Grotesk",sans-serif;
  font-weight:500;
  font-size:12px;
- letter-spacing:.28em;
- text-transform:uppercase;
+ letter-spacing:.28em;text-transform:uppercase;
  color:var(--muted);
  }
 
@@ -199,7 +198,7 @@ fetch(`https://${SERVICE_DOMAIN}.microcms.io/api/v1/blogs`, {
  const date = new Date(article.publishedAt || article.createdAt).toLocaleDateString('ja-JP');
  const imgUrl = article.eyecatch ? article.eyecatch.url : '/hero-img.jpg';
  return `
- <a href="/post?id=${article.id}" class="blog-card">
+ <a href="/post/${article.id}" class="blog-card">
  <img src="${imgUrl}" alt="${article.title}">
  <div class="blog-card-body">
  <span class="blog-date">${date}</span>
