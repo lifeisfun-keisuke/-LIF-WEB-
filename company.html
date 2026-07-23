@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会社概要｜株式会社LIF（リフ）</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<meta name="description" content="株式会社LIF（リフ）の会社概要・沿革・代表者情報をご紹介します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+ :root{
+ --paper:#F5F7FA;
+ --paper-2:#FFFFFF;
+ --ink:#0F172A;
+ --ink-soft:#334155;
+ --muted:#64748B;
+ --accent:#2563EB;
+ --hair:#E2E8F0;
+ --maxw:1080px;
+ }
+ *{box-sizing:border-box;margin:0;padding:0;}
+ html{scroll-behavior:smooth;}
+ body{
+ background:var(--paper);
+ color:var(--ink);
+ font-family:"Noto Sans JP",sans-serif;
+ font-weight:400;
+ line-height:1.8;
+ -webkit-font-smoothing:antialiased;
+ text-rendering:optimizeLegibility;
+ }
+ .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+ .eyebrow{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:500;
+ font-size:12px;
+ letter-spacing:.32em;
+ text-transform:uppercase;
+ color:var(--muted);
+ }
+ .accent{color:var(--accent);}
+
+ /* ---------- nav ---------- */
+ header{
+ position:sticky;top:0;z-index:50;
+ background:rgba(245,247,250,.86);
+ backdrop-filter:saturate(140%) blur(10px);
+ border-bottom:1px solid var(--hair);
+ }
+ .nav{display:flex;align-items:center;justify-content:space-between;height:66px;}
+ .mark{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;
+ font-size:24px;
+ letter-spacing:.04em;
+ color:var(--ink);
+ text-decoration:none;
+ display:flex;align-items:center;gap:10px;
+ }
+ .mark-logo{height:32px;width:auto;display:block;object-fit:contain;}
+ .mark .yomi{font-family:"Zen Kaku Gothic New",sans-serif;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.1em;}
+ .nav-links{display:flex;gap:28px;align-items:center;}
+ .nav-links a{
+ font-size:13px;font-weight:500;color:var(--ink-soft);
+ text-decoration:none;letter-spacing:.06em;transition:color .2s;
+ }
+ .nav-links a:hover{color:var(--accent);}
+ .nav-links .cta{
+ border:1.5px solid var(--ink);border-radius:999px;
+ padding:9px 20px;color:var(--ink);
+ }
+ .nav-links .cta:hover{background:var(--ink);color:var(--paper);}
+ @media(max-width:680px){ .nav-links a:not(.cta){display:none;} }
+
+ /* ---------- page title ---------- */
+ .page-head{
+ padding:80px 0 40px;
+ border-bottom:1px solid var(--hair);
+ background:var(--paper-2);
+ }
+ .page-head .eyebrow{margin-bottom:12px;}
+ .page-head h1{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(32px,5vw,48px);
+ letter-spacing:.01em;
+ }
+
+ /* ---------- company table ---------- */
+ .block{padding:74px 0;}
+ .info{border-top:1px solid var(--ink);}
+ .info .row{
+ display:grid;grid-template-columns:200px 1fr;gap:24px;
+ padding:24px 4px;border-bottom:1px solid var(--hair);
+ }
+ .info .row dt{
+ font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;
+ font-size:15px;color:var(--ink);letter-spacing:.08em;
+ position:relative;padding-left:16px;
+ }
+ .info .row dt::before{
+ content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;
+ background:var(--accent);border-radius:1px;
+ }
+ .info .row dd{font-size:15px;color:var(--ink-soft);line-height:1.85;}
+ @media(max-width:640px){
+ .info .row{grid-template-columns:1fr;gap:6px;padding:18px 4px;}
+ }
+
+ /* ---------- footer ---------- */
+ footer{border-top:1px solid var(--hair);padding:30px 0;}
+ .foot{display:flex;justify-content:space-between;align-items:center;
+ font-size:12px;color:var(--muted);letter-spacing:.06em;flex-wrap:wrap;gap:10px;}
+ .foot-links a{color:var(--muted);text-decoration:none;margin-left:16px;}
+ .foot-links a:hover{color:var(--accent);text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="wrap nav">
+ <a href="index.html" class="mark">
+ <img src="logo.png" alt="LIF Logo" class="mark-logo">
+ <span><span class="yomi">株式会社リフ</span></span>
+ </a>
+ <nav class="nav-links">
+ <a href="index.html#mission">ミッション</a>
+ <a href="index.html#service">事業内容</a>
+ <a href="index.html#strength">強み</a>
+ <a href="company.html">会社概要</a>
+ <a href="contact.html" class="cta">お問い合わせ</a>
+ </nav>
+ </div>
+</header>
+
+<section class="page-head">
+ <div class="wrap">
+ <span class="eyebrow">Company Info</span>
+ <h1>会社概要</h1>
+ </div>
+</section>
+
+<section class="block">
+ <div class="wrap">
+ <dl class="info">
+ <div class="row"><dt>会社名</dt><dd>株式会社LIF（リフ）</dd></div>
+ <div class="row"><dt>設立</dt><dd>2026年</dd></div>
+ <div class="row"><dt>代表者</dt><dd>代表取締役 吉田 圭佑</dd></div>
+ <div class="row"><dt>所在地</dt><dd>東京都渋谷区代々木5丁目47番2号 サンガム 代々木の杜 401</dd></div>
+ <div class="row"><dt>資本金</dt><dd>100,000円</dd></div>
+ <div class="row"><dt>事業内容</dt><dd>WEBサイトの企画・制作・運用代行／SNS運用代行・広告運用／ソフトウェアの開発 ほか</dd></div>
+ <div class="row"><dt>沿革</dt><dd>2021年、個人事業として創業。SNS運用・WEB制作・広告運用を中心に事業を展開。事業拡大と信頼性向上のため、2026年に法人化し株式会社LIFを設立。</dd></div>
+ <div class="row"><dt>連絡先</dt><dd>contact@lif.jp</dd></div>
+ </dl>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap foot">
+ <div>
+ <img src="logo.png" alt="LIF Logo" class="mark-logo" style="height:20px; margin-bottom:8px;">
+ <span>© 2026 株式会社LIF（リフ） / lif.jp</span>
+ </div>
+ <div class="foot-links">
+ <a href="company.html">会社概要</a>
+ <a href="contact.html">お問い合わせ</a>
+ <a href="privacy.html">プライバシーポリシー</a>
+ </div>
+ </div>
+</footer>
+
+</body>
+</html>
