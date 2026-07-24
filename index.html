@@ -255,7 +255,7 @@
  /* ---------- services ---------- */
  .svc{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hair);
  border:1px solid var(--hair);}
- .svc .card{background:var(--paper-2);padding:32px 24px 36px;display:flex;flex-direction:column;justify-content:space-between;}
+ .svc .card{background:var(--paper-2);padding:32px 24px 36px;}
  .svc .card .num{
  font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:12px;
  color:var(--accent);letter-spacing:.1em;display:block;margin-bottom:16px;
@@ -265,39 +265,6 @@
  font-size:19px;margin-bottom:12px;letter-spacing:.02em;
  }
  .svc .card p{font-size:14px;color:var(--ink-soft);line-height:1.85;}
-
- /* WEB制作カード内の詳細ボタン（新規追加） */
- .svc-btn-wrapper{
- margin-top:20px;
- }
- .svc-btn{
- display:inline-flex;
- align-items:center;
- justify-content:center;
- font-size:13px;
- font-weight:700;
- color:var(--ink);
- background:var(--paper);
- border:1px solid var(--hair);
- border-radius:6px;
- padding:8px 16px;
- text-decoration:none;
- transition:all .2s ease;
- }
- .svc-btn:hover{
- background:var(--ink);
- color:var(--paper-2);
- border-color:var(--ink);
- }
- .svc-btn .arrow{
- margin-left:6px;
- font-size:12px;
- transition:transform .2s ease;
- }
- .svc-btn:hover .arrow{
- transform:translateX(3px);
- }
-
  @media(max-width:760px){ 
  .svc{grid-template-columns:1fr;} 
  .svc .card{padding:26px 20px 30px;}
@@ -452,18 +419,10 @@
  <h2>事業内容</h2>
  </div>
  <div class="svc">
- <!-- WEB制作（詳細ボタン追加箇所） -->
  <div class="card">
- <div>
  <span class="num">WEB</span>
  <h3>WEB制作</h3>
  <p>つくって終わりにしません。問い合わせや予約まで迷わずたどり着ける、シンプルな1本の導線を設計します。</p>
- </div>
- <div class="svc-btn-wrapper">
- <a href="/web-design.html" class="svc-btn">
- WEB制作の詳細を見る <span class="arrow">→</span>
- </a>
- </div>
  </div>
  <div class="card">
  <span class="num">SNS</span>
