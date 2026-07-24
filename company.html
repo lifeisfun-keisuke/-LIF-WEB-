@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>会社概要｜株式会社LIF（リフ）</title>
+<title>会社概要・代表挨拶｜株式会社LIF（リフ）</title>
 <link rel="icon" href="/favicon.png" type="image/png">
-<meta name="description" content="株式会社LIF（リフ）の会社概要・沿革・代表者情報をご紹介します。">
+<meta name="description" content="株式会社LIF（リフ）の会社概要・代表挨拶・沿革・代表者情報をご紹介します。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -153,8 +153,64 @@
  letter-spacing:.01em;
  }
 
+ /* ---------- message section ---------- */
+ .msg-block{padding:64px 0 32px;}
+ .msg-card{
+ background:var(--paper-2);
+ border:1px solid var(--hair);
+ border-radius:8px;
+ padding:40px;
+ display:grid;
+ grid-template-columns:280px 1fr;
+ gap:40px;
+ align-items:start;
+ }
+ .msg-photo{
+ width:100%;
+ border-radius:6px;
+ background:var(--paper);
+ aspect-ratio:3/4;
+ object-fit:cover;
+ border:1px solid var(--hair);
+ }
+ .msg-content h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(20px, 2.8vw, 26px);
+ line-height:1.4;
+ margin-bottom:20px;
+ letter-spacing:.01em;
+ }
+ .msg-text{
+ font-size:14px;
+ color:var(--ink-soft);
+ line-height:2.0;
+ display:flex;
+ flex-direction:column;
+ gap:16px;
+ }
+ .msg-sign{
+ margin-top:28px;
+ text-align:right;
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:700;
+ font-size:15px;
+ color:var(--ink);
+ }
+
+ @media(max-width:840px){
+ .msg-card{grid-template-columns:1fr;padding:24px;}
+ .msg-photo{max-width:240px;margin:0 auto 10px;}
+ }
+
  /* ---------- company table ---------- */
- .block{padding:54px 0;}
+ .block{padding:32px 0 64px;}
+ .sec-title{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:700;
+ font-size:20px;
+ margin-bottom:16px;
+ }
  .info{border-top:1px solid var(--ink);}
  .info .row{
  display:grid;grid-template-columns:180px 1fr;gap:20px;
@@ -215,12 +271,43 @@
 <section class="page-head">
  <div class="wrap">
  <span class="eyebrow">Company Info</span>
- <h1>会社概要</h1>
+ <h1>会社概要・代表挨拶</h1>
  </div>
 </section>
 
+<!-- 代表挨拶セクション -->
+<section class="msg-block">
+ <div class="wrap">
+ <div class="msg-card">
+ <div>
+ <!-- 代表顔写真（ceo.jpg をルートにアップロードして使用してください） -->
+ <img src="/ceo.jpg" alt="代表取締役 吉田 圭佑" class="msg-photo" onerror="this.style.display='none';">
+ </div>
+ <div class="msg-content">
+ <span class="eyebrow accent" style="display:block;margin-bottom:8px;">Message</span>
+ <h2>マーケティングの「複雑」を「シンプル」に。<br>お客様の成果と、ワクワクする未来を共につくる。</h2>
+ <div class="msg-text">
+ <p>はじめまして。株式会社LIF 代表取締役の吉田圭佑と申します。</p>
+ <p>WEBサイト制作、SNS運用、広告運用、ITツール開発——。今の時代、マーケティングの選択肢は増え続け、専門用語や手法もどんどん複雑になっています。「結局、何から手をつければいいのか分からない」「予算を投じても成果につながらない」と頭を悩ませている経営者様・事業者様は決して少なくありません。</p>
+ <p>私たちは、そんな複雑なマーケティングの課題をすべて引き受け、お客様へ<strong>「迷わないシンプルな答え」</strong>と<strong>「本質的な成果」</strong>をお届けするために事業を展開しています。</p>
+ <p>私自身、上場企業での新規事業立ち上げや赤字事業のV字回復、スキー場業界での現場改善、そしてシステム開発営業など、多岐にわたる泥臭い現場と最先端のIT領域で実績を積み重ねてきました。2021年に独立開業して以来、私たちが一貫して大切にしているのは<strong>「100%クライアントファースト」</strong>の姿勢です。</p>
+ <p>どれだけテクノロジーが進歩しても、お客様一人ひとりの課題に深く寄り添い、確かな信頼関係を築くのは「人」にしかできません。私たちは、資本金不要・在庫なし・高利益率・ストック型という手堅く堅実なモデルを軸に、無駄なコストを抑えながら、お客様の売上に直結するシンプルな導線を設計いたします。</p>
+ <p>「LIFE IS FUN（人生を全力で楽しむ）」<br>会社や時代に縛られることなく、大切な仲間や顧客を守りながら最高に面白く働く。そんなワクワクする未来を、私たちが提供するマーケティングの仕組みを通じてお客様と共に創り上げていくことが、私たちのミッションです。</p>
+ <p>難しく考える必要はありません。まずは今抱えられている課題や「こうなりたい」という想いを、そのままお聞かせください。私たちが責任を持って、シンプルな解決策へと導きます。</p>
+ </div>
+ <div class="msg-sign">
+ 株式会社LIF<br>
+ 代表取締役 吉田 圭佑
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- 会社概要テーブル -->
 <section class="block">
  <div class="wrap">
+ <h2 class="sec-title">会社概要</h2>
  <dl class="info">
  <div class="row"><dt>会社名</dt><dd>株式会社LIF（リフ）</dd></div>
  <div class="row"><dt>設立</dt><dd>2026年</dd></div>
