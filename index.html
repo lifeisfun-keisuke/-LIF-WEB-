@@ -1,289 +1,552 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>株式会社LIF</title>
-  <link rel="icon" href="favicon.png" type="image/png">
-  <style>
-    /* --- 基本設定 --- */
-    :root {
-      --primary-color: #0056b3;
-      --secondary-color: #003366;
-      --accent-color: #ff9900;
-      --bg-light: #f8f9fa;
-      --text-color: #333333;
-      --text-muted: #666666;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-      color: var(--text-color);
-      line-height: 1.6;
-      background-color: #ffffff;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Search Console 所有権確認タグ -->
+<meta name="google-site-verification" content="vBWb79NmxfMytSRtN057ODzosl5NAf9DRW_5SfjNvWU" />
+<title>株式会社LIF（リフ）｜WEB・SNS・AD・IT — Simple Marketing</title>
 
-    /* --- ヘッダー --- */
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #eeeeee;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 70px;
-    }
-    .logo {
-      font-weight: bold;
-      font-size: 1.3rem;
-      color: var(--secondary-color);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo img {
-      height: 35px;
-    }
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 20px;
-    }
-    nav a {
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: var(--primary-color);
-    }
+<!-- ファビコン設定 -->
+<link rel="icon" href="/favicon.png" type="image/png">
 
-    /* --- メインビジュアル --- */
-    .hero {
-      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-      color: #ffffff;
-      padding: 100px 0;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      line-height: 1.3;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      opacity: 0.9;
-    }
+<meta name="description" content="株式会社LIF（リフ）は、WEB制作・SNS運用・広告運用・システム開発で、複雑なマーケティングをシンプルな仕組みに変える会社です。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+ :root{
+ --paper:#F5F7FA;
+ --paper-2:#FFFFFF;
+ --ink:#0F172A;
+ --ink-soft:#334155;
+ --muted:#64748B;
+ --accent:#2563EB;
+ --hair:#E2E8F0;
+ --maxw:1080px;
+ }
+ *{box-sizing:border-box;margin:0;padding:0;}
+ html{scroll-behavior:smooth;}
+ body{
+ background:var(--paper);
+ color:var(--ink);
+ font-family:"Noto Sans JP",sans-serif;
+ font-weight:400;
+ line-height:1.8;
+ -webkit-font-smoothing:antialiased;
+ text-rendering:optimizeLegibility;
+ }
+ .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+ .eyebrow{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:500;
+ font-size:12px;
+ letter-spacing:.28em;
+ text-transform:uppercase;
+ color:var(--muted);
+ }
+ .accent{color:var(--accent);}
 
-    /* --- セクション共通 --- */
-    section {
-      padding: 80px 0;
-    }
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: var(--secondary-color);
-    }
-    .section-subtitle {
-      text-align: center;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 50px;
-    }
+ /* ---------- nav ---------- */
+ header{
+ position:sticky;top:0;z-index:50;
+ background:rgba(245,247,250,.92);
+ backdrop-filter:saturate(140%) blur(10px);
+ border-bottom:1px solid var(--hair);
+ }
+ .nav{display:flex;align-items:center;justify-content:space-between;height:66px;}
+ .mark{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;
+ font-size:24px;
+ letter-spacing:.04em;
+ color:var(--ink);
+ text-decoration:none;
+ display:flex;align-items:center;gap:8px;
+ }
+ .mark-logo{
+ height:28px;
+ width:auto;
+ display:block;
+ object-fit:contain;
+ }
+ .mark .yomi{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.08em;
+ }
+ .nav-links{display:flex;gap:20px;align-items:center;}
+ .nav-links a{
+ font-size:13px;font-weight:500;color:var(--ink-soft);
+ text-decoration:none;letter-spacing:.04em;transition:color .2s;
+ }
+ .nav-links a:hover{color:var(--accent);}
+ .nav-links .cta{
+ border:1.5px solid var(--ink);border-radius:999px;
+ padding:7px 16px;color:var(--ink);
+ font-size:12px;
+ }
+ .nav-links .cta:hover{background:var(--ink);color:var(--paper);}
 
-    /* --- 事業内容（SERVICES） --- */
-    .services {
-      background-color: var(--bg-light);
-    }
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    .service-card {
-      background: #ffffff;
-      padding: 35px 25px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease;
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-    }
-    .service-card h3 {
-      font-size: 1.3rem;
-      color: var(--secondary-color);
-      margin-bottom: 15px;
-      border-bottom: 2px solid var(--primary-color);
-      padding-bottom: 8px;
-      display: inline-block;
-    }
-    .service-card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
+ .menu-toggle{
+ display:none;
+ background:none;
+ border:none;
+ cursor:pointer;
+ width:32px;
+ height:32px;
+ position:relative;
+ z-index:100;
+ flex-direction:column;
+ justify-content:center;
+ gap:6px;
+ padding:0;
+ }
+ .menu-toggle span{
+ display:block;
+ width:100%;
+ height:2px;
+ background:var(--ink);
+ border-radius:2px;
+ transition:transform .3s, opacity .3s;
+ }
+ .menu-toggle.active span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+ .menu-toggle.active span:nth-child(2){ opacity:0; }
+ .menu-toggle.active span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
 
-    /* WEB制作詳細ボタン（追記部分） */
-    .service-btn-wrapper {
-      margin-top: auto;
-      padding-top: 15px;
-      text-align: left;
-    }
-    .btn-service-detail {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 20px;
-      background-color: var(--primary-color);
-      color: #ffffff;
-      font-weight: bold;
-      font-size: 0.9rem;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 6px rgba(0, 86, 179, 0.2);
-    }
-    .btn-service-detail:hover {
-      background-color: var(--secondary-color);
-      box-shadow: 0 4px 12px rgba(0, 51, 102, 0.3);
-      color: #ffffff;
-    }
-    .btn-service-detail .arrow {
-      margin-left: 6px;
-      transition: transform 0.3s ease;
-    }
-    .btn-service-detail:hover .arrow {
-      transform: translateX(4px);
-    }
+ @media(max-width:768px){ 
+ .wrap{padding:0 16px;}
+ .nav{height:58px;}
+ .mark-logo{height:24px;}
+ .mark .yomi{display:none;}
+ .menu-toggle{display:flex;}
 
-    /* --- フッター --- */
-    footer {
-      background: var(--secondary-color);
-      color: #ffffff;
-      padding: 40px 0 20px;
-      text-align: center;
-      font-size: 0.85rem;
-    }
-    footer p {
-      opacity: 0.8;
-    }
+ .nav-links{
+ position:fixed;
+ top:0;
+ right:-100%;
+ width:100%;
+ height:100vh;
+ background:rgba(15, 23, 42, 0.96);
+ backdrop-filter:blur(12px);
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ gap:28px;
+ transition:right .3s ease;
+ z-index:90;
+ }
+ .nav-links.active{
+ right:0;
+ }
+ .nav-links a{
+ color:#FFFFFF;
+ font-size:18px;
+ font-weight:700;
+ }
+ .nav-links .cta{
+ border-color:#FFFFFF;
+ color:#FFFFFF;
+ font-size:16px;
+ padding:12px 32px;
+ margin-top:12px;
+ }
+ }
 
-    /* レスポンシブ */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-      .header-inner {
-        flex-direction: column;
-        height: auto;
-        padding: 15px 0;
-        gap: 10px;
-      }
-      section {
-        padding: 50px 0;
-      }
-    }
-  </style>
+ /* ---------- hero ---------- */
+ .hero{
+ position:relative;
+ min-height:calc(100vh - 66px);
+ display:flex;
+ align-items:center;
+ overflow:hidden;
+ background:var(--ink);
+ color:#FFFFFF;
+ padding:80px 0;
+ }
+ .hero-bg-img{
+ position:absolute;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ z-index:1;
+ }
+ .hero-overlay{
+ position:absolute;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ background:rgba(15, 23, 42, 0.72);
+ z-index:2;
+ }
+ .hero-content{
+ position:relative;
+ z-index:3;
+ width:100%;
+ }
+ .hero .eyebrow{
+ margin-bottom:20px;
+ color:#94A3B8;
+ }
+ .hero h1{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(24px, 5.2vw, 50px);
+ line-height:1.35;
+ letter-spacing:.01em;
+ margin-bottom:22px;
+ color:#FFFFFF;
+ text-shadow:0 2px 10px rgba(0,0,0,0.3);
+ word-break: keep-all;
+ overflow-wrap: break-word;
+ }
+ .hero h1 span.line{
+ display: inline-block;
+ }
+ .hero h1 .accent-text{
+ color:#60A5FA;
+ }
+ .hero p.lead{
+ font-size:clamp(14px,1.8vw,17px);
+ color:#E2E8F0;
+ max-width:38em;
+ line-height:1.9;
+ text-shadow:0 1px 5px rgba(0,0,0,0.3);
+ }
+ .reveal{opacity:0;transform:translateY(16px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards;}
+ .reveal.d1{animation-delay:.08s;}
+ .reveal.d2{animation-delay:.18s;}
+ @keyframes rise{to{opacity:1;transform:none;}}
+
+ @media(max-width:768px){
+ .hero{
+ min-height:calc(100vh - 58px);
+ padding:40px 0;
+ }
+ .hero .eyebrow{font-size:10px;margin-bottom:14px;letter-spacing:.18em;}
+ .hero p.lead br{display:none;}
+ }
+
+ /* ---------- section frame ---------- */
+ section.block{padding:64px 0;border-top:1px solid var(--hair);}
+ .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:36px;flex-wrap:wrap;}
+ .sec-head h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:700;font-size:clamp(22px,3.2vw,32px);letter-spacing:.02em;
+ }
+ .sec-head .eyebrow{transform:translateY(-2px);}
+
+ /* ---------- mission ---------- */
+ .mission .statement{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(24px,4.2vw,44px);
+ line-height:1.4;letter-spacing:.01em;
+ margin-bottom:24px;
+ }
+ .mission .statement .accent{color:var(--accent);}
+ .mission p.body{
+ font-size:clamp(14px,1.6vw,16px);
+ color:var(--ink-soft);max-width:42em;line-height:2.0;
+ }
+
+ /* ---------- services ---------- */
+ .svc{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hair);
+ border:1px solid var(--hair);}
+ .svc .card{background:var(--paper-2);padding:32px 24px 36px;display:flex;flex-direction:column;justify-content:space-between;}
+ .svc .card .num{
+ font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:12px;
+ color:var(--accent);letter-spacing:.1em;display:block;margin-bottom:16px;
+ }
+ .svc .card h3{
+ font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;
+ font-size:19px;margin-bottom:12px;letter-spacing:.02em;
+ }
+ .svc .card p{font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+ /* WEB制作カード内の詳細ボタン（新規追加） */
+ .svc-btn-wrapper{
+ margin-top:20px;
+ }
+ .svc-btn{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ font-size:13px;
+ font-weight:700;
+ color:var(--ink);
+ background:var(--paper);
+ border:1px solid var(--hair);
+ border-radius:6px;
+ padding:8px 16px;
+ text-decoration:none;
+ transition:all .2s ease;
+ }
+ .svc-btn:hover{
+ background:var(--ink);
+ color:var(--paper-2);
+ border-color:var(--ink);
+ }
+ .svc-btn .arrow{
+ margin-left:6px;
+ font-size:12px;
+ transition:transform .2s ease;
+ }
+ .svc-btn:hover .arrow{
+ transform:translateX(3px);
+ }
+
+ @media(max-width:760px){ 
+ .svc{grid-template-columns:1fr;} 
+ .svc .card{padding:26px 20px 30px;}
+ }
+
+ /* ---------- strengths ---------- */
+ .str{border-top:1px solid var(--ink);}
+ .str .item{
+ display:grid;grid-template-columns:220px 1fr;gap:24px;
+ padding:28px 4px;border-bottom:1px solid var(--hair);align-items:start;
+ }
+ .str .item .label{
+ font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;
+ font-size:18px;letter-spacing:.03em;position:relative;padding-left:16px;
+ }
+ .str .item .label::before{
+ content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;
+ background:var(--accent);border-radius:1px;
+ }
+ .str .item .label .en{
+ display:block;font-family:"Space Grotesk",sans-serif;font-weight:500;
+ font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+ color:var(--muted);margin-top:6px;padding-left:0;
+ }
+ .str .item .desc{font-size:14px;color:var(--ink-soft);line-height:1.9;}
+ .str .item .desc strong{font-weight:700;color:var(--ink);}
+ @media(max-width:680px){
+ .str .item{grid-template-columns:1fr;gap:10px;padding:22px 4px;}
+ }
+
+ /* ---------- top CTA section ---------- */
+ .top-cta{
+ padding:72px 0;
+ background:var(--paper-2);
+ border-top:1px solid var(--hair);
+ text-align:center;
+ }
+ .top-cta .wrap{max-width:680px;}
+ .top-cta h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(22px,3.8vw,32px);
+ margin-bottom:14px;
+ }
+ .top-cta p{
+ color:var(--ink-soft);
+ font-size:14px;
+ margin-bottom:28px;
+ line-height:1.8;
+ }
+ .top-cta-btn{
+ display:inline-block;
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;
+ font-size:15px;
+ letter-spacing:.04em;
+ color:var(--paper-2);
+ background:var(--ink);
+ padding:16px 48px;
+ border-radius:999px;
+ text-decoration:none;
+ transition:transform .2s,background .2s;
+ }
+ .top-cta-btn:hover{
+ background:var(--accent);
+ transform:translateY(-2px);
+ }
+ @media(max-width:680px){
+ .top-cta{padding:54px 0;}
+ .top-cta-btn{width:100%;max-width:300px;padding:14px 0;}
+ }
+
+ /* ---------- footer ---------- */
+ footer{border-top:1px solid var(--hair);padding:28px 0;}
+ .foot{display:flex;justify-content:space-between;align-items:center;
+ font-size:12px;color:var(--muted);letter-spacing:.04em;flex-wrap:wrap;gap:14px;}
+ .foot-links a{color:var(--muted);text-decoration:none;margin-left:14px;}
+ .foot-links a:hover{color:var(--accent);text-decoration:underline;}
+ @media(max-width:680px){
+ .foot{flex-direction:column;align-items:flex-start;gap:16px;}
+ .foot-links a{margin-left:0;margin-right:14px;display:inline-block;}
+ }
+
+ @media(prefers-reduced-motion:reduce){
+ .reveal{animation:none;opacity:1;transform:none;}
+ html{scroll-behavior:auto;}
+ }
+</style>
 </head>
 <body>
 
-  <!-- ヘッダー -->
-  <header>
-    <div class="container header-inner">
-      <div class="logo">
-        <a href="index.html">株式会社LIF</a>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="index.html#services">事業内容</a></li>
-          <li><a href="company.html">会社概要</a></li>
-          <li><a href="blog.html">ブログ</a></li>
-          <li><a href="contact.html">お問い合わせ</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header>
+ <div class="wrap nav">
+ <a href="/" class="mark">
+ <img src="/logo.png" alt="LIF Logo" class="mark-logo">
+ <span><span class="yomi">株式会社リフ</span></span>
+ </a>
 
-  <!-- メインビジュアル -->
-  <section class="hero">
-    <div class="container">
-      <h1>Life Is Fun</h1>
-      <p>ワクワクする未来を創造するクリエイティブカンパニー</p>
-    </div>
-  </section>
+ <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
+ <span></span>
+ <span></span>
+ <span></span>
+ </button>
 
-  <!-- 事業内容 -->
-  <section class="services" id="services">
-    <div class="container">
-      <h2 class="section-title">SERVICES</h2>
-      <p class="section-subtitle">事業内容</p>
+ <nav class="nav-links" id="navLinks">
+ <a href="/#mission" class="nav-item">ミッション</a>
+ <a href="/#service" class="nav-item">事業内容</a>
+ <a href="/#strength" class="nav-item">強み</a>
+ <a href="/blog" class="nav-item">ブログ</a>
+ <a href="/company" class="nav-item">会社概要</a>
+ <a href="/contact" class="cta nav-item">お問い合わせ</a>
+ </nav>
+ </div>
+</header>
 
-      <div class="service-grid">
-        <!-- WEB制作（ボタン追加箇所） -->
-        <div class="service-card">
-          <div>
-            <h3>WEB制作</h3>
-            <p>コーポレートサイト、LP（ランディングページ）、ECサイトなど、目的に応じた集客力の高いWEBサイトを企画・制作いたします。</p>
-          </div>
-          <div class="service-btn-wrapper">
-            <a href="web-design.html" class="btn-service-detail">
-              WEB制作の詳細を見る <span class="arrow">→</span>
-            </a>
-          </div>
-        </div>
+<section class="hero">
+ <img src="/hero-img.jpg" alt="株式会社LIF メインビジュアル" class="hero-bg-img">
+ <div class="hero-overlay"></div>
+ <div class="wrap hero-content">
+ <p class="eyebrow reveal">WEB ・ SNS ・ AD ・ IT — Simple Marketing</p>
+ <h1 class="reveal d1">
+ <span class="line">マーケティングは、難しい。</span><br>
+ <span class="line accent-text">それ、私たちがシンプルにします。</span>
+ </h1>
+ <p class="lead reveal d2">
+ 株式会社LIF（リフ）は、WEB制作・SNS運用・広告運用・IT開発をつなぎ、<br>
+ 売上につながるシンプルな仕組みをまるごと設計する会社です。
+ </p>
+ </div>
+</section>
 
-        <!-- その他の事業（必要に応じて追加・変更可） -->
-        <div class="service-card">
-          <div>
-            <h3>SNS・マーケティング支援</h3>
-            <p>SNSアカウントの運用代行からWEB広告運用まで、ターゲット層へ効果的にアプローチする集客マーケティングをトータルサポートします。</p>
-          </div>
-        </div>
+<section class="block mission" id="mission">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Mission</span>
+ <h2>ミッション</h2>
+ </div>
+ <p class="statement">複雑にしない。<br><span class="accent">それが、いちばんの近道。</span></p>
+ <p class="body">
+ マーケティングは、専門用語も選択肢も多く、放っておくとどんどん複雑になります。<br><br>
+ その複雑さは、すべて私たちが引き受けます。お客様にお渡しするのは、迷わない「シンプルな答え」だけ。<br><br>
+ WEBもSNSも広告もシステムも、バラバラに考えない。<br>
+ ひとつの仕組みとしてつなげること。それが、株式会社LIFのやり方です。
+ </p>
+ </div>
+</section>
 
-        <div class="service-card">
-          <div>
-            <h3>システム・ツール開発</h3>
-            <p>業務効率化を図るWebシステム構築や自動化ツールの開発を行い、ビジネスの成長とスピードアップを実現します。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="block" id="service">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Service</span>
+ <h2>事業内容</h2>
+ </div>
+ <div class="svc">
+ <!-- WEB制作（詳細ボタン追加箇所） -->
+ <div class="card">
+ <div>
+ <span class="num">WEB</span>
+ <h3>WEB制作</h3>
+ <p>つくって終わりにしません。問い合わせや予約まで迷わずたどり着ける、シンプルな1本の導線を設計します。</p>
+ </div>
+ <div class="svc-btn-wrapper">
+ <a href="/web-design.html" class="svc-btn">
+ WEB制作の詳細を見る <span class="arrow">→</span>
+ </a>
+ </div>
+ </div>
+ <div class="card">
+ <span class="num">SNS</span>
+ <h3>SNS運用代行</h3>
+ <p>投稿ネタに悩む時間は、もう必要ありません。Instagramを中心に、アカウント設計から日々の運用まで私たちが代行します。</p>
+ </div>
+ <div class="card">
+ <span class="num">AD</span>
+ <h3>広告運用</h3>
+ <p>複雑な設定も配信管理も、私たちが引き受けます。META広告を中心に、登録・来店までのファネルを設計し、数値で改善し続けます。</p> 
+ </div>
+ <div class="card">
+ <span class="num">IT</span>
+ <h3>IT・ソフトウェア開発</h3>
+ <p>手作業のままになっている業務を、仕組みに。Webシステムや業務ツールの開発で、現場のムダをシンプルに減らします。</p>
+ </div>
+ </div>
+ </div>
+</section>
 
-  <!-- フッター -->
-  <footer>
-    <div class="container">
-      <p>&copy; 株式会社LIF All Rights Reserved.</p>
-    </div>
-  </footer>
+<section class="block" id="strength">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Why LIF</span>
+ <h2>私たちの強み</h2>
+ </div>
+ <div class="str">
+ <div class="item">
+ <div class="label">シンプルに、考える<span class="en">Simple by design</span></div>
+ <p class="desc">情報も選択肢も多いマーケティングの世界で、私たちはあえて選択肢を絞ります。<strong>今やるべきことだけをお伝えする</strong>から、迷いません。</p>
+ </div>
+ <div class="item">
+ <div class="label">一社で、一気通貫<span class="en">All in one</span></div>
+ <p class="desc">SNS・WEB・広告・システム。バラバラになりがちな4つを一社で完結。<strong>窓口も判断もひとつ</strong>だから、余計なやりとりが発生しません。</p>
+ </div>
+ <div class="item">
+ <div class="label">数字で、迷わない<span class="en">Improve with data</span></div>
+ <p class="desc">感覚や勘ではなく、<strong>数値だけを判断基準に</strong>。何が効いているかがはっきり分かるから、改善もまっすぐ進みます。</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<section class="top-cta">
+ <div class="wrap">
+ <h2>お問い合わせ</h2>
+ <p>難しく考えなくて大丈夫です。まずは今の課題だけ、お聞かせください。<br>複雑な部分は、私たちが引き受けます。</p>
+ <a href="/contact" class="top-cta-btn">お問い合わせフォームへ</a>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap foot">
+ <div>
+ <img src="/logo.png" alt="LIF Logo" class="mark-logo" style="height:20px; margin-bottom:8px;">
+ <div>© 2026 株式会社LIF（リフ） / lif.jp</div>
+ </div>
+ <div class="foot-links">
+ <a href="/blog">ブログ</a>
+ <a href="/company">会社概要</a>
+ <a href="/contact">お問い合わせ</a>
+ <a href="/privacy">プライバシーポリシー</a>
+ </div>
+ </div>
+</footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+const navItems = document.querySelectorAll('.nav-item');
+
+menuToggle.addEventListener('click', () => {
+ menuToggle.classList.toggle('active');
+ navLinks.classList.toggle('active');
+});
+
+navItems.forEach(item => {
+ item.addEventListener('click', () => {
+ menuToggle.classList.remove('active');
+ navLinks.classList.remove('active');
+ });
+});
+</script>
 
 </body>
 </html>
