@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNS運用代行サービス｜株式会社LIF（リフ） — Simple Marketing</title>
+
+<!-- ファビコン設定 -->
+<link rel="icon" href="/favicon.png" type="image/png">
+
+<meta name="description" content="株式会社LIF（リフ）のSNS運用代行サービス。アカウント設計から投稿作成・日々の運用まで、投稿ネタに悩む時間をゼロにし、集客・ブランディングにつながるシンプルなSNS運用を提供します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+ :root{
+ --paper:#F5F7FA;
+ --paper-2:#FFFFFF;
+ --ink:#0F172A;
+ --ink-soft:#334155;
+ --muted:#64748B;
+ --accent:#2563EB;
+ --hair:#E2E8F0;
+ --maxw:1080px;
+ }
+ *{box-sizing:border-box;margin:0;padding:0;}
+ html{scroll-behavior:smooth;}
+ body{
+ background:var(--paper);
+ color:var(--ink);
+ font-family:"Noto Sans JP",sans-serif;
+ font-weight:400;
+ line-height:1.8;
+ -webkit-font-smoothing:antialiased;
+ text-rendering:optimizeLegibility;
+ }
+ .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+ .eyebrow{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:500;
+ font-size:12px;
+ letter-spacing:.28em;
+ text-transform:uppercase;
+ color:var(--muted);
+ }
+ .accent{color:var(--accent);}
+
+ /* ---------- nav ---------- */
+ header{
+ position:sticky;top:0;z-index:50;
+ background:rgba(245,247,250,.92);
+ backdrop-filter:saturate(140%) blur(10px);
+ border-bottom:1px solid var(--hair);
+ }
+ .nav{display:flex;align-items:center;justify-content:space-between;height:66px;}
+ .mark{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;
+ font-size:24px;
+ letter-spacing:.04em;
+ color:var(--ink);
+ text-decoration:none;
+ display:flex;align-items:center;gap:8px;
+ }
+ .mark-logo{
+ height:28px;
+ width:auto;
+ display:block;
+ object-fit:contain;
+ }
+ .mark .yomi{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.08em;
+ }
+ .nav-links{display:flex;gap:20px;align-items:center;}
+ .nav-links a{
+ font-size:13px;font-weight:500;color:var(--ink-soft);
+ text-decoration:none;letter-spacing:.04em;transition:color .2s;
+ }
+ .nav-links a:hover{color:var(--accent);}
+ .nav-links .cta{
+ border:1.5px solid var(--ink);border-radius:999px;
+ padding:7px 16px;color:var(--ink);
+ font-size:12px;
+ }
+ .nav-links .cta:hover{background:var(--ink);color:var(--paper);}
+
+ .menu-toggle{
+ display:none;background:none;border:none;cursor:pointer;
+ width:32px;height:32px;position:relative;z-index:100;
+ flex-direction:column;justify-content:center;gap:6px;padding:0;
+ }
+ .menu-toggle span{
+ display:block;width:100%;height:2px;background:var(--ink);
+ border-radius:2px;transition:transform .3s, opacity .3s;
+ }
+ .menu-toggle.active span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+ .menu-toggle.active span:nth-child(2){ opacity:0; }
+ .menu-toggle.active span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+ @media(max-width:768px){ 
+ .wrap{padding:0 16px;}
+ .nav{height:58px;}
+ .mark-logo{height:24px;}
+ .mark .yomi{display:none;}
+ .menu-toggle{display:flex;}
+ .nav-links{
+ position:fixed;top:0;right:-100%;width:100%;height:100vh;
+ background:rgba(15, 23, 42, 0.96);backdrop-filter:blur(12px);
+ flex-direction:column;justify-content:center;align-items:center;
+ gap:28px;transition:right .3s ease;z-index:90;
+ }
+ .nav-links.active{right:0;}
+ .nav-links a{color:#FFFFFF;font-size:18px;font-weight:700;}
+ .nav-links .cta{border-color:#FFFFFF;color:#FFFFFF;font-size:16px;padding:12px 32px;margin-top:12px;}
+ }
+
+ /* ---------- sub hero ---------- */
+ .sub-hero{
+ background:var(--ink);
+ color:#FFFFFF;
+ padding:70px 0 60px;
+ border-bottom:1px solid var(--hair);
+ }
+ .sub-hero .eyebrow{color:#94A3B8;margin-bottom:12px;}
+ .sub-hero h1{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(26px, 4.5vw, 42px);
+ line-height:1.3;
+ margin-bottom:16px;
+ }
+ .sub-hero p.lead{
+ font-size:clamp(14px, 1.6vw, 16px);
+ color:#E2E8F0;
+ max-width:40em;
+ }
+
+ /* ---------- section frame ---------- */
+ section.block{padding:64px 0;border-top:1px solid var(--hair);}
+ .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:32px;flex-wrap:wrap;}
+ .sec-head h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:700;font-size:clamp(20px,2.8vw,28px);letter-spacing:.02em;
+ }
+
+ /* ---------- grid / cards ---------- */
+ .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+ .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+ .card-box{
+ background:var(--paper-2);
+ padding:28px 24px;
+ border:1px solid var(--hair);
+ border-radius:4px;
+ }
+ .card-box h3{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:700;
+ font-size:17px;
+ margin-bottom:10px;
+ color:var(--ink);
+ }
+ .card-box p{font-size:14px;color:var(--ink-soft);line-height:1.8;}
+
+ @media(max-width:768px){
+ .grid-3, .grid-2{grid-template-columns:1fr;}
+ }
+
+ /* ---------- flow list ---------- */
+ .flow-list{display:flex;flex-direction:column;gap:12px;}
+ .flow-item{
+ background:var(--paper-2);
+ border:1px solid var(--hair);
+ padding:20px 24px;
+ display:grid;
+ grid-template-columns:100px 1fr;
+ gap:16px;
+ align-items:center;
+ }
+ .flow-num{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;
+ font-size:12px;
+ color:var(--accent);
+ letter-spacing:.1em;
+ }
+ .flow-item h3{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-size:16px;
+ font-weight:700;
+ }
+
+ @media(max-width:600px){
+ .flow-item{grid-template-columns:1fr;gap:4px;}
+ }
+
+ /* ---------- top CTA ---------- */
+ .top-cta{
+ padding:72px 0;
+ background:var(--paper-2);
+ border-top:1px solid var(--hair);
+ text-align:center;
+ }
+ .top-cta .wrap{max-width:680px;}
+ .top-cta h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(22px,3.8vw,32px);
+ margin-bottom:14px;
+ }
+ .top-cta p{
+ color:var(--ink-soft);
+ font-size:14px;
+ margin-bottom:28px;
+ line-height:1.8;
+ }
+ .top-cta-btn{
+ display:inline-block;
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;
+ font-size:15px;
+ letter-spacing:.04em;
+ color:var(--paper-2);
+ background:var(--ink);
+ padding:16px 48px;
+ border-radius:999px;
+ text-decoration:none;
+ transition:transform .2s,background .2s;
+ }
+ .top-cta-btn:hover{
+ background:var(--accent);
+ transform:translateY(-2px);
+ }
+
+ /* ---------- footer ---------- */
+ footer{border-top:1px solid var(--hair);padding:28px 0;}
+ .foot{display:flex;justify-content:space-between;align-items:center;
+ font-size:12px;color:var(--muted);letter-spacing:.04em;flex-wrap:wrap;gap:14px;}
+ .foot-links a{color:var(--muted);text-decoration:none;margin-left:14px;}
+ .foot-links a:hover{color:var(--accent);text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="wrap nav">
+ <a href="/" class="mark">
+ <img src="/logo.png" alt="LIF Logo" class="mark-logo">
+ <span><span class="yomi">株式会社リフ</span></span>
+ </a>
+
+ <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
+ <span></span><span></span><span></span>
+ </button>
+
+ <nav class="nav-links" id="navLinks">
+ <a href="/#mission" class="nav-item">ミッション</a>
+ <a href="/#service" class="nav-item">事業内容</a>
+ <a href="/#strength" class="nav-item">強み</a>
+ <a href="/blog" class="nav-item">ブログ</a>
+ <a href="/company" class="nav-item">会社概要</a>
+ <a href="/contact" class="cta nav-item">お問い合わせ</a>
+ </nav>
+ </div>
+</header>
+
+<!-- サブヒーロー -->
+<section class="sub-hero">
+ <div class="wrap">
+ <p class="eyebrow">Service / SNS Marketing</p>
+ <h1>投稿ネタに悩む時間をゼロに。<br><span class="accent">SNS運用代行サービス</span></h1>
+ <p class="lead">Instagramを中心に、アカウント設計から画像・テキスト作成、日々の投稿・数値分析までまるごと代行。集客につながるアカウントへ育てます。</p>
+ </div>
+</section>
+
+<!-- お悩み解決 -->
+<section class="block">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Problems</span>
+ <h2>こんなお悩みはありませんか？</h2>
+ </div>
+ <div class="grid-3">
+ <div class="card-box">
+ <h3>❓ 投稿ネタや画像作成が大変</h3>
+ <p>毎日の投稿業務に追われ、本来のコア業務に集中できていない。</p>
+ </div>
+ <div class="card-box">
+ <h3>❓ フォロワーが増えても集客につながらない</h3>
+ <p>いいねやフォロワーは増えても、実際の問合せや来店につながっていない。</p>
+ </div>
+ <div class="card-box">
+ <h3>❓ アカウントの正しい方向性が分からない</h3>
+ <p>とりあえず投稿を開始してみたものの、何を基準に改善すれば良いか分からない。</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- LIFの強み -->
+<section class="block">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Features</span>
+ <h2>LIFのSNS運用の強み</h2>
+ </div>
+ <div class="grid-3">
+ <div class="card-box">
+ <span class="eyebrow accent">01</span>
+ <h3 style="margin-top:8px;">集客ファネル全体の設計</h3>
+ <p>単なるフォロワー獲得を目指すのではなく、WEBサイトや公式LINE、店舗への導線まで考慮したSNS運用を設計します。</p>
+ </div>
+ <div class="card-box">
+ <span class="eyebrow accent">02</span>
+ <h3 style="margin-top:8px;">一貫したクリエイティブ制作</h3>
+ <p>ブランドの世界観に合ったデザイン画像やリール動画、魅力を伝えるテキスト投稿を一元管理して制作します。</p>
+ </div>
+ <div class="card-box">
+ <span class="eyebrow accent">03</span>
+ <h3 style="margin-top:8px;">データに基づく月次改善</h3>
+ <p>インプレッション数や保存率、プロフ遷移率などの数値を毎月分析し、PDCAを確実に回して成果を高めます。</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- サービス範囲 -->
+<section class="block">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Scope</span>
+ <h2>対応内容</h2>
+ </div>
+ <div class="grid-3">
+ <div class="card-box">
+ <h3>アカウント設計・世界観構築</h3>
+ <p>ターゲット層に刺さるプロフィール設計、ハイライト構成、デザインガイドラインを策定します。</p>
+ </div>
+ <div class="card-box">
+ <h3>投稿企画・クリエイティブ制作</h3>
+ <p>毎月の投稿カレンダー作成、カルーセル画像・ショート動画の制作、キャプション執筆を一元対応します。</p>
+ </div>
+ <div class="card-box">
+ <h3>投稿代行・数値分析レポート</h3>
+ <p>指定日時の投稿代行はもちろん、毎月の数値データから課題と翌月の改善策をわかりやすくレポートします。</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- 運用開始までの流れ -->
+<section class="block">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Flow</span>
+ <h2>運用開始までの流れ</h2>
+ </div>
+ <div class="flow-list">
+ <div class="flow-item">
+ <div class="flow-num">STEP 01</div>
+ <div>
+ <h3>ヒアリング・設計</h3>
+ <p>事業の強みやターゲット、目指すゴールをお聞きし、アカウントの方向性を定めます。</p>
+ </div>
+ </div>
+ <div class="flow-item">
+ <div class="flow-num">STEP 02</div>
+ <div>
+ <h3>企画・初回クリエイティブ制作</h3>
+ <p>初月の投稿カレンダーを作成し、投稿画像やテキストを制作して事前にご確認いただきます。</p>
+ </div>
+ </div>
+ <div class="flow-item">
+ <div class="flow-num">STEP 03</div>
+ <div>
+ <h3>運用スタート・月次振り返り</h3>
+ <p>スケジューリングに沿って投稿を開始。毎月データを集計し改善の施策を実施します。</p>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- お問い合わせCTA -->
+<section class="top-cta">
+ <div class="wrap">
+ <h2>SNS運用の無料ご相談</h2>
+ <p>現状のアカウント診断やご提案・お見積もりなど、まずはお気軽にお問い合わせください。</p>
+ <a href="/contact" class="top-cta-btn">お問い合わせフォームへ</a>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap foot">
+ <div>
+ <img src="/logo.png" alt="LIF Logo" class="mark-logo" style="height:20px; margin-bottom:8px;">
+ <div>© 2026 株式会社LIF（リフ） / lif.jp</div>
+ </div>
+ <div class="foot-links">
+ <a href="/blog">ブログ</a>
+ <a href="/company">会社概要</a>
+ <a href="/contact">お問い合わせ</a>
+ <a href="/privacy">プライバシーポリシー</a>
+ </div>
+ </div>
+</footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+const navItems = document.querySelectorAll('.nav-item');
+
+menuToggle.addEventListener('click', () => {
+ menuToggle.classList.toggle('active');
+ navLinks.classList.toggle('active');
+});
+
+navItems.forEach(item => {
+ item.addEventListener('click', () => {
+ menuToggle.classList.remove('active');
+ navLinks.classList.remove('active');
+ });
+});
+</script>
+
+</body>
+</html>
