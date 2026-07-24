@@ -150,8 +150,8 @@
  }
  .contact-head p{color:var(--ink-soft);font-size:14px;line-height:1.8;}
  
-.contact-form{display:flex;flex-direction:column;gap:20px;}
-.form-group{display:flex;flex-direction:column;gap:6px;}
+.contact-form{display:flex;flex-direction:column;gap:24px;}
+.form-group{display:flex;flex-direction:column;gap:8px;}
 .form-group label{
  font-size:14px;font-weight:700;color:var(--ink);
  display:flex;align-items:center;gap:8px;
@@ -164,7 +164,8 @@
  font-size:11px;color:var(--muted);background:var(--hair);
  padding:2px 6px;border-radius:4px;font-weight:500;
 }
-.form-group input,
+.form-group input[type="text"],
+.form-group input[type="email"],
 .form-group textarea{
  font-family:inherit;font-size:15px;padding:12px 14px;
  background:var(--paper);border:1px solid var(--hair);
@@ -175,6 +176,38 @@
 .form-group input:focus,
 .form-group textarea:focus{border-color:var(--accent);}
 .form-group textarea{resize:vertical;min-height:130px;}
+
+/* チェックボックス・選択肢グループの装飾 */
+.checkbox-group{
+ display:grid;
+ grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+ gap:10px;
+ margin-top:4px;
+}
+.checkbox-label{
+ display:flex;
+ align-items:center;
+ gap:8px;
+ background:var(--paper);
+ border:1px solid var(--hair);
+ padding:10px 14px;
+ border-radius:8px;
+ font-size:14px;
+ font-weight:500;
+ color:var(--ink-soft);
+ cursor:pointer;
+ transition:all .2s ease;
+}
+.checkbox-label:hover{
+ border-color:var(--accent);
+ background:var(--paper-2);
+}
+.checkbox-label input[type="checkbox"]{
+ width:16px;
+ height:16px;
+ accent-color:var(--accent);
+ cursor:pointer;
+}
 
 .privacy-notice{
  font-size:12px;color:var(--ink-soft);text-align:center;margin-top:6px;
@@ -213,6 +246,7 @@
 
  @media(max-width:680px){
  .contact{padding:42px 0;}
+ .checkbox-group{grid-template-columns:1fr;}
  }
 
  /* ---------- footer ---------- */
@@ -264,23 +298,67 @@
  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){showThanks();}"></iframe>
 
  <form id="gform" class="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeCKhhuEAR2RddyUwc-3MxMvJb54quSKJJhkVkZ0G26_gxOOA/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+ 
  <div class="form-group">
  <label for="company-name">貴社名・屋号 <span class="opt">任意</span></label>
  <input type="text" id="company-name" name="entry.1692253893" placeholder="株式会社〇〇">
  </div>
+ 
  <div class="form-group">
  <label for="user-name">お名前 <span class="req">必須</span></label>
  <input type="text" id="user-name" name="entry.1328003430" required placeholder="山田 太郎">
  </div>
+ 
  <div class="form-group">
  <label for="user-email">メールアドレス <span class="req">必須</span></label>
  <input type="email" id="user-email" name="entry.2122228540" required placeholder="example@lif.jp">
  </div>
+
+ <!-- 追加項目1: お問い合わせ対象 -->
  <div class="form-group">
- <label for="message">お問い合わせ内容 <span class="req">必須</span></label>
- <textarea id="message" name="entry.1812763490" required placeholder="ご相談内容やご質問をご記入ください。"></textarea>
+ <label>お問い合わせ対象 <span class="opt">複数選択可</span></label>
+ <div class="checkbox-group">
+ <label class="checkbox-label">
+ <input type="checkbox" name="entry.service_type" value="WEB制作"> WEB制作
+ </label>
+ <label class="checkbox-label">
+ <input type="checkbox" name="entry.service_type" value="SNS運用代行"> SNS運用代行
+ </label>
+ <label class="checkbox-label">
+ <input type="checkbox" name="entry.service_type" value="広告運用"> 広告運用
+ </label>
+ <label class="checkbox-label">
+ <input type="checkbox" name="entry.service_type" value="IT・ソフトウェア開発"> IT・ソフトウェア開発
+ </label>
+ <label class="checkbox-label">
+ <input type="checkbox" name="entry.service_type" value="その他"> その他
+ </label>
  </div>
+ </div>
+
+ <!-- 追加項目2: ご希望の対応 -->
+ <div class="form-group">
+ <label>ご希望の対応 <span class="opt">複数選択可</span></label>
+ <div class="checkbox-group">
+ <label class="checkbox-label">
+ <input type="checkbox" name="entry.request_type" value="資料請求"> サービス資料請求
+ </label>
+ <label class="checkbox-label">
+ <input type="checkbox" name="entry.request_type" value="お見積もり・ご相談"> お見積もり・ご相談（オンライン商談）
+ </label>
+ <label class="checkbox-label">
+ <input type="checkbox" name="entry.request_type" value="その他"> その他・ご質問
+ </label>
+ </div>
+ </div>
+
+ <div class="form-group">
+ <label for="message">ご相談・ご質問詳細 <span class="req">必須</span></label>
+ <textarea id="message" name="entry.1812763490" required placeholder="ご検討中の課題や、具体的なご要望など自由にご入力ください。"></textarea>
+ </div>
+
  <p class="privacy-notice">送信することで、<a href="/privacy">個人情報保護方針（プライバシーポリシー）</a>に同意したものとみなされます。</p>
+ 
  <div class="form-submit">
  <button type="submit" class="submitbtn">送信する</button>
  </div>
