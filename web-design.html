@@ -1,384 +1,427 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WEB制作サービス | 株式会社LIF</title>
-  <style>
-    /* --- 基本設定 --- */
-    :root {
-      --primary-color: #0056b3;
-      --secondary-color: #003366;
-      --accent-color: #ff9900;
-      --bg-light: #f8f9fa;
-      --text-color: #333333;
-      --text-muted: #666666;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-      color: var(--text-color);
-      line-height: 1.6;
-      background-color: #ffffff;
-    }
-    a {
-      text-decoration: none;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WEB制作事業｜株式会社LIF（リフ） — Simple Marketing</title>
 
-    /* --- セクション共通 --- */
-    section {
-      padding: 80px 0;
-    }
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 15px;
-      color: var(--secondary-color);
-    }
-    .section-subtitle {
-      text-align: center;
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin-bottom: 50px;
-    }
+<!-- ファビコン設定 -->
+<link rel="icon" href="/favicon.png" type="image/png">
 
-    /* --- CTAボタン --- */
-    .btn-cta {
-      display: inline-block;
-      background-color: var(--accent-color);
-      color: #ffffff;
-      font-weight: bold;
-      font-size: 1.1rem;
-      padding: 16px 40px;
-      border-radius: 50px;
-      box-shadow: 0 4px 15px rgba(255, 153, 0, 0.4);
-      transition: all 0.3s ease;
-    }
-    .btn-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 153, 0, 0.6);
-      background-color: #e68a00;
-    }
+<meta name="description" content="株式会社LIF（リフ）のWEB制作サービス。つくって終わりにせず、問い合わせや購入まで迷わずたどり着けるシンプルな動線とデザインを設計します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+ :root{
+ --paper:#F5F7FA;
+ --paper-2:#FFFFFF;
+ --ink:#0F172A;
+ --ink-soft:#334155;
+ --muted:#64748B;
+ --accent:#2563EB;
+ --hair:#E2E8F0;
+ --maxw:1080px;
+ }
+ *{box-sizing:border-box;margin:0;padding:0;}
+ html{scroll-behavior:smooth;}
+ body{
+ background:var(--paper);
+ color:var(--ink);
+ font-family:"Noto Sans JP",sans-serif;
+ font-weight:400;
+ line-height:1.8;
+ -webkit-font-smoothing:antialiased;
+ text-rendering:optimizeLegibility;
+ }
+ .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+ .eyebrow{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:500;
+ font-size:12px;
+ letter-spacing:.28em;
+ text-transform:uppercase;
+ color:var(--muted);
+ }
+ .accent{color:var(--accent);}
 
-    /* --- 1. ファーストビュー --- */
-    .hero {
-      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-      color: #ffffff;
-      padding: 100px 0 120px;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      line-height: 1.3;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 40px;
-      opacity: 0.9;
-    }
+ /* ---------- nav ---------- */
+ header{
+ position:sticky;top:0;z-index:50;
+ background:rgba(245,247,250,.92);
+ backdrop-filter:saturate(140%) blur(10px);
+ border-bottom:1px solid var(--hair);
+ }
+ .nav{display:flex;align-items:center;justify-content:space-between;height:66px;}
+ .mark{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;
+ font-size:24px;
+ letter-spacing:.04em;
+ color:var(--ink);
+ text-decoration:none;
+ display:flex;align-items:center;gap:8px;
+ }
+ .mark-logo{
+ height:28px;
+ width:auto;
+ display:block;
+ object-fit:contain;
+ }
+ .mark .yomi{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.08em;
+ }
+ .nav-links{display:flex;gap:20px;align-items:center;}
+ .nav-links a{
+ font-size:13px;font-weight:500;color:var(--ink-soft);
+ text-decoration:none;letter-spacing:.04em;transition:color .2s;
+ }
+ .nav-links a:hover{color:var(--accent);}
+ .nav-links .cta{
+ border:1.5px solid var(--ink);border-radius:999px;
+ padding:7px 16px;color:var(--ink);
+ font-size:12px;
+ }
+ .nav-links .cta:hover{background:var(--ink);color:var(--paper);}
 
-    /* --- 2. お悩み（共感） --- */
-    .problems {
-      background-color: var(--bg-light);
-    }
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .problem-card {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 8px;
-      border-left: 5px solid var(--primary-color);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-    .problem-card p {
-      font-weight: bold;
-      font-size: 1.05rem;
-    }
+ .menu-toggle{
+ display:none;background:none;border:none;cursor:pointer;
+ width:32px;height:32px;position:relative;z-index:100;
+ flex-direction:column;justify-content:center;gap:6px;padding:0;
+ }
+ .menu-toggle span{
+ display:block;width:100%;height:2px;background:var(--ink);
+ border-radius:2px;transition:transform .3s, opacity .3s;
+ }
+ .menu-toggle.active span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+ .menu-toggle.active span:nth-child(2){ opacity:0; }
+ .menu-toggle.active span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
 
-    /* --- 3. 強み・理由 --- */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    .feature-card {
-      text-align: center;
-      padding: 40px 20px;
-      border: 1px solid #eeeeee;
-      border-radius: 12px;
-      transition: transform 0.3s;
-    }
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    }
-    .feature-num {
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      line-height: 50px;
-      background-color: rgba(0, 86, 179, 0.1);
-      color: var(--primary-color);
-      font-weight: bold;
-      border-radius: 50%;
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-    }
-    .feature-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 15px;
-      color: var(--secondary-color);
-    }
+ @media(max-width:768px){ 
+ .wrap{padding:0 16px;}
+ .nav{height:58px;}
+ .mark-logo{height:24px;}
+ .mark .yomi{display:none;}
+ .menu-toggle{display:flex;}
+ .nav-links{
+ position:fixed;top:0;right:-100%;width:100%;height:100vh;
+ background:rgba(15, 23, 42, 0.96);backdrop-filter:blur(12px);
+ flex-direction:column;justify-content:center;align-items:center;
+ gap:28px;transition:right .3s ease;z-index:90;
+ }
+ .nav-links.active{right:0;}
+ .nav-links a{color:#FFFFFF;font-size:18px;font-weight:700;}
+ .nav-links .cta{border-color:#FFFFFF;color:#FFFFFF;font-size:16px;padding:12px 32px;margin-top:12px;}
+ }
 
-    /* --- 4. サービス内容 --- */
-    .services {
-      background-color: var(--bg-light);
-    }
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    .service-card {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-    .service-card h3 {
-      font-size: 1.2rem;
-      color: var(--primary-color);
-      margin-bottom: 10px;
-    }
+ /* ---------- sub hero ---------- */
+ .sub-hero{
+ background:var(--ink);
+ color:#FFFFFF;
+ padding:70px 0 60px;
+ border-bottom:1px solid var(--hair);
+ }
+ .sub-hero .eyebrow{color:#94A3B8;margin-bottom:12px;}
+ .sub-hero h1{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(26px, 4.5vw, 42px);
+ line-height:1.3;
+ margin-bottom:16px;
+ }
+ .sub-hero p.lead{
+ font-size:clamp(14px, 1.6vw, 16px);
+ color:#E2E8F0;
+ max-width:40em;
+ }
 
-    /* --- 5. 制作の流れ --- */
-    .flow-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .flow-step {
-      background: var(--bg-light);
-      padding: 25px;
-      border-radius: 8px;
-      position: relative;
-    }
-    .step-num {
-      font-size: 0.9rem;
-      font-weight: bold;
-      color: var(--primary-color);
-      margin-bottom: 5px;
-    }
-    .flow-step h3 {
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-    }
+ /* ---------- section frame ---------- */
+ section.block{padding:64px 0;border-top:1px solid var(--hair);}
+ .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:32px;flex-wrap:wrap;}
+ .sec-head h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:700;font-size:clamp(20px,2.8vw,28px);letter-spacing:.02em;
+ }
 
-    /* --- 6. フォーム（CTA） --- */
-    .cta-section {
-      background: var(--secondary-color);
-      color: #ffffff;
-      text-align: center;
-    }
-    .cta-section .section-title {
-      color: #ffffff;
-    }
-    .cta-section .section-subtitle {
-      color: rgba(255,255,255,0.8);
-    }
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .form-group {
-      margin-bottom: 20px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 0.95rem;
-    }
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-    .form-group textarea {
-      height: 120px;
-      resize: vertical;
-    }
-    .form-submit {
-      text-align: center;
-      margin-top: 30px;
-    }
+ /* ---------- grid / cards ---------- */
+ .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+ .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+ .card-box{
+ background:var(--paper-2);
+ padding:28px 24px;
+ border:1px solid var(--hair);
+ border-radius:4px;
+ }
+ .card-box h3{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:700;
+ font-size:17px;
+ margin-bottom:10px;
+ color:var(--ink);
+ }
+ .card-box p{font-size:14px;color:var(--ink-soft);line-height:1.8;}
 
-    /* レスポンシブ調整 */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
-      section {
-        padding: 50px 0;
-      }
-    }
-  </style>
+ @media(max-width:768px){
+ .grid-3, .grid-2{grid-template-columns:1fr;}
+ }
+
+ /* ---------- flow list ---------- */
+ .flow-list{display:flex;flex-direction:column;gap:12px;}
+ .flow-item{
+ background:var(--paper-2);
+ border:1px solid var(--hair);
+ padding:20px 24px;
+ display:grid;
+ grid-template-columns:100px 1fr;
+ gap:16px;
+ align-items:center;
+ }
+ .flow-num{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;
+ font-size:12px;
+ color:var(--accent);
+ letter-spacing:.1em;
+ }
+ .flow-item h3{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-size:16px;
+ font-weight:700;
+ }
+
+ @media(max-width:600px){
+ .flow-item{grid-template-columns:1fr;gap:4px;}
+ }
+
+ /* ---------- top CTA ---------- */
+ .top-cta{
+ padding:72px 0;
+ background:var(--paper-2);
+ border-top:1px solid var(--hair);
+ text-align:center;
+ }
+ .top-cta .wrap{max-width:680px;}
+ .top-cta h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(22px,3.8vw,32px);
+ margin-bottom:14px;
+ }
+ .top-cta p{
+ color:var(--ink-soft);
+ font-size:14px;
+ margin-bottom:28px;
+ line-height:1.8;
+ }
+ .top-cta-btn{
+ display:inline-block;
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;
+ font-size:15px;
+ letter-spacing:.04em;
+ color:var(--paper-2);
+ background:var(--ink);
+ padding:16px 48px;
+ border-radius:999px;
+ text-decoration:none;
+ transition:transform .2s,background .2s;
+ }
+ .top-cta-btn:hover{
+ background:var(--accent);
+ transform:translateY(-2px);
+ }
+
+ /* ---------- footer ---------- */
+ footer{border-top:1px solid var(--hair);padding:28px 0;}
+ .foot{display:flex;justify-content:space-between;align-items:center;
+ font-size:12px;color:var(--muted);letter-spacing:.04em;flex-wrap:wrap;gap:14px;}
+ .foot-links a{color:var(--muted);text-decoration:none;margin-left:14px;}
+ .foot-links a:hover{color:var(--accent);text-decoration:underline;}
+</style>
 </head>
 <body>
 
-  <!-- 1. ファーストビュー -->
-  <header class="hero">
-    <div class="container">
-      <h1>ただ作るだけじゃない。<br>売上・集客につながるWEB制作</h1>
-      <p>デザイン × マーケティングで、成果を出すWebサイトをご提案します。</p>
-      <a href="#contact" class="btn-cta">無料相談・見積もり依頼はこちら</a>
-    </div>
-  </header>
+<header>
+ <div class="wrap nav">
+ <a href="/" class="mark">
+ <img src="/logo.png" alt="LIF Logo" class="mark-logo">
+ <span><span class="yomi">株式会社リフ</span></span>
+ </a>
 
-  <!-- 2. お悩み（共感） -->
-  <section class="problems">
-    <div class="container">
-      <h2 class="section-title">こんなお悩みはありませんか？</h2>
-      <p class="section-subtitle">Webサイトに関する課題、すべて解決します</p>
-      <div class="problem-grid">
-        <div class="problem-card">
-          <p>❓ ホームページを作ったが、問い合わせが全く来ない</p>
-        </div>
-        <div class="problem-card">
-          <p>❓ デザインが古くなり、自社の強みが伝わっていない</p>
-        </div>
-        <div class="problem-card">
-          <p>❓ 制作後の運用やSEO・広告運用まで一括で任せたい</p>
-        </div>
-      </div>
-    </div>
-  </section>
+ <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
+ <span></span><span></span><span></span>
+ </button>
 
-  <!-- 3. 強み・理由 -->
-  <section class="features">
-    <div class="container">
-      <h2 class="section-title">LIFが選ばれる理由</h2>
-      <p class="section-subtitle">ビジネスの成果にコミットする3つの強み</p>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <span class="feature-num">01</span>
-          <h3>マーケティング視点のデザイン</h3>
-          <p>見た目の美しさだけでなく、ユーザー導線や問い合わせ（コンバージョン）率を徹底的に意識した設計を行います。</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-num">02</span>
-          <h3>ワンストップ対応</h3>
-          <p>WEB制作にとどまらず、SNS運用・広告運用・システム開発までトータルサポート。集客までまるごとお任せいただけます。</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-num">03</span>
-          <h3>柔軟かつスピード対応</h3>
-          <p>お客様のビジネススピードに合わせて、スピーディーかつ柔軟に企画・デザイン・実装を進めます。</p>
-        </div>
-      </div>
-    </div>
-  </section>
+ <nav class="nav-links" id="navLinks">
+ <a href="/#mission" class="nav-item">ミッション</a>
+ <a href="/#service" class="nav-item">事業内容</a>
+ <a href="/#strength" class="nav-item">強み</a>
+ <a href="/blog" class="nav-item">ブログ</a>
+ <a href="/company" class="nav-item">会社概要</a>
+ <a href="/contact" class="cta nav-item">お問い合わせ</a>
+ </nav>
+ </div>
+</header>
 
-  <!-- 4. サービス内容 -->
-  <section class="services">
-    <div class="container">
-      <h2 class="section-title">サービス内容・対応領域</h2>
-      <p class="section-subtitle">目的に応じた最適なWEBサイトを構築します</p>
-      <div class="service-grid">
-        <div class="service-card">
-          <h3>コーポレートサイト制作</h3>
-          <p>企業の信頼感を高め、ブランド価値向上と問い合わせ獲得を両立する公式サイトを制作します。</p>
-        </div>
-        <div class="service-card">
-          <h3>LP（ランディングページ）制作</h3>
-          <p>広告運用と組み合わせ、商品・サービスの魅力をダイレクトに伝え購入・問い合わせへ誘導します。</p>
-        </div>
-        <div class="service-card">
-          <h3>オウンドメディア・ECサイト</h3>
-          <p>WordPress等のCMSを活用したオウンドメディア構築や、販売につながるECサイト制作に対応します。</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- サブヒーロー -->
+<section class="sub-hero">
+ <div class="wrap">
+ <p class="eyebrow">Service / WEB Design</p>
+ <h1>売上・成果につなげる<br><span class="accent">WEB制作サービス</span></h1>
+ <p class="lead">ただ美しいサイトを作るだけではなく、ターゲットが迷わず問い合わせ・購入にたどり着く「シンプルな1本の導線」を設計します。</p>
+ </div>
+</section>
 
-  <!-- 5. 制作の流れ -->
-  <section class="flow">
-    <div class="container">
-      <h2 class="section-title">制作の流れ</h2>
-      <p class="section-subtitle">ご相談から公開まで安心のステップ</p>
-      <div class="flow-steps">
-        <div class="flow-step">
-          <div class="step-num">STEP 01</div>
-          <h3>ヒアリング・企画</h3>
-          <p>課題や目指す目標を詳しくお伺いし、最適な構成をご提案します。</p>
-        </div>
-        <div class="flow-step">
-          <div class="step-num">STEP 02</div>
-          <h3>構成・デザイン提案</h3>
-          <p>導線設計をもとに、ワイヤーフレームとビジュアルデザインを作成します。</p>
-        </div>
-        <div class="flow-step">
-          <div class="step-num">STEP 03</div>
-          <h3>構築・実装</h3>
-          <p>スマホ最適化（レスポンシブ）や基本SEO設定を含めてコーディングを行います。</p>
-        </div>
-        <div class="flow-step">
-          <div class="step-num">STEP 04</div>
-          <h3>公開・運用サポート</h3>
-          <p>Webサイトを公開後、必要に応じて集客や改善のサポートを実施します。</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- お悩み解決 -->
+<section class="block">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Problems</span>
+ <h2>こんなお悩みはありませんか？</h2>
+ </div>
+ <div class="grid-3">
+ <div class="card-box">
+ <h3>❓ 問い合わせが来ない</h3>
+ <p>サイトはあるもののアクセスが成果（問い合わせ・購入）に結びついていない。</p>
+ </div>
+ <div class="card-box">
+ <h3>❓ 情報が複雑すぎる</h3>
+ <p>伝えたい要素が多すぎて、訪問者がどこを見れば良いか迷ってしまう。</p>
+ </div>
+ <div class="card-box">
+ <h3>❓ 運用まで手が回らない</h3>
+ <p>制作後の修正や広告運用・SNSとの連携まで丸ごと一括で任せたい。</p>
+ </div>
+ </div>
+ </div>
+</section>
 
-  <!-- 6. お問い合わせフォーム -->
-  <section class="cta-section" id="contact">
-    <div class="container">
-      <h2 class="section-title">無料相談・お見積もり</h2>
-      <p class="section-subtitle">まずはお気軽にお問い合わせください。担当者より迅速にご連絡いたします。</p>
-      
-      <form class="contact-form" action="#" method="POST">
-        <div class="form-group">
-          <label for="company">貴社名</label>
-          <input type="text" id="company" name="company" placeholder="例：株式会社LIF">
-        </div>
-        <div class="form-group">
-          <label for="name">お名前（必須）</label>
-          <input type="text" id="name" name="name" required placeholder="例：山田 太郎">
-        </div>
-        <div class="form-group">
-          <label for="email">メールアドレス（必須）</label>
-          <input type="email" id="email" name="email" required placeholder="例：info@example.com">
-        </div>
-        <div class="form-group">
-          <label for="message">ご相談内容（必須）</label>
-          <textarea id="message" name="message" required placeholder="例：新サービスのLP制作について見積もりをお願いしたいです。"></textarea>
-        </div>
-        <div class="form-submit">
-          <button type="submit" class="btn-cta" style="border:none; cursor:pointer;">送信する</button>
-        </div>
-      </form>
-    </div>
-  </section>
+<!-- LIFの強み -->
+<section class="block">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Features</span>
+ <h2>LIFのWEB制作の強み</h2>
+ </div>
+ <div class="grid-3">
+ <div class="card-box">
+ <span class="eyebrow accent">01</span>
+ <h3 style="margin-top:8px;">導線主体のシンプル設計</h3>
+ <p>見せかけのデザインに終わらせず、ユーザーの行動心理に基づいた迷わない導線を第一に設計します。</p>
+ </div>
+ <div class="card-box">
+ <span class="eyebrow accent">02</span>
+ <h3 style="margin-top:8px;">広告・SNSとの一気通貫</h3>
+ <p>サイト単体ではなく、META広告やInstagramからの流入シナリオ全体を考慮して最適化します。</p>
+ </div>
+ <div class="card-box">
+ <span class="eyebrow accent">03</span>
+ <h3 style="margin-top:8px;">数値に基づく改善提案</h3>
+ <p>公開後もGoogleアナリティクス等のデータを元に、問い合わせ率を高める改善をサポートします。</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- サービス範囲 -->
+<section class="block">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Scope</span>
+ <h2>対応領域</h2>
+ </div>
+ <div class="grid-3">
+ <div class="card-box">
+ <h3>コーポレートサイト</h3>
+ <p>企業の信頼感を高め、シンプルな導線で認知から問い合わせまでをつなぎます。</p>
+ </div>
+ <div class="card-box">
+ <h3>LP（ランディングページ）</h3>
+ <p>広告運用と連動し、1ページで一気に成約まで導く特化型ページを制作します。</p>
+ </div>
+ <div class="card-box">
+ <h3>オウンドメディア・CMS構築</h3>
+ <p>自社で簡単に情報発信やブログ更新ができる構築・管理画面設定を行います。</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- 制作の流れ -->
+<section class="block">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Flow</span>
+ <h2>制作の流れ</h2>
+ </div>
+ <div class="flow-list">
+ <div class="flow-item">
+ <div class="flow-num">STEP 01</div>
+ <div>
+ <h3>ヒアリング・設計</h3>
+ <p>現状の課題や目標をお聞きし、迷わせない全体の導線構成案を作成します。</p>
+ </div>
+ </div>
+ <div class="flow-item">
+ <div class="flow-num">STEP 02</div>
+ <div>
+ <h3>デザイン・制作</h3>
+ <p>LIFのブランド世界観に沿った、視認性と操作性の高いWebサイトを構築します。</p>
+ </div>
+ </div>
+ <div class="flow-item">
+ <div class="flow-num">STEP 03</div>
+ <div>
+ <h3>検証・公開</h3>
+ <p>スマホ・PCでの動作や表示速度を確認の上、本番環境へ公開・納品します。</p>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- お問い合わせCTA -->
+<section class="top-cta">
+ <div class="wrap">
+ <h2>WEB制作のご相談</h2>
+ <p>制作のご依頼や概算お見積もりなど、まずはお気軽にお問い合わせください。</p>
+ <a href="/contact" class="top-cta-btn">お問い合わせフォームへ</a>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap foot">
+ <div>
+ <img src="/logo.png" alt="LIF Logo" class="mark-logo" style="height:20px; margin-bottom:8px;">
+ <div>© 2026 株式会社LIF（リフ） / lif.jp</div>
+ </div>
+ <div class="foot-links">
+ <a href="/blog">ブログ</a>
+ <a href="/company">会社概要</a>
+ <a href="/contact">お問い合わせ</a>
+ <a href="/privacy">プライバシーポリシー</a>
+ </div>
+ </div>
+</footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+const navItems = document.querySelectorAll('.nav-item');
+
+menuToggle.addEventListener('click', () => {
+ menuToggle.classList.toggle('active');
+ navLinks.classList.toggle('active');
+});
+
+navItems.forEach(item => {
+ item.addEventListener('click', () => {
+ menuToggle.classList.remove('active');
+ navLinks.classList.remove('active');
+ });
+});
+</script>
 
 </body>
 </html>
