@@ -160,9 +160,11 @@
  border:1px solid var(--hair);
  border-radius:8px;
  padding:40px;
+ max-width:860px;
+ margin:0 auto;
  }
  .msg-header{
- margin-bottom:32px;
+ margin-bottom:28px;
  }
  .msg-header h2{
  font-family:"Zen Kaku Gothic New",sans-serif;
@@ -172,20 +174,6 @@
  letter-spacing:.01em;
  margin-top:6px;
  }
- .msg-body{
- display:grid;
- grid-template-columns:260px 1fr;
- gap:40px;
- align-items:start;
- }
- .msg-photo{
- width:100%;
- border-radius:6px;
- background:var(--paper);
- aspect-ratio:3/4;
- object-fit:cover;
- border:1px solid var(--hair);
- }
  .msg-text{
  font-size:14px;
  color:var(--ink-soft);
@@ -194,8 +182,27 @@
  flex-direction:column;
  gap:16px;
  }
+ 
+ /* 写真と署名のレイアウトエリア */
+ .msg-footer-area{
+ margin-top:32px;
+ padding-top:24px;
+ border-top:1px solid var(--hair);
+ display:flex;
+ align-items:flex-end;
+ justify-content:space-between;
+ gap:24px;
+ }
+ .msg-photo{
+ width:220px;
+ max-width:100%;
+ border-radius:6px;
+ background:var(--paper);
+ aspect-ratio:4/3;
+ object-fit:cover;
+ border:1px solid var(--hair);
+ }
  .msg-sign{
- margin-top:28px;
  text-align:right;
  font-family:"Zen Kaku Gothic New",sans-serif;
  font-weight:700;
@@ -203,16 +210,20 @@
  color:var(--ink);
  }
 
- @media(max-width:840px){
+ @media(max-width:680px){
  .msg-card{padding:24px;}
- .msg-body{
- display:flex;
+ .msg-footer-area{
  flex-direction:column;
- gap:24px;
+ align-items:center;
+ gap:20px;
  }
  .msg-photo{
- max-width:240px;
- margin:0 auto;
+ width:100%;
+ max-width:280px;
+ }
+ .msg-sign{
+ width:100%;
+ text-align:right;
  }
  }
 
@@ -293,20 +304,13 @@
  <div class="wrap">
  <div class="msg-card">
  
- <!-- メッセージタイトル（一番上） -->
+ <!-- メッセージタイトル -->
  <div class="msg-header">
  <span class="eyebrow accent">Message</span>
  <h2>マーケティングの「複雑」を「シンプル」に。<br>お客様の成果と、ワクワクする未来を共につくる。</h2>
  </div>
 
- <div class="msg-body">
- <!-- 写真（タイトルの下、本文の横/上に配置） -->
- <div>
- <img src="/ceo.jpg" alt="代表取締役 吉田 圭佑" class="msg-photo" onerror="this.style.display='none';">
- </div>
-
- <!-- 本文と署名 -->
- <div class="msg-content">
+ <!-- 本文 -->
  <div class="msg-text">
  <p>はじめまして。株式会社LIF 代表取締役の吉田圭佑と申します。</p>
  <p>WEBサイト制作、SNS運用、広告運用、ITツール開発——。今の時代、マーケティングの選択肢は増え続け、専門用語や手法もどんどん複雑になっています。「結局、何から手をつければいいのか分からない」「予算を投じても成果につながらない」と頭を悩ませている経営者様・事業者様は決して少なくありません。</p>
@@ -316,10 +320,15 @@
  <p>「LIFE IS FUN（人生を全力で楽しむ）」<br>会社や時代に縛られることなく、大切な仲間や顧客を守りながら最高に面白く働く。そんなワクワクする未来を、私たちが提供するマーケティングの仕組みを通じてお客様と共に創り上げていくことが、私たちのミッションです。</p>
  <p>難しく考える必要はありません。まずは今抱えられている課題や「こうなりたい」という想いを、そのままお聞かせください。私たちが責任を持って、シンプルな解決策へと導きます。</p>
  </div>
+
+ <!-- 写真と署名エリア（本文のすぐ下に配置） -->
+ <div class="msg-footer-area">
+ <div>
+ <img src="/ceo.jpg" alt="代表取締役 吉田 圭佑" class="msg-photo" onerror="this.style.display='none';">
+ </div>
  <div class="msg-sign">
  株式会社LIF<br>
  代表取締役 吉田 圭佑
- </div>
  </div>
  </div>
 
