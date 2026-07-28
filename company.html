@@ -183,24 +183,15 @@
  gap:16px;
  }
  
- /* 写真と署名のレイアウトエリア */
+ /* 写真と署名のレイアウトエリア（直上配置へ変更） */
  .msg-footer-area{
  margin-top:32px;
  padding-top:24px;
  border-top:1px solid var(--hair);
  display:flex;
- align-items:flex-end;
- justify-content:space-between;
- gap:24px;
- }
- .msg-photo{
- width:220px;
- max-width:100%;
- border-radius:6px;
- background:var(--paper);
- aspect-ratio:4/3;
- object-fit:cover;
- border:1px solid var(--hair);
+ flex-direction:column;
+ align-items:flex-end; /* 右寄りに配置 */
+ gap:12px; /* 名前と写真の間隔 */
  }
  .msg-sign{
  text-align:right;
@@ -209,21 +200,27 @@
  font-size:15px;
  color:var(--ink);
  }
+ .msg-photo{
+ width:240px;
+ max-width:100%;
+ border-radius:6px;
+ background:var(--paper);
+ aspect-ratio:4/3;
+ object-fit:cover;
+ border:1px solid var(--hair);
+ }
 
  @media(max-width:680px){
  .msg-card{padding:24px;}
  .msg-footer-area{
- flex-direction:column;
- align-items:center;
- gap:20px;
+ align-items:center; /* スマホでは中央寄せ */
+ }
+ .msg-sign{
+ text-align:center;
  }
  .msg-photo{
  width:100%;
  max-width:280px;
- }
- .msg-sign{
- width:100%;
- text-align:right;
  }
  }
 
@@ -321,14 +318,14 @@
  <p>難しく考える必要はありません。まずは今抱えられている課題や「こうなりたい」という想いを、そのままお聞かせください。私たちが責任を持って、シンプルな解決策へと導きます。</p>
  </div>
 
- <!-- 写真と署名エリア（本文のすぐ下に配置） -->
+ <!-- 写真と署名エリア（名前を写真の直上に配置） -->
  <div class="msg-footer-area">
- <div>
- <img src="/ceo.jpg" alt="代表取締役 吉田 圭佑" class="msg-photo" onerror="this.style.display='none';">
- </div>
  <div class="msg-sign">
  株式会社LIF<br>
  代表取締役 吉田 圭佑
+ </div>
+ <div>
+ <img src="/ceo.jpg" alt="代表取締役 吉田 圭佑" class="msg-photo" onerror="this.style.display='none';">
  </div>
  </div>
 
