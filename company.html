@@ -160,8 +160,21 @@
  border:1px solid var(--hair);
  border-radius:8px;
  padding:40px;
+ }
+ .msg-header{
+ margin-bottom:32px;
+ }
+ .msg-header h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(20px, 2.8vw, 28px);
+ line-height:1.4;
+ letter-spacing:.01em;
+ margin-top:6px;
+ }
+ .msg-body{
  display:grid;
- grid-template-columns:280px 1fr;
+ grid-template-columns:260px 1fr;
  gap:40px;
  align-items:start;
  }
@@ -172,14 +185,6 @@
  aspect-ratio:3/4;
  object-fit:cover;
  border:1px solid var(--hair);
- }
- .msg-content h2{
- font-family:"Zen Kaku Gothic New",sans-serif;
- font-weight:900;
- font-size:clamp(20px, 2.8vw, 26px);
- line-height:1.4;
- margin-bottom:20px;
- letter-spacing:.01em;
  }
  .msg-text{
  font-size:14px;
@@ -199,8 +204,16 @@
  }
 
  @media(max-width:840px){
- .msg-card{grid-template-columns:1fr;padding:24px;}
- .msg-photo{max-width:240px;margin:0 auto 10px;}
+ .msg-card{padding:24px;}
+ .msg-body{
+ display:flex;
+ flex-direction:column;
+ gap:24px;
+ }
+ .msg-photo{
+ max-width:240px;
+ margin:0 auto;
+ }
  }
 
  /* ---------- company table ---------- */
@@ -279,13 +292,21 @@
 <section class="msg-block">
  <div class="wrap">
  <div class="msg-card">
+ 
+ <!-- メッセージタイトル（一番上） -->
+ <div class="msg-header">
+ <span class="eyebrow accent">Message</span>
+ <h2>マーケティングの「複雑」を「シンプル」に。<br>お客様の成果と、ワクワクする未来を共につくる。</h2>
+ </div>
+
+ <div class="msg-body">
+ <!-- 写真（タイトルの下、本文の横/上に配置） -->
  <div>
- <!-- 代表顔写真（ceo.jpg をルートにアップロードして使用してください） -->
  <img src="/ceo.jpg" alt="代表取締役 吉田 圭佑" class="msg-photo" onerror="this.style.display='none';">
  </div>
+
+ <!-- 本文と署名 -->
  <div class="msg-content">
- <span class="eyebrow accent" style="display:block;margin-bottom:8px;">Message</span>
- <h2>マーケティングの「複雑」を「シンプル」に。<br>お客様の成果と、ワクワクする未来を共につくる。</h2>
  <div class="msg-text">
  <p>はじめまして。株式会社LIF 代表取締役の吉田圭佑と申します。</p>
  <p>WEBサイト制作、SNS運用、広告運用、ITツール開発——。今の時代、マーケティングの選択肢は増え続け、専門用語や手法もどんどん複雑になっています。「結局、何から手をつければいいのか分からない」「予算を投じても成果につながらない」と頭を悩ませている経営者様・事業者様は決して少なくありません。</p>
@@ -300,6 +321,8 @@
  代表取締役 吉田 圭佑
  </div>
  </div>
+ </div>
+
  </div>
  </div>
 </section>
