@@ -196,11 +196,11 @@
  .msg-photo{
  width:260px;
  max-width:100%;
- height:auto; /* 高さを自動にして縦横比を維持 */
+ height:auto;
  border-radius:6px;
  background:var(--paper);
  object-fit:cover;
- object-position:top center; /* 頭部が削れないよう上基準で表示 */
+ object-position:top center;
  border:1px solid var(--hair);
  display:block;
  }
@@ -342,7 +342,7 @@
  <h2 class="sec-title">会社概要</h2>
  <dl class="info">
  <div class="row"><dt>会社名</dt><dd>株式会社LIF（リフ）</dd></div>
- <div class="row"><dt>設立</dt><dd>2026年</dd></div>
+ <div class="row"><dt>設立</dt><dd>2026年7月22日</dd></div>
  <div class="row"><dt>代表者</dt><dd>代表取締役 吉田 圭佑</dd></div>
  <div class="row"><dt>所在地</dt><dd>東京都渋谷区代々木5丁目47番2号 サンガム 代々木の杜 401</dd></div>
  <div class="row"><dt>資本金</dt><dd>100,000円</dd></div>
@@ -376,12 +376,6 @@ const navItems = document.querySelectorAll('.nav-item');
 menuToggle.addEventListener('click', () => {
  menuToggle.classList.toggle('active');
  navLinks.classList.toggle('active');
-});
-
-navItems.forEach(item => {
- item.addEventListener('click', () => {
- menuToggle.classList.remove('active');
- navLinks.classList.remove('active');
  });
 });
 </script>
