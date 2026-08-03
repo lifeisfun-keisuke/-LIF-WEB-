@@ -149,32 +149,34 @@
  }
  }
 
- /* ---------- hero ---------- */
+ /* ---------- hero（画面全幅・背景画像スタイル） ---------- */
  .hero{
- padding:80px 0 60px;
- background:var(--paper-2);
- border-bottom:1px solid var(--hair);
+ position:relative;
+ padding:120px 0 100px;
+ background-image: linear-gradient(rgba(245, 247, 250, 0.85), rgba(245, 247, 250, 0.95)), url('/hero-img.jpg');
+ background-size: cover;
+ background-position: center;
+ background-repeat: no-repeat;
+ border-bottom: 1px solid var(--hair);
  }
- .hero-grid{
- display:grid;
- grid-template-columns:1fr 440px;
- gap:48px;
- align-items:center;
+ .hero-content{
+ max-width: 760px;
  }
  .hero .eyebrow{margin-bottom:16px;display:inline-block;}
  .hero h1{
  font-family:"Zen Kaku Gothic New",sans-serif;
  font-weight:900;
- font-size:clamp(30px, 4.8vw, 50px);
+ font-size:clamp(32px, 5.5vw, 54px);
  line-height:1.25;
  letter-spacing:-.01em;
  margin-bottom:24px;
+ color: var(--ink);
  }
  .hero p{
- font-size:clamp(14px, 1.8vw, 16px);
+ font-size:clamp(15px, 2vw, 18px);
  color:var(--ink-soft);
  line-height:1.9;
- margin-bottom:32px;
+ margin-bottom:36px;
  }
  .hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
  .btn-primary{
@@ -191,7 +193,7 @@
  .btn-primary:hover{background:var(--accent);transform:translateY(-2px);}
  .btn-secondary{
  display:inline-block;
- background:var(--paper);
+ background:var(--paper-2);
  color:var(--ink);
  border:1px solid var(--hair);
  font-weight:700;
@@ -203,24 +205,8 @@
  }
  .btn-secondary:hover{border-color:var(--ink);}
 
- .hero-img-wrap{
- width:100%;
- aspect-ratio:4/3;
- border-radius:12px;
- overflow:hidden;
- border:1px solid var(--hair);
- background:var(--paper);
- }
- .hero-img{
- width:100%;
- height:100%;
- object-fit:cover;
- display:block;
- }
-
- @media(max-width:960px){
- .hero-grid{grid-template-columns:1fr;gap:32px;}
- .hero-img-wrap{max-width:540px;margin:0 auto;}
+ @media(max-width:768px){
+ .hero{padding:80px 0 60px;}
  }
 
  /* ---------- section common ---------- */
@@ -400,22 +386,15 @@
  </div>
 </header>
 
-<!-- メインヒーロー（正しく hero-img.jpg を読み込み） -->
+<!-- メインヒーロー（背景全面に hero-img.jpg を表示） -->
 <section class="hero">
- <div class="wrap">
- <div class="hero-grid">
- <div class="hero-content">
+ <div class="wrap hero-content">
  <span class="eyebrow accent">Simple Marketing, Real Results</span>
  <h1>複雑にしない。<br>それが、いちばんの近道。</h1>
  <p>WEB、SNS、広告、システム開発——。<br>マーケティングの選択肢が増え続ける時代だからこそ、私たちは「迷わないシンプルな答え」と「結果につながる本質」を提供します。</p>
  <div class="hero-btns">
  <a href="/contact" class="btn-primary">無料相談はこちら</a>
  <a href="/company" class="btn-secondary">会社概要・代表挨拶</a>
- </div>
- </div>
- <div class="hero-img-wrap">
- <img src="/hero-img.jpg" alt="株式会社LIF メインビジュアル" class="hero-img">
- </div>
  </div>
  </div>
 </section>
