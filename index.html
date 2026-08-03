@@ -151,25 +151,30 @@
 
  /* ---------- hero ---------- */
  .hero{
- padding:90px 0 70px;
+ padding:80px 0 60px;
  background:var(--paper-2);
  border-bottom:1px solid var(--hair);
  }
- .hero-content{max-width:800px;}
+ .hero-grid{
+ display:grid;
+ grid-template-columns:1fr 440px;
+ gap:48px;
+ align-items:center;
+ }
  .hero .eyebrow{margin-bottom:16px;display:inline-block;}
  .hero h1{
  font-family:"Zen Kaku Gothic New",sans-serif;
  font-weight:900;
- font-size:clamp(32px, 5.5vw, 54px);
+ font-size:clamp(30px, 4.8vw, 50px);
  line-height:1.25;
  letter-spacing:-.01em;
  margin-bottom:24px;
  }
  .hero p{
- font-size:clamp(15px, 2vw, 18px);
+ font-size:clamp(14px, 1.8vw, 16px);
  color:var(--ink-soft);
  line-height:1.9;
- margin-bottom:36px;
+ margin-bottom:32px;
  }
  .hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
  .btn-primary{
@@ -197,6 +202,26 @@
  transition:all .2s;
  }
  .btn-secondary:hover{border-color:var(--ink);}
+
+ .hero-img-wrap{
+ width:100%;
+ aspect-ratio:4/3;
+ border-radius:12px;
+ overflow:hidden;
+ border:1px solid var(--hair);
+ background:var(--paper);
+ }
+ .hero-img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ display:block;
+ }
+
+ @media(max-width:960px){
+ .hero-grid{grid-template-columns:1fr;gap:32px;}
+ .hero-img-wrap{max-width:540px;margin:0 auto;}
+ }
 
  /* ---------- section common ---------- */
  section.sec{padding:80px 0;border-bottom:1px solid var(--hair);}
@@ -299,6 +324,44 @@
  .strength-item{grid-template-columns:1fr;gap:12px;padding:24px;}
  }
 
+ /* ---------- cta section ---------- */
+ .cta-sec{
+ padding:80px 0;
+ background:var(--ink);
+ color:var(--paper-2);
+ text-align:center;
+ }
+ .cta-sec .eyebrow{color:var(--muted);}
+ .cta-sec h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(26px, 4vw, 38px);
+ margin:12px 0 20px;
+ color:#FFFFFF;
+ }
+ .cta-sec p{
+ font-size:15px;
+ color:var(--hair);
+ max-width:600px;
+ margin:0 auto 36px;
+ line-height:1.8;
+ }
+ .cta-btn{
+ display:inline-block;
+ background:var(--accent);
+ color:#FFFFFF;
+ font-weight:700;
+ font-size:16px;
+ padding:16px 48px;
+ border-radius:999px;
+ text-decoration:none;
+ transition:all .2s;
+ }
+ .cta-btn:hover{
+ background:#3b82f6;
+ transform:translateY(-2px);
+ }
+
  /* ---------- footer ---------- */
  footer{border-top:1px solid var(--hair);padding:28px 0;}
  .foot{display:flex;justify-content:space-between;align-items:center;
@@ -337,15 +400,22 @@
  </div>
 </header>
 
-<!-- メインヒーロー -->
+<!-- メインヒーロー（画像あり） -->
 <section class="hero">
- <div class="wrap hero-content">
+ <div class="wrap">
+ <div class="hero-grid">
+ <div class="hero-content">
  <span class="eyebrow accent">Simple Marketing, Real Results</span>
  <h1>複雑にしない。<br>それが、いちばんの近道。</h1>
  <p>WEB、SNS、広告、システム開発——。<br>マーケティングの選択肢が増え続ける時代だからこそ、私たちは「迷わないシンプルな答え」と「結果につながる本質」を提供します。</p>
  <div class="hero-btns">
  <a href="/contact" class="btn-primary">無料相談はこちら</a>
  <a href="/company" class="btn-secondary">会社概要・代表挨拶</a>
+ </div>
+ </div>
+ <div class="hero-img-wrap">
+ <img src="/hero.jpg" alt="株式会社LIF メインビジュアル" class="hero-img" onerror="this.src='/ceo.jpg';">
+ </div>
  </div>
  </div>
 </section>
@@ -410,12 +480,23 @@
  </div>
  <div class="strength-item">
  <h3>泥臭い現場経験とITの融合</h3>
- <p>赤字事業のV字回復や現地でのコンサルティング、IT営業など、多角的な実績があるからこそ現場の課題感を的確に捉えたリアルな施策をご提案できます。</p> </div>
+ <p>赤字事業のV字回復や現地でのコンサルティング、IT営業など、多角的な実績があるからこそ現場の課題感を的確に捉えたリアルな施策をご提案できます。</p>
+ </div>
  <div class="strength-item">
  <h3>手堅くリスクを抑えた設計</h3>
  <p>資本金不要・在庫なし・高利益率・ストック型という堅実なモデルを軸に、不要な中間コストを排除してお客様に最大の対価還元を提供します。</p>
  </div>
  </div>
+ </div>
+</section>
+
+<!-- 最下部 お問い合わせセクション（CTA） -->
+<section class="cta-sec">
+ <div class="wrap">
+ <span class="eyebrow">Get In Touch</span>
+ <h2>まずはお気軽にご相談ください</h2>
+ <p>難しく考える必要はありません。今抱えられている課題や「こうなりたい」という想いを、そのままお聞かせください。</p>
+ <a href="/contact" class="cta-btn">お問い合わせフォームへ</a>
  </div>
 </section>
 
@@ -428,7 +509,7 @@
  <div class="foot-links">
  <a href="/blog">ブログ</a>
  <a href="/company">会社概要</a>
- <a href="/contact">お問い合わせ</a>
+ <a href="/contact" class="cta nav-item">お問い合わせ</a>
  <a href="/privacy">プライバシーポリシー</a>
  </div>
  </div>
