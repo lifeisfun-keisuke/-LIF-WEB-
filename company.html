@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-40TGKWN7N4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-40TGKWN7N4');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>会社概要・代表挨拶｜株式会社LIF（リフ）</title>
@@ -183,7 +193,6 @@
  gap:16px;
  }
  
- /* 写真 ➔ 下に名前の縦並びスタイル */
  .msg-footer-area{
  margin-top:32px;
  padding-top:24px;
@@ -377,6 +386,12 @@ const navItems = document.querySelectorAll('.nav-item');
 menuToggle.addEventListener('click', () => {
  menuToggle.classList.toggle('active');
  navLinks.classList.toggle('active');
+});
+
+navItems.forEach(item => {
+ item.addEventListener('click', () => {
+ menuToggle.classList.remove('active');
+ navLinks.classList.remove('active');
  });
 });
 </script>
