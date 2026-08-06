@@ -15,12 +15,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Google Search Console 所有権確認タグ -->
 <meta name="google-site-verification" content="vBWb79NmxfMytSRtN057ODzosl5NAf9DRW_5SfjNvWU" />
-<title>株式会社LIF（リフ）｜WEB・SNS・AD・IT — Simple Marketing</title>
+<title>株式会社LIF（リフ）｜WEB・AD・IT — Simple Marketing</title>
 
 <!-- ファビコン設定 -->
 <link rel="icon" href="/favicon.png" type="image/png">
 
-<meta name="description" content="株式会社LIF（リフ）は、WEB制作・SNS運用・広告運用・システム開発で、複雑なマーケティングをシンプルな仕組みに変える会社です。">
+<meta name="description" content="株式会社LIF（リフ）は、WEB制作・広告運用・システム開発で、複雑なマーケティングをシンプルな仕組みに変える会社です。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -262,9 +262,14 @@
  color:var(--ink-soft);max-width:42em;line-height:2.0;
  }
 
- /* ---------- services ---------- */
- .svc{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hair);
- border:1px solid var(--hair);}
+ /* ---------- services（3項目用グリッド調整） ---------- */
+ .svc{
+ display:grid;
+ grid-template-columns:repeat(3, 1fr);
+ gap:1px;
+ background:var(--hair);
+ border:1px solid var(--hair);
+ }
  .svc .card{
  background:var(--paper-2);
  padding:32px 24px 36px;
@@ -313,7 +318,7 @@
  transform:translateX(3px);
  }
 
- @media(max-width:760px){ 
+ @media(max-width:960px){ 
  .svc{grid-template-columns:1fr;} 
  .svc .card{padding:26px 20px 30px;}
  }
@@ -432,13 +437,13 @@
  <img src="/hero-img.jpg" alt="株式会社LIF メインビジュアル" class="hero-bg-img">
  <div class="hero-overlay"></div>
  <div class="wrap hero-content">
- <p class="eyebrow reveal">WEB ・ SNS ・ AD ・ IT — Simple Marketing</p>
+ <p class="eyebrow reveal">WEB ・ AD ・ IT — Simple Marketing</p>
  <h1 class="reveal d1">
  <span class="line">マーケティングは、難しい。</span><br>
  <span class="line accent-text">それ、私たちがシンプルにします。</span>
  </h1>
  <p class="lead reveal d2">
- 株式会社LIF（リフ）は、WEB制作・SNS運用・広告運用・IT開発をつなぎ、<br>
+ 株式会社LIF（リフ）は、WEB制作・広告運用・IT開発をつなぎ、<br>
  売上につながるシンプルな仕組みをまるごと設計する会社です。
  </p>
  </div>
@@ -454,7 +459,7 @@
  <p class="body">
  マーケティングは、専門用語も選択肢も多く、放っておくとどんどん複雑になります。<br><br>
  その複雑さは、すべて私たちが引き受けます。お客様にお渡しするのは、迷わない「シンプルな答え」だけ。<br><br>
- WEBもSNSも広告もシステムも、バラバラに考えない。<br>
+ WEBも広告もシステムも、バラバラに考えない。<br>
  ひとつの仕組みとしてつなげること。それが、株式会社LIFのやり方です。
  </p>
  </div>
@@ -483,21 +488,7 @@
  </div>
  </div>
 
- <!-- 2. SNS運用代行 -->
- <div class="card">
- <div>
- <span class="num">SNS</span>
- <h3>SNS運用代行</h3>
- <p>投稿ネタに悩む時間は、もう必要ありません。Instagramを中心に、アカウント設計から日々の運用まで私たちが代行します。</p>
- </div>
- <div class="svc-btn-wrapper">
- <a href="/sns.html" class="svc-btn">
- SNS運用の詳細を見る <span class="arrow">→</span>
- </a>
- </div>
- </div>
-
- <!-- 3. 広告運用 -->
+ <!-- 2. 広告運用 -->
  <div class="card">
  <div>
  <span class="num">AD</span>
@@ -511,7 +502,7 @@
  </div>
  </div>
 
- <!-- 4. IT・ソフトウェア開発 -->
+ <!-- 3. IT・ソフトウェア開発 -->
  <div class="card">
  <div>
  <span class="num">IT</span>
@@ -542,7 +533,7 @@
  </div>
  <div class="item">
  <div class="label">一社で、一気通貫<span class="en">All in one</span></div>
- <p class="desc">SNS・WEB・広告・システム。バラバラになりがちな4つを一社で完結。<strong>窓口も判断もひとつ</strong>だから、余計なやりとりが発生しません。</p>
+ <p class="desc">WEB・広告・システム。バラバラになりがちな要素を一社で完結。<strong>窓口も判断もひとつ</strong>だから、余計なやりとりが発生しません。</p>
  </div>
  <div class="item">
  <div class="label">数字で、迷わない<span class="en">Improve with data</span></div>
