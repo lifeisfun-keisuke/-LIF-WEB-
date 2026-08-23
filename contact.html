@@ -15,7 +15,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>お問い合わせ｜株式会社LIF（リフ）</title>
 <link rel="icon" href="/favicon.png" type="image/png">
-<meta name="description" content="株式会社LIF（リフ）へのお問い合わせフォームです。WEB制作・SNS運用・広告運用・IT開発に関するご相談はこちらからお気軽にどうぞ。">
+<meta name="description" content="株式会社LIF（リフ）へのお問い合わせフォームです。WEB制作・広告運用・IT開発に関するご相談はこちらからお気軽にどうぞ。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -236,6 +236,18 @@
 .direct-mail{text-align:center;margin-top:20px;font-size:12px;color:var(--muted);}
 .direct-mail a{color:var(--ink-soft);text-decoration:underline;}
 
+/* スパム対策ハニーポット（CSSで完全隠蔽） */
+.hp-protect-field{
+ position: absolute !important;
+ left: -9999px !important;
+ top: -9999px !important;
+ opacity: 0 !important;
+ pointer-events: none !important;
+ height: 0 !important;
+ width: 0 !important;
+ overflow: hidden !important;
+}
+
 #form-thanks{
  display:none;
  text-align:center;
@@ -306,8 +318,14 @@
 
  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){showThanks();}"></iframe>
 
- <form id="gform" class="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeCKhhuEAR2RddyUwc-3MxMvJb54quSKJJhkVkZ0G26_gxOOA/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+ <form id="gform" class="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeCKhhuEAR2RddyUwc-3MxMvJb54quSKJJhkVkZ0G26_gxOOA/formResponse" method="POST" target="hidden_iframe">
  
+ <!-- BOT検知用ハニーポット項目（人間には見えません） -->
+ <div class="hp-protect-field" aria-hidden="true">
+   <label for="company_url_hp">Web Site URL</label>
+   <input type="text" id="company_url_hp" name="company_url_hp" tabindex="-1" autocomplete="off">
+ </div>
+
  <div class="form-group">
  <label for="company-name">貴社名・屋号 <span class="opt">任意</span></label>
  <input type="text" id="company-name" name="entry.1692253893" placeholder="株式会社〇〇">
@@ -323,15 +341,12 @@
  <input type="email" id="user-email" name="entry.2122228540" required placeholder="example@lif.jp">
  </div>
 
- <!-- 追加項目1: お問い合わせ対象 -->
+ <!-- お問い合わせ対象（SNSを除外） -->
  <div class="form-group">
  <label>お問い合わせ対象 <span class="opt">複数選択可</span></label>
  <div class="checkbox-group">
  <label class="checkbox-label">
  <input type="checkbox" name="entry.service_type" value="WEB制作"> WEB制作
- </label>
- <label class="checkbox-label">
- <input type="checkbox" name="entry.service_type" value="SNS運用代行"> SNS運用代行
  </label>
  <label class="checkbox-label">
  <input type="checkbox" name="entry.service_type" value="広告運用"> 広告運用
@@ -345,7 +360,7 @@
  </div>
  </div>
 
- <!-- 追加項目2: ご希望の対応 -->
+ <!-- ご希望の対応 -->
  <div class="form-group">
  <label>ご希望の対応 <span class="opt">複数選択可</span></label>
  <div class="checkbox-group">
@@ -399,10 +414,35 @@
 
 <script>
 var submitted = false;
+
 function showThanks() {
  document.getElementById('gform').style.display = 'none';
  document.getElementById('form-thanks').style.display = 'block';
 }
+
+// フォーム送信時のスパムチェック制御
+const contactForm = document.getElementById('gform');
+contactForm.addEventListener('submit', function(e) {
+  const hpField = document.getElementById('company_url_hp').value;
+  const messageVal = document.getElementById('message').value;
+
+  // 1. ハニーポットに入力がある場合（BOT判定）
+  if (hpField) {
+    e.preventDefault();
+    showThanks(); // BOTには完了画面を表示しつつ、裏側でのGoogleフォーム送信を遮断
+    return false;
+  }
+
+  // 2. 本文にひらがな・カタカナ・漢字が一切含まれていない場合（海外スパム判定）
+  const japanesePattern = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff]/;
+  if (!japanesePattern.test(messageVal)) {
+    e.preventDefault();
+    alert('お問い合わせ内容に日本語が含まれていません。日本語でご入力をお願いいたします。');
+    return false;
+  }
+
+  submitted = true;
+});
 
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
