@@ -236,7 +236,7 @@
 .direct-mail{text-align:center;margin-top:20px;font-size:12px;color:var(--muted);}
 .direct-mail a{color:var(--ink-soft);text-decoration:underline;}
 
-/* スパム対策ハニーポット（CSSで完全隠蔽） */
+/* スパム対策ハニーポット（完全非表示） */
 .hp-protect-field{
  position: absolute !important;
  left: -9999px !important;
@@ -320,7 +320,7 @@
 
  <form id="gform" class="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeCKhhuEAR2RddyUwc-3MxMvJb54quSKJJhkVkZ0G26_gxOOA/formResponse" method="POST" target="hidden_iframe">
  
- <!-- BOT検知用ハニーポット項目（人間には見えません） -->
+ <!-- BOT検知用ハニーポット項目 -->
  <div class="hp-protect-field" aria-hidden="true">
    <label for="company_url_hp">Web Site URL</label>
    <input type="text" id="company_url_hp" name="company_url_hp" tabindex="-1" autocomplete="off">
@@ -341,7 +341,6 @@
  <input type="email" id="user-email" name="entry.2122228540" required placeholder="example@lif.jp">
  </div>
 
- <!-- お問い合わせ対象（SNSを除外） -->
  <div class="form-group">
  <label>お問い合わせ対象 <span class="opt">複数選択可</span></label>
  <div class="checkbox-group">
@@ -360,7 +359,6 @@
  </div>
  </div>
 
- <!-- ご希望の対応 -->
  <div class="form-group">
  <label>ご希望の対応 <span class="opt">複数選択可</span></label>
  <div class="checkbox-group">
@@ -414,30 +412,46 @@
 
 <script>
 var submitted = false;
+var pageLoadedTime = Date.now();
 
 function showThanks() {
  document.getElementById('gform').style.display = 'none';
  document.getElementById('form-thanks').style.display = 'block';
 }
 
-// フォーム送信時のスパムチェック制御
 const contactForm = document.getElementById('gform');
 contactForm.addEventListener('submit', function(e) {
   const hpField = document.getElementById('company_url_hp').value;
   const messageVal = document.getElementById('message').value;
+  const userNameVal = document.getElementById('user-name').value;
+  const timeTaken = Date.now() - pageLoadedTime;
 
   // 1. ハニーポットに入力がある場合（BOT判定）
   if (hpField) {
     e.preventDefault();
-    showThanks(); // BOTには完了画面を表示しつつ、裏側でのGoogleフォーム送信を遮断
+    showThanks();
     return false;
   }
 
-  // 2. 本文にひらがな・カタカナ・漢字が一切含まれていない場合（海外スパム判定）
+  // 2. ページを開いてから1.5秒未満での機械的な即時送信（自動巡回BOT判定）
+  if (timeTaken < 1500) {
+    e.preventDefault();
+    showThanks();
+    return false;
+  }
+
+  // 3. お問い合わせ本文に日本語（ひらがな・カタカナ・漢字）が一切含まれていない場合
   const japanesePattern = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff]/;
   if (!japanesePattern.test(messageVal)) {
     e.preventDefault();
-    alert('お問い合わせ内容に日本語が含まれていません。日本語でご入力をお願いいたします。');
+    alert('お問い合わせ内容に日本語が含まれていません。日本語でのご入力をお願いいたします。');
+    return false;
+  }
+
+  // 4. お問い合わせ本文にURL（http/https）が含まれている場合（リンクスパム遮断）
+  if (/(http:\/\/|https:\/\/)/i.test(messageVal)) {
+    e.preventDefault();
+    alert('セキュリティのため、本文中にURLリンクを直接記載しての送信はご遠慮いただいております。URLを削除して送信してください。');
     return false;
   }
 
