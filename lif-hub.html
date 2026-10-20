@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIF-Hub｜SNS・LINE・MEO・ブログを統合するマーケティングプラットフォーム｜株式会社LIF（リフ）</title>
+
+<!-- ファビコン設定 -->
+<link rel="icon" href="/favicon.png" type="image/png">
+
+<meta name="description" content="LIF-HubはSNS投稿管理・LINE CRM・Googleビジネスプロフィール・ブログ投稿をひとつの管理画面に統合するマーケティングプラットフォーム。AI機能を標準搭載し、月額9,800円から利用できます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+ :root{
+ --paper:#F5F7FA;
+ --paper-2:#FFFFFF;
+ --ink:#0F172A;
+ --ink-soft:#334155;
+ --muted:#64748B;
+ --accent:#2563EB;
+ --hair:#E2E8F0;
+ --maxw:1080px;
+ }
+ *{box-sizing:border-box;margin:0;padding:0;}
+ html{scroll-behavior:smooth;}
+ body{
+ background:var(--paper);
+ color:var(--ink);
+ font-family:"Noto Sans JP",sans-serif;
+ font-weight:400;
+ line-height:1.8;
+ -webkit-font-smoothing:antialiased;
+ text-rendering:optimizeLegibility;
+ }
+ .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+ .eyebrow{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:500;
+ font-size:12px;
+ letter-spacing:.28em;
+ text-transform:uppercase;
+ color:var(--muted);
+ }
+ .accent{color:var(--accent);}
+
+ /* ---------- nav ---------- */
+ header{
+ position:sticky;top:0;z-index:50;
+ background:rgba(245,247,250,.92);
+ backdrop-filter:saturate(140%) blur(10px);
+ border-bottom:1px solid var(--hair);
+ }
+ .nav{display:flex;align-items:center;justify-content:space-between;height:66px;}
+ .mark{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;
+ font-size:24px;
+ letter-spacing:.04em;
+ color:var(--ink);
+ text-decoration:none;
+ display:flex;align-items:center;gap:8px;
+ }
+ .mark-logo{
+ height:28px;
+ width:auto;
+ display:block;
+ object-fit:contain;
+ }
+ .mark .yomi{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.08em;
+ }
+ .nav-links{display:flex;gap:20px;align-items:center;}
+ .nav-links a{
+ font-size:13px;font-weight:500;color:var(--ink-soft);
+ text-decoration:none;letter-spacing:.04em;transition:color .2s;
+ }
+ .nav-links a:hover{color:var(--accent);}
+ .nav-links .cta{
+ border:1.5px solid var(--ink);border-radius:999px;
+ padding:7px 16px;color:var(--ink);
+ font-size:12px;
+ }
+ .nav-links .cta:hover{background:var(--ink);color:var(--paper);}
+
+ .menu-toggle{
+ display:none;background:none;border:none;cursor:pointer;
+ width:32px;height:32px;position:relative;z-index:100;
+ flex-direction:column;justify-content:center;gap:6px;padding:0;
+ }
+ .menu-toggle span{
+ display:block;width:100%;height:2px;background:var(--ink);
+ border-radius:2px;transition:transform .3s, opacity .3s;
+ }
+ .menu-toggle.active span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+ .menu-toggle.active span:nth-child(2){ opacity:0; }
+ .menu-toggle.active span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+ @media(max-width:768px){ 
+ .wrap{padding:0 16px;}
+ .nav{height:58px;}
+ .mark-logo{height:24px;}
+ .mark .yomi{display:none;}
+ .menu-toggle{display:flex;}
+ .nav-links{
+ position:fixed;top:0;right:-100%;width:100%;height:100vh;
+ background:rgba(15, 23, 42, 0.96);backdrop-filter:blur(12px);
+ flex-direction:column;justify-content:center;align-items:center;
+ gap:28px;transition:right .3s ease;z-index:90;
+ }
+ .nav-links.active{right:0;}
+ .nav-links a{color:#FFFFFF;font-size:18px;font-weight:700;}
+ .nav-links .cta{border-color:#FFFFFF;color:#FFFFFF;font-size:16px;padding:12px 32px;margin-top:12px;}
+ }
+
+ /* ---------- sub hero ---------- */
+ .sub-hero{
+ background:var(--ink);
+ color:#FFFFFF;
+ padding:70px 0 60px;
+ border-bottom:1px solid var(--hair);
+ }
+ .sub-hero .eyebrow{color:#94A3B8;margin-bottom:12px;}
+ .sub-hero h1{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(26px, 4.5vw, 42px);
+ line-height:1.3;
+ margin-bottom:16px;
+ }
+ .sub-hero p.lead{
+ font-size:clamp(14px, 1.6vw, 16px);
+ color:#E2E8F0;
+ max-width:40em;
+ }
+
+ /* ---------- section frame ---------- */
+ section.block{padding:64px 0;border-top:1px solid var(--hair);}
+ .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:32px;flex-wrap:wrap;}
+ .sec-head h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:700;font-size:clamp(20px,2.8vw,28px);letter-spacing:.02em;
+ }
+
+ /* ---------- grid / cards ---------- */
+ .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+ .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+ .card-box{
+ background:var(--paper-2);
+ padding:28px 24px;
+ border:1px solid var(--hair);
+ border-radius:4px;
+ }
+ .card-box h3{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:700;
+ font-size:17px;
+ margin-bottom:10px;
+ color:var(--ink);
+ }
+ .card-box p{font-size:14px;color:var(--ink-soft);line-height:1.8;}
+
+ @media(max-width:768px){
+ .grid-3, .grid-2{grid-template-columns:1fr;}
+ }
+
+ /* ---------- flow list ---------- */
+ .flow-list{display:flex;flex-direction:column;gap:12px;}
+ .flow-item{
+ background:var(--paper-2);
+ border:1px solid var(--hair);
+ padding:20px 24px;
+ display:grid;
+ grid-template-columns:100px 1fr;
+ gap:16px;
+ align-items:center;
+ }
+ .flow-num{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;
+ font-size:12px;
+ color:var(--accent);
+ letter-spacing:.1em;
+ }
+ .flow-item h3{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-size:16px;
+ font-weight:700;
+ }
+
+ @media(max-width:600px){
+ .flow-item{grid-template-columns:1fr;gap:4px;}
+ }
+
+ /* ---------- top CTA ---------- */
+ .top-cta{
+ padding:72px 0;
+ background:var(--paper-2);
+ border-top:1px solid var(--hair);
+ text-align:center;
+ }
+ .top-cta .wrap{max-width:680px;}
+ .top-cta h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:900;
+ font-size:clamp(22px,3.8vw,32px);
+ margin-bottom:14px;
+ }
+ .top-cta p{
+ color:var(--ink-soft);
+ font-size:14px;
+ margin-bottom:28px;
+ line-height:1.8;
+ }
+ .top-cta-btn{
+ display:inline-block;
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;
+ font-size:15px;
+ letter-spacing:.04em;
+ color:var(--paper-2);
+ background:var(--ink);
+ padding:16px 48px;
+ border-radius:999px;
+ text-decoration:none;
+ transition:transform .2s,background .2s;
+ }
+ .top-cta-btn:hover{
+ background:var(--accent);
+ transform:translateY(-2px);
+ }
+
+ /* ---------- footer ---------- */
+ footer{border-top:1px solid var(--hair);padding:28px 0;}
+ .foot{display:flex;justify-content:space-between;align-items:center;
+ font-size:12px;color:var(--muted);letter-spacing:.04em;flex-wrap:wrap;gap:14px;}
+ .foot-links a{color:var(--muted);text-decoration:none;margin-left:14px;}
+ .foot-links a:hover{color:var(--accent);text-decoration:underline;}
+
+ /* ---------- LIF-Hub：チャネル別カード ---------- */
+ .ch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+ .ch-card{
+ background:var(--paper-2);
+ border:1px solid var(--hair);
+ border-top:3px solid var(--ch);
+ border-radius:4px;
+ padding:26px 24px 28px;
+ }
+ .ch-label{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;font-size:11px;
+ letter-spacing:.18em;text-transform:uppercase;
+ color:var(--ch);display:block;margin-bottom:10px;
+ }
+ .ch-card h3{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:700;font-size:18px;margin-bottom:6px;
+ }
+ .ch-card .ch-sub{
+ font-size:13px;color:var(--muted);
+ margin-bottom:16px;padding-bottom:16px;
+ border-bottom:1px solid var(--hair);
+ }
+ .ch-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+ .ch-card li{
+ font-size:14px;color:var(--ink-soft);
+ line-height:1.7;padding-left:18px;position:relative;
+ }
+ .ch-card li::before{
+ content:"";position:absolute;left:0;top:.62em;
+ width:6px;height:6px;border-radius:50%;background:var(--ch);
+ }
+ .ch-sns{--ch:#DB2777;}
+ .ch-line{--ch:#059669;}
+ .ch-gbp{--ch:#2563EB;}
+ .ch-blog{--ch:#D97706;}
+
+ /* ---------- LIF-Hub：料金プラン ---------- */
+ .price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch;}
+ .price-card{
+ background:var(--paper-2);
+ border:1px solid var(--hair);
+ border-radius:4px;
+ padding:28px 20px 26px;
+ position:relative;
+ display:flex;flex-direction:column;
+ }
+ .price-card.popular{
+ border:1.5px solid var(--ink);
+ box-shadow:0 10px 28px rgba(15,23,42,.07);
+ }
+ .price-badge{
+ position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+ background:var(--ink);color:var(--paper-2);
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;font-size:10px;letter-spacing:.14em;
+ padding:4px 14px;border-radius:999px;white-space:nowrap;
+ }
+ .price-name{
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:700;font-size:16px;margin-bottom:10px;
+ }
+ .price-amount{
+ font-family:"Space Grotesk",sans-serif;
+ font-weight:700;font-size:28px;color:var(--ink);
+ line-height:1.2;letter-spacing:-.01em;
+ }
+ .price-amount .per{
+ font-family:"Noto Sans JP",sans-serif;
+ font-size:12px;font-weight:400;color:var(--muted);letter-spacing:0;
+ }
+ .price-card ul{
+ list-style:none;margin-top:18px;padding-top:18px;
+ border-top:1px solid var(--hair);
+ display:flex;flex-direction:column;gap:8px;
+ }
+ .price-card li{
+ font-size:13px;color:var(--ink-soft);
+ line-height:1.65;padding-left:16px;position:relative;
+ }
+ .price-card li::before{
+ content:"";position:absolute;left:0;top:.52em;
+ width:7px;height:4px;
+ border-left:1.5px solid var(--accent);
+ border-bottom:1.5px solid var(--accent);
+ transform:rotate(-45deg);
+ }
+ .price-note{
+ margin-top:20px;font-size:12px;color:var(--muted);line-height:1.8;
+ }
+
+ /* ---------- LIF-Hub：対象業種 ---------- */
+ .ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+ .ind-item{
+ background:var(--paper-2);
+ border:1px solid var(--hair);
+ border-radius:4px;
+ padding:18px 16px;
+ font-family:"Zen Kaku Gothic New",sans-serif;
+ font-weight:700;font-size:15px;
+ text-align:center;color:var(--ink);
+ }
+
+ @media(max-width:960px){
+ .price-grid{grid-template-columns:repeat(2,1fr);gap:20px;}
+ }
+ @media(max-width:768px){
+ .ch-grid{grid-template-columns:1fr;}
+ .ind-grid{grid-template-columns:repeat(2,1fr);}
+ }
+ @media(max-width:600px){
+ .price-grid{grid-template-columns:1fr;}
+ }
+</style>
+</head>
+<body>
+
+<header>
+ <div class="wrap nav">
+ <a href="/" class="mark">
+ <img src="/logo.png" alt="LIF Logo" class="mark-logo">
+ <span><span class="yomi">株式会社リフ</span></span>
+ </a>
+
+ <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
+ <span></span><span></span><span></span>
+ </button>
+
+ <nav class="nav-links" id="navLinks">
+ <a href="/#mission" class="nav-item">ミッション</a>
+ <a href="/#service" class="nav-item">事業内容</a>
+ <a href="/#strength" class="nav-item">強み</a>
+ <a href="/blog" class="nav-item">ブログ</a>
+ <a href="/company" class="nav-item">会社概要</a>
+ <a href="/contact" class="cta nav-item">お問い合わせ</a>
+ </nav>
+ </div>
+</header>
+
+<!-- サブヒーロー -->
+<section class="sub-hero">
+ <div class="wrap">
+ <p class="eyebrow">LIF-Hub — Marketing Platform</p>
+ <h1>SNS、LINE、MEO、ブログ。<br><span class="accent">ぜんぶ、ここだけ。</span></h1>
+ <p class="lead">バラバラのツールを行き来する運用は、もう終わりにしませんか。SNS投稿管理・LINE CRM・Googleビジネスプロフィール・ブログ更新を、ひとつの管理画面に統合。AI機能も標準搭載で、店舗マーケティングに必要なすべてをLIF-Hubだけで完結します。</p>
+ </div>
+</section>
+
+<!-- お悩み解決 -->
+<section class="block">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Problems</span>
+ <h2>こんなお悩みはありませんか？</h2>
+ </div>
+ <div class="grid-3">
+ <div class="card-box">
+ <h3>❓ ツール代が月5〜10万円かかっている</h3>
+ <p>SNS管理ツール、LINE配信ツール、MEOツール。別々に契約した結果、固定費だけが膨らみ続けている。</p>
+ </div>
+ <div class="card-box">
+ <h3>❓ 同じ情報を4回入力している</h3>
+ <p>新メニューのお知らせを、SNSにもLINEにもGoogleにもブログにも。同じ内容をコピペする作業に毎回30分以上かかっている。</p>
+ </div>
+ <div class="card-box">
+ <h3>❓ どの施策が来店につながったか分からない</h3>
+ <p>ツールごとに数字が分断されていて、どのチャネルが実際の予約・来店に効いているのか判断できない。</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- LIF-Hubの強み -->
+<section class="block">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Features</span>
+ <h2>LIF-Hubの強み</h2>
+ </div>
+ <div class="grid-3">
+ <div class="card-box">
+ <span class="eyebrow accent">01</span>
+ <h3 style="margin-top:8px;">4チャネルをひとつの画面で管理</h3>
+ <p>SNS投稿、LINE配信、GBP管理、ブログ更新を統合。複数のツールを開き直す必要がなくなり、運用にかかる時間も固定費も圧縮できます。</p>
+ </div>
+ <div class="card-box">
+ <span class="eyebrow accent">02</span>
+ <h3 style="margin-top:8px;">AIがコンテンツ制作を支援</h3>
+ <p>投稿文生成、口コミ返信、SEO記事構成をAIがサポート。追加料金なしで標準搭載しているため、ネタ切れや文章作成の負担から解放されます。</p>
+ </div>
+ <div class="card-box">
+ <span class="eyebrow accent">03</span>
+ <h3 style="margin-top:8px;">チャネルを横断した自動連携</h3>
+ <p>ブログ公開 → SNS告知 → GBP配信 → LINE配信が自動で連携。一度の投稿で、すべてのチャネルに情報が行き渡ります。</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- 対応領域 -->
+<section class="block">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Scope</span>
+ <h2>対応領域</h2>
+ </div>
+ <div class="ch-grid">
+
+ <div class="ch-card ch-sns">
+ <span class="ch-label">SNS</span>
+ <h3>SNS管理</h3>
+ <p class="ch-sub">マルチSNS投稿・分析</p>
+ <ul>
+ <li>カレンダーUIでの予約投稿</li>
+ <li>統合受信箱（コメント・DMを一元管理）</li>
+ <li>AI投稿文生成</li>
+ <li>承認ワークフロー</li>
+ </ul>
+ </div>
+
+ <div class="ch-card ch-line">
+ <span class="ch-label">LINE</span>
+ <h3>LINE CRM</h3>
+ <p class="ch-sub">Lステップ水準のLINE運用</p>
+ <ul>
+ <li>シナリオ配信（ステップ配信）</li>
+ <li>セグメント配信</li>
+ <li>リッチメニュー自動切替</li>
+ <li>流入経路分析</li>
+ </ul>
+ </div>
+
+ <div class="ch-card ch-gbp">
+ <span class="ch-label">Google</span>
+ <h3>GBP / MEO</h3>
+ <p class="ch-sub">Googleビジネスプロフィール管理</p>
+ <ul>
+ <li>GBP投稿の予約配信</li>
+ <li>口コミへのAI返信</li>
+ <li>検索順位トラッキング</li>
+ <li>インサイト分析</li>
+ </ul>
+ </div>
+
+ <div class="ch-card ch-blog">
+ <span class="ch-label">Blog</span>
+ <h3>ブログ</h3>
+ <p class="ch-sub">ブログ記事の投稿・SEO</p>
+ <ul>
+ <li>WordPress連携</li>
+ <li>公開時にSNS・LINE・GBPへ自動告知</li>
+ <li>AI記事生成</li>
+ <li>SEOチェッカー</li>
+ </ul>
+ </div>
+
+ </div>
+ </div>
+</section>
+
+<!-- 料金プラン -->
+<section class="block">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Pricing</span>
+ <h2>料金プラン</h2>
+ </div>
+ <div class="price-grid">
+
+ <div class="price-card">
+ <div class="price-name">ライト</div>
+ <div class="price-amount">¥9,800<span class="per">/月</span></div>
+ <ul>
+ <li>SNS 3アカウント</li>
+ <li>GBP 1拠点</li>
+ <li>LINE 月1,000通</li>
+ <li>AI投稿文 月30回</li>
+ <li>AI口コミ返信 月10回</li>
+ </ul>
+ </div>
+
+ <div class="price-card popular">
+ <span class="price-badge">人気プラン</span>
+ <div class="price-name">スタンダード</div>
+ <div class="price-amount">¥19,800<span class="per">/月</span></div>
+ <ul>
+ <li>SNS 5アカウント</li>
+ <li>GBP 3拠点</li>
+ <li>LINE 月15,000通</li>
+ <li>ブログ連携</li>
+ <li>AI投稿文 月100回</li>
+ <li>AI口コミ返信 月30回</li>
+ <li>シナリオ配信 無制限</li>
+ </ul>
+ </div>
+
+ <div class="price-card">
+ <div class="price-name">プロ</div>
+ <div class="price-amount">¥34,800<span class="per">/月</span></div>
+ <ul>
+ <li>SNS 10アカウント</li>
+ <li>GBP 10拠点</li>
+ <li>LINE 月50,000通</li>
+ <li>AI機能 無制限</li>
+ <li>行動スコアリング</li>
+ <li>自動レポート</li>
+ </ul>
+ </div>
+
+ <div class="price-card">
+ <div class="price-name">エージェンシー</div>
+ <div class="price-amount">¥49,800〜<span class="per">/月</span></div>
+ <ul>
+ <li>クライアント 無制限</li>
+ <li>ホワイトラベル対応</li>
+ <li>AI機能 無制限</li>
+ <li>カスタムドメイン</li>
+ <li>優先サポート</li>
+ </ul>
+ </div>
+
+ </div>
+ <p class="price-note">※ 表示価格はすべて税別です。<br>※ LINE公式アカウントの月額（LINE社へのお支払い）は別途必要となります。</p>
+ </div>
+</section>
+
+<!-- 対象業種 -->
+<section class="block">
+ <div class="wrap">
+ <div class="sec-head">
+ <span class="eyebrow">Industries</span>
+ <h2>こんな業種におすすめです</h2>
+ </div>
+ <div class="ind-grid">
+ <div class="ind-item">美容サロン</div>
+ <div class="ind-item">飲食店・カフェ</div>
+ <div class="ind-item">クリニック・歯科</div>
+ <div class="ind-item">スクール・習い事</div>
+ <div class="ind-item">不動産</div>
+ <div class="ind-item">マーケティング代理店</div>
+ </div>
+ </div>
+</section>
+
+<!-- お問い合わせCTA -->
+<section class="top-cta">
+ <div class="wrap">
+ <h2>14日間、すべての機能を無料で。</h2>
+ <p>クレジットカードの登録は不要です。まずは実際の管理画面に触れて、4チャネルがひとつにまとまる運用を体験してください。導入のご相談・デモのご依頼もお気軽にどうぞ。</p>
+ <a href="/contact" class="top-cta-btn">無料トライアルを申し込む</a>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap foot">
+ <div>
+ <img src="/logo.png" alt="LIF Logo" class="mark-logo" style="height:20px; margin-bottom:8px;">
+ <div>© 2026 株式会社LIF（リフ） / lif.jp</div>
+ </div>
+ <div class="foot-links">
+ <a href="/blog">ブログ</a>
+ <a href="/company">会社概要</a>
+ <a href="/contact">お問い合わせ</a>
+ <a href="/privacy">プライバシーポリシー</a>
+ </div>
+ </div>
+</footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+const navItems = document.querySelectorAll('.nav-item');
+
+menuToggle.addEventListener('click', () => {
+ menuToggle.classList.toggle('active');
+ navLinks.classList.toggle('active');
+});
+
+navItems.forEach(item => {
+ item.addEventListener('click', () => {
+ menuToggle.classList.remove('active');
+ navLinks.classList.remove('active');
+ });
+});
+</script>
+
+</body>
+</html>
