@@ -13,9 +13,9 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>プライバシーポリシー｜株式会社LIF（リフ）</title>
+<title>個人情報保護方針（プライバシーポリシー）｜株式会社LIF（リフ）</title>
 <link rel="icon" href="/favicon.png" type="image/png">
-<meta name="description" content="株式会社LIF（リフ）のプライバシーポリシー（個人情報保護方針）に関するページです。">
+<meta name="description" content="株式会社LIF（リフ）の個人情報保護方針（プライバシーポリシー）ページです。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -50,7 +50,6 @@
  text-transform:uppercase;
  color:var(--muted);
  }
- .accent{color:var(--accent);}
 
  /* ---------- nav ---------- */
  header{
@@ -149,47 +148,36 @@
  }
  }
 
- /* ---------- page title ---------- */
- .page-head{
- padding:60px 0 32px;
- border-bottom:1px solid var(--hair);
- background:var(--paper-2);
- }
- .page-head .eyebrow{margin-bottom:8px;}
- .page-head h1{
- font-family:"Zen Kaku Gothic New",sans-serif;
- font-weight:900;
- font-size:clamp(26px,4.5vw,42px);
- letter-spacing:.01em;
- }
-
  /* ---------- privacy content ---------- */
- .privacy-body{
- padding:64px 0;
- background:var(--paper-2);
+ .privacy-hero{padding:64px 0 32px;background:var(--paper-2);border-bottom:1px solid var(--hair);}
+ .privacy-hero .wrap{max-width:780px;}
+ .privacy-hero .eyebrow{margin-bottom:12px;}
+ .privacy-hero h1{
+ font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;
+ font-size:clamp(26px,4vw,36px);letter-spacing:.02em;margin-bottom:12px;
  }
- .privacy-card{
- max-width:800px;
- margin:0 auto;
- font-size:14px;
- color:var(--ink-soft);
- line-height:2.0;
- display:flex;
- flex-direction:column;
- gap:32px;
+ .privacy-hero p{color:var(--muted);font-size:13px;}
+
+ .privacy-body{padding:64px 0;background:var(--paper-2);}
+ .privacy-body .wrap{max-width:780px;}
+ .privacy-section{margin-bottom:48px;}
+ .privacy-section h2{
+ font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;
+ font-size:18px;color:var(--ink);margin-bottom:16px;
+ padding-bottom:8px;border-bottom:2px solid var(--ink);
  }
- .privacy-sec h2{
- font-family:"Zen Kaku Gothic New",sans-serif;
- font-size:18px;
- font-weight:700;
- color:var(--ink);
- margin-bottom:12px;
- border-left:3px solid var(--accent);
- padding-left:10px;
+ .privacy-section h3{
+ font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;
+ font-size:15px;color:var(--ink);margin:20px 0 8px;
  }
- .privacy-sec ul{
- padding-left:20px;
- margin-top:8px;
+ .privacy-section p{font-size:14px;color:var(--ink-soft);line-height:1.9;margin-bottom:12px;}
+ .privacy-section ul{margin:8px 0 16px 20px;font-size:14px;color:var(--ink-soft);line-height:1.8;}
+ .privacy-section li{margin-bottom:4px;}
+ .privacy-section a{color:var(--accent);text-decoration:underline;}
+
+ @media(max-width:680px){
+ .privacy-hero,.privacy-body{padding:42px 0;}
+ .privacy-section{margin-bottom:36px;}
  }
 
  /* ---------- footer ---------- */
@@ -230,52 +218,78 @@
  </div>
 </header>
 
-<section class="page-head">
+<section class="privacy-hero">
  <div class="wrap">
  <span class="eyebrow">Privacy Policy</span>
- <h1>プライバシーポリシー</h1>
+ <h1>個人情報保護方針</h1>
+ <p>最終改定日：2026年3月1日</p>
  </div>
 </section>
 
 <section class="privacy-body">
  <div class="wrap">
- <div class="privacy-card">
- <p>株式会社LIF（以下「当社」）は、以下のとおり個人情報保護方針を定め、個人情報保護の仕組みを構築し、全従業員に個人情報保護の重要性の認識と取組みを徹底させることにより、個人情報の保護を推進致します。</p>
-
- <div class="privacy-sec">
- <h2>1. 個人情報の管理</h2>
- <p>当社は、お客様の個人情報を正確かつ最新の状態に保ち、個人情報への不正アクセス・紛失・破損・改ざん・漏洩などを防止するため、セキュリティシステムの維持・管理体制の整備等の必要な措置を講じ、安全対策を実施し個人情報の厳重な管理を行ないます。</p>
- </div>
-
- <div class="privacy-sec">
- <h2>2. 個人情報の利用目的</h2>
- <p>お客様からお預かりした個人情報は、当社からのご連絡や業務のご案内、ご質問に対する回答として、電子メールや資料の送付に利用いたします。</p>
- </div>
-
- <div class="privacy-sec">
- <h2>3. 個人情報の第三者への開示・提供の禁止</h2>
- <p>当社は、お客様よりお預かりした個人情報を適切に管理し、次のいずれかに該当する場合を除き、個人情報を第三者に開示いたしません。</p>
+ <div class="privacy-section">
+ <h2>1. 個人情報の取得・利用目的</h2>
+ <p>株式会社LIF（以下、「当社」）は、取得した個人情報を以下の目的で利用いたします。</p>
  <ul>
- <li>お客様の同意がある場合</li>
- <li>お客様が希望されるサービスを行なうために当社が業務を委託する業者に対して開示する場合</li>
- <li>法令に基づき開示することが必要である場合</li>
+ <li>お問い合わせ・ご相談に対する回答および資料送付のため</li>
+ <li>当社サービスの提供・運用・保守・改善のため</li>
+ <li>新サービス、セミナー、イベント等に関するご案内のため</li>
+ <li>契約の履行および取引管理のため</li>
  </ul>
  </div>
 
- <div class="privacy-sec">
- <h2>4. アクセス解析ツールについて</h2>
- <p>当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を使用しています。このGoogleアナリティクスはデータ収集のためにCookieを使用しています。このデータは匿名で収集されており、個人を特定するものではありません。</p>
+ <div class="privacy-section">
+ <h2>2. 個人情報の第三者提供</h2>
+ <p>当社は、法令に基づく場合等を除き、ご本人の同意を得ることなく個人情報を第三者に提供・開示することはありません。</p>
  </div>
 
- <div class="privacy-sec">
- <h2>5. お問い合わせ窓口</h2>
- <p>当社の個人情報の取扱に関するお問い合わせは下記までご連絡ください。</p>
- <p style="margin-top:8px;">
- <strong>株式会社LIF</strong><br>
- 〒151-0053 東京都渋谷区代々木5丁目47番2号 サンガム 代々木の杜 401<br>
- メール：contact@lif.jp
- </p>
+ <div class="privacy-section">
+ <h2>3. 個人情報の安全管理</h2>
+ <p>当社は、個人情報の漏洩、滅失または毀損の防止その他の個人情報の安全管理のために必要かつ適切な措置を講じます。</p>
  </div>
+
+ <div class="privacy-section">
+ <h2>4. 個人情報の開示・訂正・削除</h2>
+ <p>ご本人から個人情報の開示、訂正、追加、削除、利用停止等のお申し出があった場合は、ご本人確認を行った上で速やかに対応いたします。</p>
+ </div>
+
+ <div class="privacy-section">
+ <h2>5. 当社が提供するサービス「LIF-Hub」における外部サービス連携データの取扱い</h2>
+ <p>当社が提供するSNS運用管理サービス「LIF-Hub」（<a href="https://hub.lif.jp" target="_blank" rel="noopener">https://hub.lif.jp</a>）では、お客様の同意に基づき、Meta Platforms, Inc. が提供するInstagram、Facebook、Threadsおよび LINEヤフー株式会社が提供するLINEの各APIを通じて、以下の情報を取得・利用します。</p>
+
+ <h3>（1）取得する情報</h3>
+ <ul>
+ <li>連携したアカウントの基本情報（アカウントID、ユーザー名、表示名、プロフィール画像、アクセストークン）</li>
+ <li>お客様のアカウントに届いたダイレクトメッセージおよびその送信者の公開プロフィール情報（ユーザー名、表示名、プロフィール画像）</li>
+ <li>お客様の投稿に寄せられたコメントおよびコメント投稿者の公開プロフィール情報</li>
+ <li>お客様がLIF-Hubから投稿・返信したコンテンツ</li>
+ </ul>
+
+ <h3>（2）利用目的</h3>
+ <ul>
+ <li>お客様がLIF-Hub上で自身のSNSアカウントの投稿、コメント返信、メッセージ返信を行うため</li>
+ <li>上記機能の提供に必要な範囲でのデータの表示・保存</li>
+ </ul>
+
+ <h3>（3）利用の制限</h3>
+ <p>取得した情報は上記目的以外には利用せず、広告配信、第三者への販売・提供、他のお客様との共有は行いません。自動送信や一斉送信には利用しません。当社は、Metaプラットフォーム利用規約、Instagram APIの利用規約、およびLINEヤフー株式会社の各種規約を遵守します。</p>
+
+ <h3>（4）保存と削除</h3>
+ <p>取得した情報は、サービス提供に必要な期間、当社が利用するクラウドサービス（Vercel Inc.、Supabase Inc.）上に暗号化して保存します。お客様は、LIF-Hubの「SNS連携」画面からいつでも連携を解除でき、解除時にアクセストークンは無効化されます。保存されたメッセージ・コメント等のデータの削除を希望される場合、または連携解除後にデータの完全な削除を希望される場合は、下記お問い合わせ窓口（<a href="mailto:contact@lif.jp">contact@lif.jp</a>）までご連絡ください。ご本人確認の上、30日以内に削除します。</p>
+
+ <h3>（5）データ削除のリクエスト方法</h3>
+ <p>Meta（Instagram / Facebook / Threads）のアプリ設定から「LIF-Hub SNS」の連携を削除した場合、または <a href="mailto:contact@lif.jp">contact@lif.jp</a> へ「データ削除希望」とご連絡いただいた場合、当社は該当アカウントに関連する保存データを30日以内に削除します。</p>
+ </div>
+
+ <div class="privacy-section">
+ <h2>6. お問い合わせ窓口</h2>
+ <p>個人情報の取り扱いに関するお問い合わせは、以下の窓口までお願いいたします。</p>
+ <p>
+ <strong>株式会社LIF（リフ）</strong><br>
+ 〒151-0053 東京都渋谷区代々木5丁目47番2号 サンガム 代々木の杜 401<br>
+ メールアドレス：<a href="mailto:contact@lif.jp">contact@lif.jp</a>
+ </p>
  </div>
  </div>
 </section>
