@@ -1,0 +1,5 @@
+# microCMS Write APIキー（絶対にコミットしない）
+.microcms-key
+*.microcms-key
+
+.DS_Store
