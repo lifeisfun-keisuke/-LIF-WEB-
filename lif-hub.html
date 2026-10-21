@@ -149,13 +149,36 @@ body {
 
 /* Hero */
 .hero {
-  max-width: 1080px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 6rem 1rem 5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+.hero-text {
+  flex: 0 0 420px;
+  text-align: left;
+}
+@media (max-width: 960px) {
+  .hero-inner {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .hero-text {
+    flex: none;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
 }
 .hero-badge {
   display: inline-flex;
@@ -176,7 +199,7 @@ body {
   border-radius: 50%;
 }
 .hero h1 {
-  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  font-size: clamp(2rem, 5.5vw, 2.8rem);
   font-weight: 900;
   letter-spacing: -0.03em;
   line-height: 1.2;
@@ -200,7 +223,9 @@ body {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
-  justify-content: center;
+}
+@media (max-width: 960px) {
+  .hero-actions { justify-content: center; }
 }
 .btn {
   display: inline-flex;
@@ -230,9 +255,8 @@ body {
 
 /* Hero mockup */
 .hero-mockup {
-  width: 100%;
-  max-width: 820px;
-  margin-top: 3rem;
+  flex: 1;
+  min-width: 0;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 1px var(--border);
@@ -260,6 +284,9 @@ body {
   font-size: 0.72rem;
   color: #888;
   font-family: 'Inter', monospace;
+}
+@media (max-width: 960px) {
+  .hero-mockup { max-width: 620px; border-radius: 10px; }
 }
 @media (max-width: 600px) {
   .hero-mockup { border-radius: 8px; }
@@ -678,15 +705,18 @@ body {
 
 <!-- Hero -->
 <section class="hero">
-  <div class="hero-badge">14日間無料トライアル</div>
-  <h1>SNS、LINE、MEO、ブログ。<br><span class="gradient">ぜんぶ、ここだけ。</span></h1>
-  <p class="hero-sub">4つのツールに分散していたマーケティング業務を、ひとつの画面に。投稿もCRMも分析も、LIF-Hubだけで完結します。</p>
-  <div class="hero-actions">
-    <a href="https://lin.ee/Ry9djfI" class="btn btn-primary">無料で試してみる →</a>
-    <a href="#features" class="btn btn-secondary">機能を見る</a>
-  </div>
-  <!-- Dashboard mockup -->
-  <div class="hero-mockup">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">14日間無料トライアル</div>
+      <h1>SNS、LINE、MEO、ブログ。<br><span class="gradient">ぜんぶ、ここだけ。</span></h1>
+      <p class="hero-sub">4つのツールに分散していたマーケティング業務を、ひとつの画面に。投稿もCRMも分析も、LIF-Hubだけで完結します。</p>
+      <div class="hero-actions">
+        <a href="https://lin.ee/Ry9djfI" class="btn btn-primary">無料で試してみる →</a>
+        <a href="#features" class="btn btn-secondary">機能を見る</a>
+      </div>
+    </div>
+    <!-- Dashboard mockup -->
+    <div class="hero-mockup">
     <div class="browser-bar">
       <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
       <div class="url-bar">hub.lif.jp</div>
@@ -808,7 +838,8 @@ body {
       <text x="636" y="358" font-size="9" fill="#333" font-weight="600" font-family="system-ui">アンケート回答 +15件</text>
       <text x="636" y="372" font-size="8" fill="#999" font-family="system-ui">満足度調査 ・ 昨日</text>
     </svg>
-  </div>
+    </div>
+  </div><!-- /hero-inner -->
 
   <div class="channels">
     <div class="channel"><div class="channel-dot" style="background:var(--pink)"></div>Instagram / X / Facebook</div>
