@@ -7,730 +7,1012 @@
 
 <!-- ファビコン設定 -->
 <link rel="icon" href="/favicon.png" type="image/png">
-<meta name="theme-color" content="#0F172A">
+<meta name="theme-color" content="#2855FF">
 
 <meta name="description" content="LIF-HubはSNS投稿管理・LINE CRM・Googleビジネスプロフィール・ブログ投稿をひとつの管理画面に統合するマーケティングプラットフォーム。AI機能を標準搭載し、月額9,800円から利用できます。">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-40TGKWN7N4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-40TGKWN7N4');
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
- :root{
- /* ダークテーマ基調 */
- --bg:#0F172A;
- --bg-lift:#111C33;
- --surface:#1E293B;
- --surface-2:#273449;
- --line:rgba(148,163,184,.14);
- --line-strong:rgba(148,163,184,.28);
+/* Layout: SaaS landing page — hero, features, pricing, CTA */
+:root {
+  --bg: #FAFAFA;
+  --bg-alt: #F3F3F0;
+  --fg: #111111;
+  --fg-secondary: #555550;
+  --fg-muted: #888883;
+  --surface: #FFFFFF;
+  --border: #E5E5E0;
+  --accent: #2855FF;
+  --accent-hover: #1A3FDB;
+  --accent-light: #EBF0FF;
+  --green: #00C853;
+  --green-light: #E8FAF0;
+  --pink: #E91E63;
+  --pink-light: #FDE8EF;
+  --blue: #2196F3;
+  --blue-light: #E3F2FD;
+  --amber: #FF8F00;
+  --amber-light: #FFF3E0;
+  --purple: #7C3AED;
+  --purple-light: #F0EAFF;
+  --gradient-start: #2855FF;
+  --gradient-end: #7C3AED;
+  --nav-bg: rgba(250,250,250,0.85);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E0E0E;
+    --bg-alt: #171717;
+    --fg: #F0F0EC;
+    --fg-secondary: #A0A098;
+    --fg-muted: #6A6A64;
+    --surface: #1A1A1A;
+    --border: #2A2A28;
+    --accent: #6B8AFF;
+    --accent-hover: #8DA4FF;
+    --accent-light: #1A2040;
+    --green: #66E89E;
+    --green-light: #0F2A1A;
+    --pink: #FF6B9D;
+    --pink-light: #2A0F1A;
+    --blue: #64B5F6;
+    --blue-light: #0F1A2A;
+    --amber: #FFB74D;
+    --amber-light: #2A1A0A;
+    --purple: #A78BFA;
+    --purple-light: #1A1030;
+    --gradient-start: #6B8AFF;
+    --gradient-end: #A78BFA;
+    --nav-bg: rgba(14,14,14,0.85);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E0E0E;
+  --bg-alt: #171717;
+  --fg: #F0F0EC;
+  --fg-secondary: #A0A098;
+  --fg-muted: #6A6A64;
+  --surface: #1A1A1A;
+  --border: #2A2A28;
+  --accent: #6B8AFF;
+  --accent-hover: #8DA4FF;
+  --accent-light: #1A2040;
+  --green: #66E89E;
+  --green-light: #0F2A1A;
+  --pink: #FF6B9D;
+  --pink-light: #2A0F1A;
+  --blue: #64B5F6;
+  --blue-light: #0F1A2A;
+  --amber: #FFB74D;
+  --amber-light: #2A1A0A;
+  --purple: #A78BFA;
+  --purple-light: #1A1030;
+  --gradient-start: #6B8AFF;
+  --gradient-end: #A78BFA;
+  --nav-bg: rgba(14,14,14,0.85);
+  color-scheme: dark;
+}
 
- --text:#F1F5F9;
- --text-soft:#CBD5E1;
- --muted:#94A3B8;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
 
- /* ブランドアクセント（既存サイトと同一） */
- --accent:#2563EB;
- /* 暗背景で本文として読める明度に上げた同系色（文字・罫線用） */
- --accent-text:#60A5FA;
+/* Nav */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.nav-logo {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 1.3rem;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--fg-secondary);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--fg); }
+.nav-cta {
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+  background: var(--accent);
+  padding: 0.45rem 1.1rem;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.nav-cta:hover { background: var(--accent-hover); }
+@media (max-width: 600px) {
+  .nav-links a:not(.nav-cta) { display: none; }
+}
 
- --maxw:1080px;
- }
- *{box-sizing:border-box;margin:0;padding:0;}
- html{scroll-behavior:smooth;}
- body{
- background:var(--bg);
- color:var(--text);
- font-family:"Noto Sans JP",sans-serif;
- font-weight:400;
- line-height:1.8;
- -webkit-font-smoothing:antialiased;
- text-rendering:optimizeLegibility;
- }
- /* 画面全体の奥行き（スクロールしても残る光） */
- body::before{
- content:"";
- position:fixed;
- inset:0;
- z-index:-1;
- pointer-events:none;
- background:
- radial-gradient(900px 620px at 12% -8%, rgba(37,99,235,.20), transparent 62%),
- radial-gradient(760px 520px at 100% 4%, rgba(96,165,250,.10), transparent 60%),
- linear-gradient(180deg,#0F172A 0%,#111C33 48%,#0F172A 100%);
- }
- .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
- .eyebrow{
- font-family:"Space Grotesk",sans-serif;
- font-weight:500;
- font-size:12px;
- letter-spacing:.28em;
- text-transform:uppercase;
- color:var(--muted);
- }
- .accent{color:var(--accent-text);}
+/* Sections */
+.section {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+}
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  text-wrap: balance;
+  margin: 0 0 1rem;
+}
+.section-desc {
+  font-size: 0.95rem;
+  color: var(--fg-secondary);
+  max-width: 560px;
+  line-height: 1.8;
+}
 
- /* ---------- nav ---------- */
- header{
- position:sticky;top:0;z-index:50;
- background:rgba(15,23,42,.72);
- backdrop-filter:saturate(160%) blur(14px);
- -webkit-backdrop-filter:saturate(160%) blur(14px);
- border-bottom:1px solid var(--line);
- }
- .nav{display:flex;align-items:center;justify-content:space-between;height:66px;}
- .mark{
- font-family:"Space Grotesk",sans-serif;
- font-weight:700;
- font-size:24px;
- letter-spacing:.04em;
- color:var(--text);
- text-decoration:none;
- display:flex;align-items:center;gap:8px;
- }
- .mark-logo{
- height:28px;
- width:auto;
- display:block;
- object-fit:contain;
- border-radius:6px;
- }
- .mark .yomi{
- font-family:"Zen Kaku Gothic New",sans-serif;
- font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.08em;
- }
- .nav-links{display:flex;gap:20px;align-items:center;}
- .nav-links a{
- font-size:13px;font-weight:500;color:var(--text-soft);
- text-decoration:none;letter-spacing:.04em;transition:color .2s;
- }
- .nav-links a:hover{color:#FFFFFF;}
- .nav-links .cta{
- border:1.5px solid var(--line-strong);border-radius:999px;
- padding:7px 16px;color:var(--text);
- font-size:12px;
- transition:background .2s,border-color .2s,color .2s;
- }
- .nav-links .cta:hover{background:var(--accent);border-color:var(--accent);color:#FFFFFF;}
+/* Hero */
+.hero {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 6rem 1rem 5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 0.35rem 1rem;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+}
+.hero-badge::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0 0 1.25rem;
+  text-wrap: balance;
+}
+.hero h1 .gradient {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: var(--fg-secondary);
+  max-width: 540px;
+  margin: 0 0 2.5rem;
+  line-height: 1.8;
+}
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.btn-secondary {
+  background: var(--surface);
+  color: var(--fg);
+  border: 1.5px solid var(--border);
+}
+.btn-secondary:hover { border-color: var(--fg-muted); }
 
- .menu-toggle{
- display:none;background:none;border:none;cursor:pointer;
- width:32px;height:32px;position:relative;z-index:100;
- flex-direction:column;justify-content:center;gap:6px;padding:0;
- }
- .menu-toggle span{
- display:block;width:100%;height:2px;background:var(--text);
- border-radius:2px;transition:transform .3s, opacity .3s;
- }
- .menu-toggle.active span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
- .menu-toggle.active span:nth-child(2){ opacity:0; }
- .menu-toggle.active span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+/* Channel strip */
+.channels {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+.channel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--fg-muted);
+}
+.channel-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+}
 
- @media(max-width:768px){
- .wrap{padding:0 18px;}
- .nav{height:58px;}
- .mark-logo{height:24px;}
- .mark .yomi{display:none;}
- .menu-toggle{display:flex;}
- /* 閉じている間は display:none にする。画面外に逃がす方式（right:-100%）だと
- fixed 要素が横スクロール領域を作ってしまうため、スライドインは animation で再現する */
- .nav-links{
- display:none;
- position:fixed;top:0;right:0;width:100%;height:100vh;
- background:rgba(9,14,27,.97);backdrop-filter:blur(14px);
- -webkit-backdrop-filter:blur(14px);
- flex-direction:column;justify-content:center;align-items:center;
- gap:28px;z-index:90;
- }
- .nav-links.active{display:flex;animation:navSlideIn .3s ease;}
- @keyframes navSlideIn{from{transform:translateX(100%);}to{transform:translateX(0);}}
- .nav-links a{color:#FFFFFF;font-size:18px;font-weight:700;}
- .nav-links .cta{border-color:rgba(255,255,255,.5);color:#FFFFFF;font-size:16px;padding:12px 32px;margin-top:12px;}
- }
+/* Problem */
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.problem-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.problem-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.problem-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+}
+.problem-card p {
+  font-size: 0.82rem;
+  color: var(--fg-secondary);
+  margin: 0;
+  line-height: 1.65;
+}
 
- /* ---------- hero ---------- */
- .sub-hero{
- position:relative;
- overflow:hidden;
- padding:124px 0 104px;
- background:radial-gradient(1000px 520px at 50% -18%, rgba(37,99,235,.30), transparent 66%);
- }
- /* 薄いグリッドで奥行きを出す */
- .sub-hero::before{
- content:"";
- position:absolute;inset:0;
- pointer-events:none;
- background-image:
- linear-gradient(rgba(148,163,184,.07) 1px, transparent 1px),
- linear-gradient(90deg, rgba(148,163,184,.07) 1px, transparent 1px);
- background-size:72px 72px;
- -webkit-mask-image:radial-gradient(78% 62% at 50% 16%, #000 0%, transparent 76%);
- mask-image:radial-gradient(78% 62% at 50% 16%, #000 0%, transparent 76%);
- }
- .sub-hero .wrap{position:relative;z-index:1;}
- .sub-hero .eyebrow{
- color:var(--accent-text);
- margin-bottom:20px;
- display:inline-block;
- padding:7px 16px;
- border:1px solid rgba(96,165,250,.32);
- border-radius:999px;
- background:rgba(37,99,235,.10);
- letter-spacing:.22em;
- }
- .sub-hero h1{
- font-family:"Zen Kaku Gothic New",sans-serif;
- font-weight:900;
- font-size:clamp(30px, 5.6vw, 58px);
- line-height:1.25;
- letter-spacing:.01em;
- margin-bottom:24px;
- }
- .sub-hero h1 .accent{
- color:var(--accent-text); /* background-clip 未対応時のフォールバック */
- background:linear-gradient(100deg,#93C5FD 0%,#60A5FA 40%,#2563EB 100%);
- -webkit-background-clip:text;
- background-clip:text;
- -webkit-text-fill-color:transparent;
- }
- .sub-hero p.lead{
- font-size:clamp(14px, 1.7vw, 17px);
- color:var(--text-soft);
- max-width:42em;
- line-height:1.95;
- }
+/* Features */
+.features-section {
+  background: var(--bg-alt);
+}
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+@media (max-width: 700px) { .feature-cards { grid-template-columns: 1fr; } }
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.feature-card[data-domain="sns"]::before { background: var(--pink); }
+.feature-card[data-domain="line"]::before { background: var(--green); }
+.feature-card[data-domain="gbp"]::before { background: var(--blue); }
+.feature-card[data-domain="blog"]::before { background: var(--amber); }
+.feature-card .fc-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.feature-card[data-domain="sns"] .fc-badge { background: var(--pink-light); color: var(--pink); }
+.feature-card[data-domain="line"] .fc-badge { background: var(--green-light); color: var(--green); }
+.feature-card[data-domain="gbp"] .fc-badge { background: var(--blue-light); color: var(--blue); }
+.feature-card[data-domain="blog"] .fc-badge { background: var(--amber-light); color: var(--amber); }
+.feature-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+.feature-card > p {
+  font-size: 0.85rem;
+  color: var(--fg-secondary);
+  margin: 0 0 1.25rem;
+  line-height: 1.7;
+}
+.fc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.fc-list-item {
+  font-size: 0.82rem;
+  color: var(--fg-secondary);
+  padding-left: 1.25rem;
+  position: relative;
+  line-height: 1.6;
+}
+.fc-list-item::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+.feature-card[data-domain="sns"] .fc-list-item::before { color: var(--pink); }
+.feature-card[data-domain="line"] .fc-list-item::before { color: var(--green); }
+.feature-card[data-domain="gbp"] .fc-list-item::before { color: var(--blue); }
+.feature-card[data-domain="blog"] .fc-list-item::before { color: var(--amber); }
 
- /* ---------- section frame ---------- */
- section.block{
- position:relative;
- padding:92px 0;
- border-top:1px solid var(--line);
- }
- /* セクションごとに背景をわずかに変えて奥行きを出す */
- section.block:nth-of-type(even)::before{
- content:"";
- position:absolute;inset:0;
- pointer-events:none;
- background:linear-gradient(180deg, rgba(30,41,59,0) 0%, rgba(30,41,59,.55) 50%, rgba(30,41,59,0) 100%);
- }
- section.block .wrap{position:relative;z-index:1;}
- .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:40px;flex-wrap:wrap;}
- .sec-head h2{
- font-family:"Zen Kaku Gothic New",sans-serif;
- font-weight:700;font-size:clamp(22px,3.2vw,34px);letter-spacing:.02em;
- color:var(--text);
- }
+/* Cross-channel */
+.cross-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2.5rem;
+  margin-top: 2.5rem;
+  text-align: center;
+}
+.cross-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+.cross-card > p {
+  font-size: 0.9rem;
+  color: var(--fg-secondary);
+  margin: 0 0 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cross-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.cross-node {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+.cross-arrow {
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+}
 
- /* ---------- grid / cards ---------- */
- .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
- .card-box{
- background:linear-gradient(180deg, rgba(30,41,59,.92) 0%, rgba(23,33,52,.92) 100%);
- padding:30px 26px;
- border:1px solid var(--line);
- border-radius:14px;
- transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
- }
- .card-box:hover{
- border-color:rgba(96,165,250,.42);
- transform:translateY(-3px);
- box-shadow:0 18px 44px rgba(0,0,0,.40);
- }
- .card-box h3{
- font-family:"Zen Kaku Gothic New",sans-serif;
- font-weight:700;
- font-size:17px;
- margin-bottom:12px;
- color:var(--text);
- line-height:1.6;
- }
- .card-box p{font-size:14px;color:var(--text-soft);line-height:1.85;}
+/* Pricing */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+.pricing-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.pricing-card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+  position: relative;
+}
+.pricing-card.featured::after {
+  content: "\4EBA\6C17";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  padding: 0.15rem 0.75rem;
+  border-radius: 100px;
+}
+.pricing-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--fg-secondary);
+  margin-bottom: 0.5rem;
+}
+.pricing-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  margin-bottom: 0.25rem;
+}
+.pricing-yen { font-size: 0.9rem; font-weight: 700; }
+.pricing-amount {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+.pricing-period { font-size: 0.78rem; color: var(--fg-muted); }
+.pricing-desc {
+  font-size: 0.8rem;
+  color: var(--fg-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.pricing-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+.pf-item {
+  font-size: 0.78rem;
+  color: var(--fg-secondary);
+  padding-left: 1.1rem;
+  position: relative;
+  line-height: 1.5;
+}
+.pf-item::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.72rem;
+}
+.pricing-btn {
+  display: block;
+  text-align: center;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--fg);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.pricing-btn:hover { border-color: var(--accent); color: var(--accent); }
+.pricing-card.featured .pricing-btn {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.pricing-card.featured .pricing-btn:hover { background: var(--accent-hover); }
+.pricing-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+  margin-top: 1.5rem;
+}
 
- /* ---------- チャネル別カード ---------- */
- .ch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
- .ch-card{
- position:relative;
- overflow:hidden;
- background:linear-gradient(180deg, rgba(30,41,59,.92) 0%, rgba(23,33,52,.92) 100%);
- border:1px solid var(--line);
- border-radius:16px;
- padding:30px 28px 32px;
- transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
- }
- /* 上辺のカラーライン */
- .ch-card::before{
- content:"";
- position:absolute;top:0;left:0;right:0;height:2px;
- background:linear-gradient(90deg, var(--ch) 0%, rgba(148,163,184,0) 80%);
- }
- /* カラーごとの淡い発光 */
- .ch-card::after{
- content:"";
- position:absolute;top:-90px;left:-60px;
- width:280px;height:220px;
- pointer-events:none;
- background:radial-gradient(closest-side, var(--ch-glow), transparent);
- }
- .ch-card:hover{
- border-color:var(--ch-border);
- transform:translateY(-3px);
- box-shadow:0 18px 44px rgba(0,0,0,.40);
- }
- .ch-card > *{position:relative;z-index:1;}
- .ch-label{
- font-family:"Space Grotesk",sans-serif;
- font-weight:700;font-size:11px;
- letter-spacing:.18em;text-transform:uppercase;
- color:var(--ch);display:block;margin-bottom:10px;
- }
- .ch-card h3{
- font-family:"Zen Kaku Gothic New",sans-serif;
- font-weight:700;font-size:19px;margin-bottom:6px;color:var(--text);
- }
- .ch-card .ch-sub{
- font-size:13px;color:var(--muted);
- margin-bottom:18px;padding-bottom:18px;
- border-bottom:1px solid var(--line);
- }
- .ch-card ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
- .ch-card li{
- font-size:14px;color:var(--text-soft);
- line-height:1.7;padding-left:20px;position:relative;
- }
- .ch-card li::before{
- content:"";position:absolute;left:0;top:.6em;
- width:6px;height:6px;border-radius:50%;
- background:var(--ch);
- box-shadow:0 0 10px var(--ch-glow);
- }
- /* 暗背景で見えるよう、各チャネル色は明度を上げた同系色を使用 */
- .ch-sns{ --ch:#F472B6; --ch-glow:rgba(244,114,182,.20); --ch-border:rgba(244,114,182,.45);}
- .ch-line{ --ch:#34D399; --ch-glow:rgba(52,211,153,.20); --ch-border:rgba(52,211,153,.45);}
- .ch-gbp{ --ch:#60A5FA; --ch-glow:rgba(96,165,250,.22); --ch-border:rgba(96,165,250,.45);}
- .ch-blog{--ch:#FBBF24; --ch-glow:rgba(251,191,36,.20); --ch-border:rgba(251,191,36,.45);}
+/* Target */
+.target-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.target-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+.target-card h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0 0 0.3rem;
+}
+.target-card p {
+  font-size: 0.78rem;
+  color: var(--fg-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
 
- /* ---------- 料金プラン ---------- */
- .price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch;}
- .price-card{
- position:relative;
- display:flex;flex-direction:column;
- background:linear-gradient(180deg, rgba(30,41,59,.92) 0%, rgba(23,33,52,.92) 100%);
- border:1px solid var(--line);
- border-radius:16px;
- padding:32px 22px 28px;
- transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
- }
- .price-card:hover{
- border-color:rgba(96,165,250,.42);
- transform:translateY(-3px);
- box-shadow:0 18px 44px rgba(0,0,0,.40);
- }
- .price-card.popular{
- border:1px solid rgba(96,165,250,.55);
- background:linear-gradient(180deg, rgba(37,99,235,.16) 0%, rgba(23,33,52,.95) 60%);
- box-shadow:0 0 0 1px rgba(37,99,235,.18), 0 22px 54px rgba(37,99,235,.22);
- }
- .price-badge{
- position:absolute;top:-12px;left:50%;transform:translateX(-50%);
- background:linear-gradient(90deg,#2563EB,#3B82F6);
- color:#FFFFFF;
- font-family:"Space Grotesk",sans-serif;
- font-weight:700;font-size:10px;letter-spacing:.14em;
- padding:5px 15px;border-radius:999px;white-space:nowrap;
- box-shadow:0 6px 18px rgba(37,99,235,.45);
- }
- .price-name{
- font-family:"Zen Kaku Gothic New",sans-serif;
- font-weight:700;font-size:16px;margin-bottom:12px;color:var(--text);
- }
- .price-amount{
- font-family:"Space Grotesk",sans-serif;
- font-weight:700;font-size:30px;color:#FFFFFF;
- line-height:1.2;letter-spacing:-.01em;
- }
- .price-amount .per{
- font-family:"Noto Sans JP",sans-serif;
- font-size:12px;font-weight:400;color:var(--muted);letter-spacing:0;
- }
- .price-card ul{
- list-style:none;margin-top:20px;padding-top:20px;
- border-top:1px solid var(--line);
- display:flex;flex-direction:column;gap:9px;
- }
- .price-card li{
- font-size:13px;color:var(--text-soft);
- line-height:1.65;padding-left:18px;position:relative;
- }
- .price-card li::before{
- content:"";position:absolute;left:0;top:.5em;
- width:7px;height:4px;
- border-left:1.5px solid var(--accent-text);
- border-bottom:1.5px solid var(--accent-text);
- transform:rotate(-45deg);
- }
- .price-note{
- margin-top:24px;font-size:12px;color:var(--muted);line-height:1.9;
- }
+/* FAQ */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-q {
+  font-family: inherit;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.25rem 2rem 1.25rem 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--fg);
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+}
+.faq-q::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--fg-muted);
+  transition: transform 0.2s;
+}
+.faq-item.open .faq-q::after { content: "\2212"; }
+.faq-a {
+  font-size: 0.85rem;
+  color: var(--fg-secondary);
+  line-height: 1.8;
+  padding-bottom: 1.25rem;
+  display: none;
+}
+.faq-item.open .faq-a { display: block; }
 
- /* ---------- 対象業種 ---------- */
- .ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
- .ind-item{
- background:rgba(30,41,59,.72);
- border:1px solid var(--line);
- border-radius:999px;
- padding:18px 16px;
- font-family:"Zen Kaku Gothic New",sans-serif;
- font-weight:700;font-size:15px;
- text-align:center;color:var(--text-soft);
- transition:border-color .25s ease, color .25s ease, background .25s ease;
- }
- .ind-item:hover{
- border-color:rgba(96,165,250,.45);
- background:rgba(37,99,235,.12);
- color:#FFFFFF;
- }
+/* CTA */
+.cta-section {
+  background: var(--bg-alt);
+}
+.cta-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+  text-align: center;
+}
+.cta-inner h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+  text-wrap: balance;
+}
+.cta-inner p {
+  font-size: 0.92rem;
+  color: var(--fg-secondary);
+  margin: 0 0 2rem;
+}
 
- /* ---------- CTA ---------- */
- .top-cta{
- position:relative;
- overflow:hidden;
- padding:112px 0 120px;
- border-top:1px solid var(--line);
- text-align:center;
- background:radial-gradient(820px 420px at 50% 0%, rgba(37,99,235,.26), transparent 70%);
- }
- .top-cta .wrap{max-width:720px;position:relative;z-index:1;}
- .top-cta h2{
- font-family:"Zen Kaku Gothic New",sans-serif;
- font-weight:900;
- font-size:clamp(24px,4.4vw,40px);
- line-height:1.35;
- margin-bottom:18px;
- color:#FFFFFF;
- }
- .top-cta p{
- color:var(--text-soft);
- font-size:15px;
- margin-bottom:34px;
- line-height:1.95;
- }
- .top-cta-btn{
- display:inline-block;
- font-family:"Zen Kaku Gothic New",sans-serif;
- font-weight:700;
- font-size:16px;
- letter-spacing:.04em;
- color:#FFFFFF;
- background:linear-gradient(90deg,#2563EB 0%,#3B82F6 100%);
- padding:18px 52px;
- border-radius:999px;
- text-decoration:none;
- box-shadow:0 12px 34px rgba(37,99,235,.40);
- transition:transform .22s ease, box-shadow .22s ease;
- }
- .top-cta-btn:hover{
- transform:translateY(-2px);
- box-shadow:0 18px 44px rgba(37,99,235,.55);
- }
-
- /* ---------- footer ---------- */
- footer{border-top:1px solid var(--line);padding:32px 0;background:rgba(9,14,27,.6);}
- .foot{display:flex;justify-content:space-between;align-items:center;
- font-size:12px;color:var(--muted);letter-spacing:.04em;flex-wrap:wrap;gap:14px;}
- .foot-links a{color:var(--muted);text-decoration:none;margin-left:14px;transition:color .2s;}
- .foot-links a:hover{color:var(--accent-text);}
-
- /* ---------- responsive ---------- */
- @media(max-width:960px){
- .price-grid{grid-template-columns:repeat(2,1fr);gap:20px;}
- }
- @media(max-width:768px){
- .sub-hero{padding:76px 0 68px;}
- section.block{padding:64px 0;}
- .sec-head{margin-bottom:28px;}
- .grid-3{grid-template-columns:1fr;}
- .ch-grid{grid-template-columns:1fr;}
- .ind-grid{grid-template-columns:repeat(2,1fr);}
- .top-cta{padding:76px 0 84px;}
- .top-cta-btn{padding:16px 36px;font-size:15px;width:100%;max-width:340px;}
- }
- @media(max-width:600px){
- .price-grid{grid-template-columns:1fr;}
- .card-box,.ch-card,.price-card{padding-left:22px;padding-right:22px;}
- }
-
- @media(prefers-reduced-motion:reduce){
- html{scroll-behavior:auto;}
- *{transition:none !important;}
- }
+/* Footer */
+.footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-logo {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--fg-muted);
+}
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+}
 </style>
 </head>
 <body>
 
-<header>
- <div class="wrap nav">
- <a href="/" class="mark">
- <img src="/logo.png" alt="LIF Logo" class="mark-logo">
- <span><span class="yomi">株式会社リフ</span></span>
- </a>
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">LIF-Hub</a>
+    <div class="nav-links">
+      <a href="#features">機能</a>
+      <a href="#pricing">料金</a>
+      <a href="#faq">FAQ</a>
+      <a href="#cta" class="nav-cta">無料で始める</a>
+    </div>
+  </div>
+</nav>
 
- <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
- <span></span><span></span><span></span>
- </button>
-
- <nav class="nav-links" id="navLinks">
- <a href="/#mission" class="nav-item">ミッション</a>
- <a href="/#service" class="nav-item">事業内容</a>
- <a href="/#strength" class="nav-item">強み</a>
- <a href="/blog" class="nav-item">ブログ</a>
- <a href="/company" class="nav-item">会社概要</a>
- <a href="/contact" class="cta nav-item">お問い合わせ</a>
- </nav>
- </div>
-</header>
-
-<!-- サブヒーロー -->
-<section class="sub-hero">
- <div class="wrap">
- <p class="eyebrow">LIF-Hub — Marketing Platform</p>
- <h1>SNS、LINE、MEO、ブログ。<br><span class="accent">ぜんぶ、ここだけ。</span></h1>
- <p class="lead">バラバラのツールを行き来する運用は、もう終わりにしませんか。SNS投稿管理・LINE CRM・Googleビジネスプロフィール・ブログ更新を、ひとつの管理画面に統合。AI機能も標準搭載で、店舗マーケティングに必要なすべてをLIF-Hubだけで完結します。</p>
- </div>
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">14日間無料トライアル</div>
+  <h1>SNS、LINE、MEO、ブログ。<br><span class="gradient">ぜんぶ、ここだけ。</span></h1>
+  <p class="hero-sub">4つのツールに分散していたマーケティング業務を、ひとつの画面に。投稿もCRMも分析も、LIF-Hubだけで完結します。</p>
+  <div class="hero-actions">
+    <a href="#cta" class="btn btn-primary">無料で試してみる →</a>
+    <a href="#features" class="btn btn-secondary">機能を見る</a>
+  </div>
+  <div class="channels">
+    <div class="channel"><div class="channel-dot" style="background:var(--pink)"></div>Instagram / X / Facebook</div>
+    <div class="channel"><div class="channel-dot" style="background:var(--green)"></div>LINE公式アカウント</div>
+    <div class="channel"><div class="channel-dot" style="background:var(--blue)"></div>Googleビジネスプロフィール</div>
+    <div class="channel"><div class="channel-dot" style="background:var(--amber)"></div>WordPress / note</div>
+  </div>
 </section>
 
-<!-- お悩み解決 -->
-<section class="block">
- <div class="wrap">
- <div class="sec-head">
- <span class="eyebrow">Problems</span>
- <h2>こんなお悩みはありませんか？</h2>
- </div>
- <div class="grid-3">
- <div class="card-box">
- <h3>❓ ツール代が月5〜10万円かかっている</h3>
- <p>SNS管理ツール、LINE配信ツール、MEOツール。別々に契約した結果、固定費だけが膨らみ続けている。</p>
- </div>
- <div class="card-box">
- <h3>❓ 同じ情報を4回入力している</h3>
- <p>新メニューのお知らせを、SNSにもLINEにもGoogleにもブログにも。同じ内容をコピペする作業に毎回30分以上かかっている。</p>
- </div>
- <div class="card-box">
- <h3>❓ どの施策が来店につながったか分からない</h3>
- <p>ツールごとに数字が分断されていて、どのチャネルが実際の予約・来店に効いているのか判断できない。</p>
- </div>
- </div>
- </div>
+<!-- Problem -->
+<section class="section">
+  <div class="section-label">Problem</div>
+  <h2 class="section-title">ツールがバラバラだから、<br>運用が続かない。</h2>
+  <p class="section-desc">SNS管理ツール、LINE CRM、MEOツール、ブログCMS。別々に契約して、別々にログインして、別々にレポートを作る。そのコストと手間が、店舗マーケティングの最大のボトルネックです。</p>
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="problem-icon">💸</div>
+      <h3>ツール代が月5〜10万円</h3>
+      <p>SNS管理・LINE CRM・MEO・SEOツールを個別に契約すると、月額コストは簡単に5万円を超えます</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">🔄</div>
+      <h3>同じ内容を何度も入力</h3>
+      <p>新メニュー情報をInstagram、GBP、LINE、ブログと4回別々に投稿。手間で更新が止まります</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">📊</div>
+      <h3>成果が見えない</h3>
+      <p>どのチャネルから来店につながったのか。ツールが分かれていると、全体像が掴めません</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">⏰</div>
+      <h3>学習コストが高すぎる</h3>
+      <p>ツールごとにUIも用語も違う。スタッフが使いこなすまでに時間がかかりすぎます</p>
+    </div>
+  </div>
 </section>
 
-<!-- LIF-Hubの強み -->
-<section class="block">
- <div class="wrap">
- <div class="sec-head">
- <span class="eyebrow">Features</span>
- <h2>LIF-Hubの強み</h2>
- </div>
- <div class="grid-3">
- <div class="card-box">
- <span class="eyebrow accent">01</span>
- <h3 style="margin-top:8px;">4チャネルをひとつの画面で管理</h3>
- <p>SNS投稿、LINE配信、GBP管理、ブログ更新を統合。複数のツールを開き直す必要がなくなり、運用にかかる時間も固定費も圧縮できます。</p>
- </div>
- <div class="card-box">
- <span class="eyebrow accent">02</span>
- <h3 style="margin-top:8px;">AIがコンテンツ制作を支援</h3>
- <p>投稿文生成、口コミ返信、SEO記事構成をAIがサポート。追加料金なしで標準搭載しているため、ネタ切れや文章作成の負担から解放されます。</p>
- </div>
- <div class="card-box">
- <span class="eyebrow accent">03</span>
- <h3 style="margin-top:8px;">チャネルを横断した自動連携</h3>
- <p>ブログ公開 → SNS告知 → GBP配信 → LINE配信が自動で連携。一度の投稿で、すべてのチャネルに情報が行き渡ります。</p>
- </div>
- </div>
- </div>
+<!-- Features -->
+<section class="features-section" id="features">
+  <div class="section">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">4つの領域を、<br>ひとつの管理画面で。</h2>
+    <p class="section-desc">必要な機能はすべて揃っています。AIが投稿文も口コミ返信もサポートするから、少人数でも本格的なマーケティングが回せます。</p>
+
+    <div class="feature-cards">
+      <div class="feature-card" data-domain="sns">
+        <span class="fc-badge">SNS管理</span>
+        <h3>マルチSNS投稿・分析</h3>
+        <p>Instagram・X・Facebook・TikTokへの予約投稿、エンゲージメント管理、クロスプラットフォーム分析をワンストップで。</p>
+        <div class="fc-list">
+          <div class="fc-list-item">カレンダーUIで予約投稿をドラッグ&amp;ドロップ管理</div>
+          <div class="fc-list-item">全SNSのコメント・DMを統合受信箱で一元管理</div>
+          <div class="fc-list-item">AI投稿文生成・ハッシュタグ提案</div>
+          <div class="fc-list-item">承認ワークフロー（代理店・チーム運用対応）</div>
+          <div class="fc-list-item">フォロワー推移・エンゲージメント率の横断レポート</div>
+        </div>
+      </div>
+
+      <div class="feature-card" data-domain="line">
+        <span class="fc-badge">LINE CRM</span>
+        <h3>Lステップ水準のLINE運用</h3>
+        <p>タグ管理、セグメント配信、シナリオ配信、行動スコアリング。LINE公式アカウントの可能性を最大限に引き出します。</p>
+        <div class="fc-list">
+          <div class="fc-list-item">ビジュアルフローでシナリオ配信を構築</div>
+          <div class="fc-list-item">タグ×属性×行動のセグメント配信</div>
+          <div class="fc-list-item">セグメント別リッチメニュー自動切替</div>
+          <div class="fc-list-item">回答フォーム・カレンダー予約・自動応答</div>
+          <div class="fc-list-item">流入経路分析で広告・媒体別の効果を可視化</div>
+        </div>
+      </div>
+
+      <div class="feature-card" data-domain="gbp">
+        <span class="fc-badge">GBP / MEO</span>
+        <h3>Googleビジネスプロフィール管理</h3>
+        <p>GBP投稿の予約管理、口コミ一元管理、検索順位トラッキング。MEO対策の実務をすべてカバーします。</p>
+        <div class="fc-list">
+          <div class="fc-list-item">GBP投稿の予約・SNSとの同時配信</div>
+          <div class="fc-list-item">口コミの即時通知・AI返信文の自動生成</div>
+          <div class="fc-list-item">指定キーワードの検索順位を日次トラッキング</div>
+          <div class="fc-list-item">店舗情報（営業時間・写真）の一括更新</div>
+          <div class="fc-list-item">インサイト分析（表示回数・アクション数）</div>
+        </div>
+      </div>
+
+      <div class="feature-card" data-domain="blog">
+        <span class="fc-badge">ブログ</span>
+        <h3>ブログ記事の投稿・SEO</h3>
+        <p>WordPressやnoteへの予約投稿と、公開時のSNS自動シェア。AI記事生成でコンテンツマーケティングを加速します。</p>
+        <div class="fc-list">
+          <div class="fc-list-item">WordPress REST API連携で予約投稿</div>
+          <div class="fc-list-item">公開と同時にSNS・LINE・GBPへ自動告知</div>
+          <div class="fc-list-item">AIによるSEO記事の構成案・本文生成</div>
+          <div class="fc-list-item">SEOチェッカー（タイトル・見出し・キーワード）</div>
+          <div class="fc-list-item">コンテンツカレンダーでネタ管理・ステータス管理</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cross-channel -->
+    <div class="cross-card">
+      <span class="section-label" style="margin-bottom:0.5rem;display:block">Cross-Channel</span>
+      <h3>チャネルをまたいだ自動化</h3>
+      <p>1つのコンテンツから、各チャネルに最適化されたアウトプットをAIが一括生成。チャネル間の連携も自動で動きます。</p>
+      <div class="cross-flow">
+        <span class="cross-node" style="background:var(--amber-light);color:var(--amber)">ブログ記事を公開</span>
+        <span class="cross-arrow">→</span>
+        <span class="cross-node" style="background:var(--pink-light);color:var(--pink)">SNSに自動告知</span>
+        <span class="cross-arrow">→</span>
+        <span class="cross-node" style="background:var(--blue-light);color:var(--blue)">GBPにも同時投稿</span>
+        <span class="cross-arrow">→</span>
+        <span class="cross-node" style="background:var(--green-light);color:var(--green)">LINEで興味層に配信</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- 対応領域 -->
-<section class="block">
- <div class="wrap">
- <div class="sec-head">
- <span class="eyebrow">Scope</span>
- <h2>対応領域</h2>
- </div>
- <div class="ch-grid">
+<!-- Pricing -->
+<section class="section" id="pricing">
+  <div class="section-label">Pricing</div>
+  <h2 class="section-title">サービス料金だけ。<br>追加費用はかかりません。</h2>
+  <p class="section-desc">AI機能もすべてプランに含まれています。初期費用は0円。14日間の無料トライアルからどうぞ。</p>
 
- <div class="ch-card ch-sns">
- <span class="ch-label">SNS</span>
- <h3>SNS管理</h3>
- <p class="ch-sub">マルチSNS投稿・分析</p>
- <ul>
- <li>カレンダーUIでの予約投稿</li>
- <li>統合受信箱（コメント・DMを一元管理）</li>
- <li>AI投稿文生成</li>
- <li>承認ワークフロー</li>
- </ul>
- </div>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-name">ライト</div>
+      <div class="pricing-price">
+        <span class="pricing-yen">¥</span>
+        <span class="pricing-amount">9,800</span>
+      </div>
+      <div class="pricing-period">月額・税抜</div>
+      <div class="pricing-desc">個人店舗や小規模ビジネスに。まずはここから。</div>
+      <div class="pricing-features">
+        <div class="pf-item">SNS 3アカウント</div>
+        <div class="pf-item">GBP 1拠点</div>
+        <div class="pf-item">LINE配信 月1,000通</div>
+        <div class="pf-item">AI投稿文生成 月30回</div>
+        <div class="pf-item">AI口コミ返信 月10回</div>
+        <div class="pf-item">統合カレンダー</div>
+      </div>
+      <a href="#cta" class="pricing-btn">無料で試す</a>
+    </div>
 
- <div class="ch-card ch-line">
- <span class="ch-label">LINE</span>
- <h3>LINE CRM</h3>
- <p class="ch-sub">Lステップ水準のLINE運用</p>
- <ul>
- <li>シナリオ配信（ステップ配信）</li>
- <li>セグメント配信</li>
- <li>リッチメニュー自動切替</li>
- <li>流入経路分析</li>
- </ul>
- </div>
+    <div class="pricing-card featured">
+      <div class="pricing-name">スタンダード</div>
+      <div class="pricing-price">
+        <span class="pricing-yen">¥</span>
+        <span class="pricing-amount">19,800</span>
+      </div>
+      <div class="pricing-period">月額・税抜</div>
+      <div class="pricing-desc">複数店舗・チームでの本格運用に。全機能が解放されます。</div>
+      <div class="pricing-features">
+        <div class="pf-item">SNS 5アカウント</div>
+        <div class="pf-item">GBP 3拠点</div>
+        <div class="pf-item">LINE配信 月15,000通</div>
+        <div class="pf-item">ブログ連携（WordPress / note）</div>
+        <div class="pf-item">AI投稿文生成 月100回</div>
+        <div class="pf-item">AI口コミ返信 月30回</div>
+        <div class="pf-item">AI記事構成案 月5回</div>
+        <div class="pf-item">シナリオ配信 無制限</div>
+        <div class="pf-item">承認ワークフロー</div>
+      </div>
+      <a href="#cta" class="pricing-btn">無料で試す</a>
+    </div>
 
- <div class="ch-card ch-gbp">
- <span class="ch-label">Google</span>
- <h3>GBP / MEO</h3>
- <p class="ch-sub">Googleビジネスプロフィール管理</p>
- <ul>
- <li>GBP投稿の予約配信</li>
- <li>口コミへのAI返信</li>
- <li>検索順位トラッキング</li>
- <li>インサイト分析</li>
- </ul>
- </div>
+    <div class="pricing-card">
+      <div class="pricing-name">プロ</div>
+      <div class="pricing-price">
+        <span class="pricing-yen">¥</span>
+        <span class="pricing-amount">34,800</span>
+      </div>
+      <div class="pricing-period">月額・税抜</div>
+      <div class="pricing-desc">多店舗展開・高度な分析が必要なビジネスに。</div>
+      <div class="pricing-features">
+        <div class="pf-item">SNS 10アカウント</div>
+        <div class="pf-item">GBP 10拠点</div>
+        <div class="pf-item">LINE配信 月50,000通</div>
+        <div class="pf-item">AI機能 無制限</div>
+        <div class="pf-item">流入経路分析</div>
+        <div class="pf-item">行動スコアリング</div>
+        <div class="pf-item">自動レポート生成</div>
+        <div class="pf-item">競合分析</div>
+      </div>
+      <a href="#cta" class="pricing-btn">無料で試す</a>
+    </div>
 
- <div class="ch-card ch-blog">
- <span class="ch-label">Blog</span>
- <h3>ブログ</h3>
- <p class="ch-sub">ブログ記事の投稿・SEO</p>
- <ul>
- <li>WordPress連携</li>
- <li>公開時にSNS・LINE・GBPへ自動告知</li>
- <li>AI記事生成</li>
- <li>SEOチェッカー</li>
- </ul>
- </div>
-
- </div>
- </div>
+    <div class="pricing-card">
+      <div class="pricing-name">エージェンシー</div>
+      <div class="pricing-price">
+        <span class="pricing-yen">¥</span>
+        <span class="pricing-amount">49,800</span>
+        <span class="pricing-period" style="margin-left:0.2rem">〜</span>
+      </div>
+      <div class="pricing-period">月額・税抜</div>
+      <div class="pricing-desc">マーケティング代理店向け。自社ブランドで提供できます。</div>
+      <div class="pricing-features">
+        <div class="pf-item">クライアント数 無制限</div>
+        <div class="pf-item">ホワイトラベル対応</div>
+        <div class="pf-item">AI機能 無制限</div>
+        <div class="pf-item">カスタムドメイン</div>
+        <div class="pf-item">クライアント別AI枠割当</div>
+        <div class="pf-item">ホワイトラベルレポート</div>
+        <div class="pf-item">優先サポート</div>
+      </div>
+      <a href="#cta" class="pricing-btn">お問い合わせ</a>
+    </div>
+  </div>
+  <p class="pricing-note">※ LINE公式アカウントの月額（LINE社への支払い）は別途必要です。これはどのツールを使っても共通の費用です。</p>
 </section>
 
-<!-- 料金プラン -->
-<section class="block">
- <div class="wrap">
- <div class="sec-head">
- <span class="eyebrow">Pricing</span>
- <h2>料金プラン</h2>
- </div>
- <div class="price-grid">
-
- <div class="price-card">
- <div class="price-name">ライト</div>
- <div class="price-amount">¥9,800<span class="per">/月</span></div>
- <ul>
- <li>SNS 3アカウント</li>
- <li>GBP 1拠点</li>
- <li>LINE 月1,000通</li>
- <li>AI投稿文 月30回</li>
- <li>AI口コミ返信 月10回</li>
- </ul>
- </div>
-
- <div class="price-card popular">
- <span class="price-badge">人気プラン</span>
- <div class="price-name">スタンダード</div>
- <div class="price-amount">¥19,800<span class="per">/月</span></div>
- <ul>
- <li>SNS 5アカウント</li>
- <li>GBP 3拠点</li>
- <li>LINE 月15,000通</li>
- <li>ブログ連携</li>
- <li>AI投稿文 月100回</li>
- <li>AI口コミ返信 月30回</li>
- <li>シナリオ配信 無制限</li>
- </ul>
- </div>
-
- <div class="price-card">
- <div class="price-name">プロ</div>
- <div class="price-amount">¥34,800<span class="per">/月</span></div>
- <ul>
- <li>SNS 10アカウント</li>
- <li>GBP 10拠点</li>
- <li>LINE 月50,000通</li>
- <li>AI機能 無制限</li>
- <li>行動スコアリング</li>
- <li>自動レポート</li>
- </ul>
- </div>
-
- <div class="price-card">
- <div class="price-name">エージェンシー</div>
- <div class="price-amount">¥49,800〜<span class="per">/月</span></div>
- <ul>
- <li>クライアント 無制限</li>
- <li>ホワイトラベル対応</li>
- <li>AI機能 無制限</li>
- <li>カスタムドメイン</li>
- <li>優先サポート</li>
- </ul>
- </div>
-
- </div>
- <p class="price-note">※ 表示価格はすべて税別です。<br>※ LINE公式アカウントの月額（LINE社へのお支払い）は別途必要となります。</p>
- </div>
+<!-- Target -->
+<section class="section" style="padding-top:0">
+  <div class="section-label">Who it's for</div>
+  <h2 class="section-title">こんなビジネスに最適です</h2>
+  <div class="target-grid">
+    <div class="target-card">
+      <h3>美容サロン・エステ</h3>
+      <p>予約管理×ビフォーアフター投稿×口コミ促進の好循環を自動化</p>
+    </div>
+    <div class="target-card">
+      <h3>飲食店・カフェ</h3>
+      <p>日替わり情報をSNS+GBP+LINEに一括配信。リピーター育成もLINEで</p>
+    </div>
+    <div class="target-card">
+      <h3>クリニック・歯科</h3>
+      <p>MEO上位表示が集患の要。予約リマインドで無断キャンセルを削減</p>
+    </div>
+    <div class="target-card">
+      <h3>スクール・習い事</h3>
+      <p>体験申込→入会のファネルをLINEシナリオで自動化</p>
+    </div>
+    <div class="target-card">
+      <h3>不動産</h3>
+      <p>物件情報の多チャネル展開と、追客のLINE自動化が強力に機能</p>
+    </div>
+    <div class="target-card">
+      <h3>マーケティング代理店</h3>
+      <p>複数クライアントを一元管理。ホワイトラベルで自社サービス化</p>
+    </div>
+  </div>
 </section>
 
-<!-- 対象業種 -->
-<section class="block">
- <div class="wrap">
- <div class="sec-head">
- <span class="eyebrow">Industries</span>
- <h2>こんな業種におすすめです</h2>
- </div>
- <div class="ind-grid">
- <div class="ind-item">美容サロン</div>
- <div class="ind-item">飲食店・カフェ</div>
- <div class="ind-item">クリニック・歯科</div>
- <div class="ind-item">スクール・習い事</div>
- <div class="ind-item">不動産</div>
- <div class="ind-item">マーケティング代理店</div>
- </div>
- </div>
+<!-- FAQ -->
+<section class="section" id="faq" style="padding-top:0">
+  <div class="section-label">FAQ</div>
+  <h2 class="section-title">よくある質問</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q">LIF-Hubの月額以外にかかる費用はありますか？</button>
+      <div class="faq-a">LIF-Hubのサービス料金のみでご利用いただけます。AI機能もプランに含まれています。唯一、LINE公式アカウントの月額（LINE社への支払い、月5,000円〜）が別途必要ですが、これはどのLINEツールを使っても共通の費用です。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Lステップからの移行はできますか？</button>
+      <div class="faq-a">はい。友だちデータやタグ情報のCSVインポートに対応しています。シナリオの再構築サポートも行っていますので、お気軽にご相談ください。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">SNSアカウントの接続は難しいですか？</button>
+      <div class="faq-a">各SNSの公式APIを利用しているため、OAuthログイン（SNSアカウントでログイン）するだけで接続が完了します。技術的な知識は不要です。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">複数店舗を管理できますか？</button>
+      <div class="faq-a">スタンダードプラン以上で複数店舗・複数ブランドの管理が可能です。店舗ごとにGBPやSNSアカウントを紐付けて、統合ダッシュボードで横断的に分析できます。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">契約期間の縛りはありますか？</button>
+      <div class="faq-a">最低利用期間はありません。月単位でいつでも解約可能です。14日間の無料トライアル中に解約すれば、一切料金はかかりません。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">代理店としてクライアントに提供できますか？</button>
+      <div class="faq-a">エージェンシープランでホワイトラベル対応しています。自社ブランドのロゴ・ドメインで、あなた自身のSaaSとしてクライアントに提供できます。</div>
+    </div>
+  </div>
 </section>
 
-<!-- お問い合わせCTA -->
-<section class="top-cta">
- <div class="wrap">
- <h2>14日間、すべての機能を無料で。</h2>
- <p>クレジットカードの登録は不要です。まずは実際の管理画面に触れて、4チャネルがひとつにまとまる運用を体験してください。導入のご相談・デモのご依頼もお気軽にどうぞ。</p>
- <a href="/contact" class="top-cta-btn">無料トライアルを申し込む</a>
- </div>
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="cta-inner">
+    <h2>14日間、すべての機能を無料で。</h2>
+    <p>クレジットカード不要で始められます。まずは触ってみてください。</p>
+    <a href="#" class="btn btn-primary" style="font-size:1rem;padding:0.85rem 2.5rem;">無料トライアルを始める →</a>
+  </div>
 </section>
 
-<footer>
- <div class="wrap foot">
- <div>
- <img src="/logo.png" alt="LIF Logo" class="mark-logo" style="height:20px; margin-bottom:8px;">
- <div>© 2026 株式会社LIF（リフ） / lif.jp</div>
- </div>
- <div class="foot-links">
- <a href="/blog">ブログ</a>
- <a href="/company">会社概要</a>
- <a href="/contact">お問い合わせ</a>
- <a href="/privacy">プライバシーポリシー</a>
- </div>
- </div>
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-logo">LIF-Hub</div>
+  <div class="footer-copy">© 2026 株式会社LIF. All rights reserved.</div>
 </footer>
 
 <script>
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-const navItems = document.querySelectorAll('.nav-item');
+(function() {
+  document.querySelectorAll('.faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.parentElement;
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(el) { el.classList.remove('open'); });
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
 
-menuToggle.addEventListener('click', () => {
- menuToggle.classList.toggle('active');
- navLinks.classList.toggle('active');
-});
-
-navItems.forEach(item => {
- item.addEventListener('click', () => {
- menuToggle.classList.remove('active');
- navLinks.classList.remove('active');
- });
-});
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var id = this.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+})();
 </script>
 
 </body>
