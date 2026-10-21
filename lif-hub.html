@@ -474,10 +474,11 @@ body {
 
 /* Pricing */
 .pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1rem;
+  display: flex;
+  gap: 1.5rem;
   margin-top: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .pricing-card {
   background: var(--surface);
@@ -493,7 +494,7 @@ body {
   position: relative;
 }
 .pricing-card.featured::after {
-  content: "\4EBA\6C17";
+  content: "\304A\3059\3059\3081";
   position: absolute;
   top: -10px;
   left: 50%;
@@ -697,6 +698,93 @@ body {
   font-size: 0.75rem;
   color: var(--fg-muted);
 }
+
+/* Responsive: Pricing cards */
+@media (max-width: 700px) {
+  .pricing-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .pricing-grid .pricing-card {
+    max-width: 100% !important;
+    width: 100%;
+  }
+}
+
+/* Responsive: Hero section fine-tuning */
+@media (max-width: 600px) {
+  .hero {
+    padding: 4rem 1rem 3rem;
+  }
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+  .hero-sub {
+    font-size: 0.9rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+  .channels {
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+  }
+  .channel {
+    font-size: 0.75rem;
+  }
+}
+
+/* Responsive: Problem grid */
+@media (max-width: 500px) {
+  .problem-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive: Target grid */
+@media (max-width: 500px) {
+  .target-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive: Cross-channel flow */
+@media (max-width: 600px) {
+  .cross-flow {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .cross-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+/* Responsive: Footer */
+@media (max-width: 500px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+}
+
+/* Responsive: Section padding */
+@media (max-width: 600px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+  .cta-inner {
+    padding: 3rem 1rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -762,8 +850,8 @@ body {
       <circle cx="28" cy="204" r="4" fill="#ccc"/>
       <text x="40" y="236" font-size="11" fill="#666" font-weight="500" font-family="system-ui">個別トーク</text>
       <circle cx="28" cy="232" r="4" fill="#ccc"/>
-      <rect x="52" y="224" width="14" height="14" rx="7" fill="#EF4444"/>
-      <text x="56" y="234" font-size="8" fill="#fff" font-weight="700" font-family="system-ui">3</text>
+      <rect x="110" y="224" width="14" height="14" rx="7" fill="#EF4444"/>
+      <text x="114" y="234" font-size="8" fill="#fff" font-weight="700" font-family="system-ui">3</text>
       <text x="40" y="264" font-size="11" fill="#666" font-weight="500" font-family="system-ui">自動応答</text>
       <circle cx="28" cy="260" r="4" fill="#ccc"/>
       <text x="40" y="292" font-size="11" fill="#666" font-weight="500" font-family="system-ui">リッチメニュー</text>
@@ -974,7 +1062,7 @@ body {
   <h2 class="section-title">先着10名限定。<br>初期登録は無料です。</h2>
   <p class="section-desc">現在、LINE CRM機能を先行リリース中。初期登録いただいた先着10名の方は、無料でご利用いただけます。</p>
 
-  <div class="pricing-grid" style="max-width:720px;margin:0 auto;">
+  <div class="pricing-grid" style="max-width:720px;margin-left:auto;margin-right:auto;">
     <div class="pricing-card featured" style="flex:1;max-width:360px;">
       <div class="pricing-name">LINE CRM</div>
       <div class="pricing-price">
