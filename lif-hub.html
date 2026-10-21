@@ -1,28 +1,7 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LIF-Hub｜SNS・LINE・MEO・ブログを統合するマーケティングプラットフォーム｜株式会社LIF（リフ）</title>
-
-<!-- ファビコン設定 -->
-<link rel="icon" href="/favicon.png" type="image/png">
-<meta name="theme-color" content="#2855FF">
-
-<meta name="description" content="LIF-HubはSNS投稿管理・LINE CRM・Googleビジネスプロフィール・ブログ投稿をひとつの管理画面に統合するマーケティングプラットフォーム。AI機能を標準搭載し、月額9,800円から利用できます。">
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-40TGKWN7N4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-40TGKWN7N4');
-</script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>LIF-Hub</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700;800;900&display=swap">
 
 <style>
 /* Layout: SaaS landing page — hero, features, pricing, CTA */
@@ -106,25 +85,36 @@
   color-scheme: dark;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+* { box-sizing: border-box; }
 body {
   background: var(--bg);
   color: var(--fg);
   font-family: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
   line-height: 1.7;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 0;
   -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 100;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
 }
 
 /* Nav */
 .nav {
   position: sticky;
-  top: 0;
+  top: env(safe-area-inset-top, 0px);
   z-index: 50;
   background: var(--nav-bg);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 0;
 }
 .nav-inner {
   max-width: 1080px;
@@ -143,7 +133,6 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-decoration: none;
 }
 .nav-links {
   display: flex;
@@ -176,7 +165,7 @@ body {
 .section {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 5rem 1rem;
+  padding-block: 5rem;
 }
 .section-label {
   font-size: 0.72rem;
@@ -205,7 +194,7 @@ body {
 .hero {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 6rem 1rem 5rem;
+  padding-block: 6rem 5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -335,9 +324,7 @@ body {
 }
 
 /* Features */
-.features-section {
-  background: var(--bg-alt);
-}
+.features-section { background: var(--bg-alt); margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px))); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 .feature-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -399,7 +386,7 @@ body {
   line-height: 1.6;
 }
 .fc-list-item::before {
-  content: "\2713";
+  content: "✓";
   position: absolute;
   left: 0;
   font-weight: 700;
@@ -472,7 +459,7 @@ body {
   position: relative;
 }
 .pricing-card.featured::after {
-  content: "\4EBA\6C17";
+  content: "人気";
   position: absolute;
   top: -10px;
   left: 50%;
@@ -526,7 +513,7 @@ body {
   line-height: 1.5;
 }
 .pf-item::before {
-  content: "\2713";
+  content: "✓";
   position: absolute;
   left: 0;
   color: var(--accent);
@@ -622,7 +609,7 @@ body {
   color: var(--fg-muted);
   transition: transform 0.2s;
 }
-.faq-item.open .faq-q::after { content: "\2212"; }
+.faq-item.open .faq-q::after { content: "−"; }
 .faq-a {
   font-size: 0.85rem;
   color: var(--fg-secondary);
@@ -635,11 +622,15 @@ body {
 /* CTA */
 .cta-section {
   background: var(--bg-alt);
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
 .cta-inner {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 5rem 1rem;
+  padding-block: 5rem;
   text-align: center;
 }
 .cta-inner h2 {
@@ -659,7 +650,7 @@ body {
 .footer {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 3rem 1rem;
+  padding-block: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -677,13 +668,11 @@ body {
   color: var(--fg-muted);
 }
 </style>
-</head>
-<body>
 
 <!-- Navigation -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">LIF-Hub</a>
+    <div class="nav-logo">LIF-Hub</div>
     <div class="nav-links">
       <a href="#features">機能</a>
       <a href="#pricing">料金</a>
@@ -741,7 +730,7 @@ body {
 
 <!-- Features -->
 <section class="features-section" id="features">
-  <div class="section">
+  <div class="section" style="padding-block:5rem">
     <div class="section-label">Features</div>
     <h2 class="section-title">4つの領域を、<br>ひとつの管理画面で。</h2>
     <p class="section-desc">必要な機能はすべて揃っています。AIが投稿文も口コミ返信もサポートするから、少人数でも本格的なマーケティングが回せます。</p>
@@ -752,7 +741,7 @@ body {
         <h3>マルチSNS投稿・分析</h3>
         <p>Instagram・X・Facebook・TikTokへの予約投稿、エンゲージメント管理、クロスプラットフォーム分析をワンストップで。</p>
         <div class="fc-list">
-          <div class="fc-list-item">カレンダーUIで予約投稿をドラッグ&amp;ドロップ管理</div>
+          <div class="fc-list-item">カレンダーUIで予約投稿をドラッグ&ドロップ管理</div>
           <div class="fc-list-item">全SNSのコメント・DMを統合受信箱で一元管理</div>
           <div class="fc-list-item">AI投稿文生成・ハッシュタグ提案</div>
           <div class="fc-list-item">承認ワークフロー（代理店・チーム運用対応）</div>
@@ -1015,5 +1004,4 @@ body {
 })();
 </script>
 
-</body>
-</html>
+</body></html>
