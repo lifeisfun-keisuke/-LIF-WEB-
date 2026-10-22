@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>利用規約｜LIF-Hub</title>
+
+<!-- ファビコン設定 -->
+<link rel="icon" href="/favicon.png" type="image/png">
+<meta name="theme-color" content="#0b7a46">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-40TGKWN7N4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-40TGKWN7N4');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #FAFAFA;
+  --fg: #111111;
+  --fg-secondary: #555550;
+  --fg-muted: #888883;
+  --surface: #FFFFFF;
+  --border: #E5E5E0;
+  --accent: #0b7a46;
+  --accent-hover: #096338;
+  --accent-light: #E8FAF0;
+  --nav-bg: rgba(250,250,250,0.85);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Nav */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+/* Main content */
+.page-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.page-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+
+.page-date {
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+  margin-bottom: 2.5rem;
+}
+
+.chapter-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--fg);
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+.article-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.tos-text {
+  font-size: 0.92rem;
+  color: var(--fg-secondary);
+  line-height: 1.9;
+  margin-bottom: 0.8rem;
+}
+
+.tos-list {
+  list-style: none;
+  counter-reset: tos-item;
+  padding-left: 0;
+  margin-bottom: 0.8rem;
+}
+
+.tos-list > li {
+  counter-increment: tos-item;
+  font-size: 0.92rem;
+  color: var(--fg-secondary);
+  line-height: 1.9;
+  padding-left: 1.8em;
+  position: relative;
+  margin-bottom: 0.4rem;
+}
+
+.tos-list > li::before {
+  content: counter(tos-item) ".";
+  position: absolute;
+  left: 0;
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.tos-sublist {
+  list-style: none;
+  counter-reset: tos-sub;
+  padding-left: 0;
+  margin-top: 0.3rem;
+}
+
+.tos-sublist > li {
+  counter-increment: tos-sub;
+  font-size: 0.92rem;
+  color: var(--fg-secondary);
+  line-height: 1.9;
+  padding-left: 2em;
+  position: relative;
+  margin-bottom: 0.2rem;
+}
+
+.tos-sublist > li::before {
+  content: "(" counter(tos-sub) ")";
+  position: absolute;
+  left: 0;
+  color: var(--fg-muted);
+}
+
+.tos-appendix {
+  font-size: 0.92rem;
+  color: var(--fg-secondary);
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Footer */
+.footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  font-size: 0.82rem;
+  color: var(--fg-muted);
+}
+.footer-logo {
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+.footer a {
+  color: var(--fg-muted);
+  text-decoration: none;
+}
+.footer a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .page-content { padding: 2rem 1rem 3rem; }
+  .page-title { font-size: 1.3rem; }
+  .chapter-title { font-size: 1.1rem; }
+  .footer { flex-direction: column; text-align: center; gap: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/lif-hub" class="nav-logo">LIF-Hub</a>
+  </div>
+</nav>
+
+<main class="page-content">
+  <h1 class="page-title">LIF-Hub 利用規約</h1>
+  <p class="page-date">2026年　月　日 施行</p>
+
+  <p class="tos-text">この利用規約（以下「本規約」）は、株式会社LIF（以下「当社」）が提供するクラウドサービス「LIF-Hub」（以下「本サービス」）の利用条件を定めるものです。本サービスを利用するすべての方は、本規約に同意したうえで利用するものとします。</p>
+
+  <!-- 第1章 総則 -->
+  <h2 class="chapter-title">第1章 総則</h2>
+
+  <h3 class="article-title">第1条（定義）</h3>
+  <ol class="tos-list">
+    <li>「本サービス」とは、当社が「LIF-Hub」の名称で提供する、LINE公式アカウントの顧客管理・メッセージ配信等のマーケティング管理機能を備えたクラウドサービスをいいます。</li>
+    <li>「契約者」とは、本規約に同意し、当社所定の方法で本サービスの利用を申し込み、当社が承諾した法人または個人事業主をいいます。</li>
+    <li>「利用者」とは、契約者が本サービスの利用を許可した役員・従業員その他の者をいいます。</li>
+    <li>「アカウント」とは、利用者が本サービスにログインするためのメールアドレス、パスワードその他の認証情報をいいます。</li>
+    <li>「外部サービス」とは、LINE公式アカウント、Messaging APIその他、本サービスと連携して利用する第三者のサービスをいいます。</li>
+    <li>「契約者データ」とは、契約者または利用者が本サービスに登録・送信したデータ、および外部サービスとの連携により本サービスに取り込まれたデータ（友だち情報、メッセージ履歴等を含みます）をいいます。</li>
+  </ol>
+
+  <h3 class="article-title">第2条（本規約の適用）</h3>
+  <ol class="tos-list">
+    <li>本規約は、当社と契約者・利用者との間の本サービスの利用に関わる一切の関係に適用されます。</li>
+    <li>当社が本サービス上やウェブサイトで掲載する料金表・各種ルール・注意事項は、本規約の一部を構成します。本規約とそれらの内容が異なる場合は、それらの内容が優先します。</li>
+    <li>契約者は、利用者に本規約を守らせるものとし、利用者の行為について自らの行為として責任を負います。</li>
+  </ol>
+
+  <!-- 第2章 契約・料金 -->
+  <h2 class="chapter-title">第2章 契約・料金</h2>
+
+  <h3 class="article-title">第3条（申込みと契約の成立）</h3>
+  <ol class="tos-list">
+    <li>本サービスの利用を希望する者は、本規約に同意のうえ、当社所定の方法で申し込むものとします。</li>
+    <li>利用契約は、当社が申込みを承諾し、アカウントを発行した時点で成立します。</li>
+    <li>当社は、申込内容に虚偽がある場合、過去に本規約違反があった場合その他当社が不適当と判断した場合、理由を開示せずに申込みをお断りすることがあります。</li>
+  </ol>
+
+  <h3 class="article-title">第4条（初期無料枠および無料トライアル）</h3>
+  <ol class="tos-list">
+    <li>当社は、サービス開始にあたり、先着で当社が別途定める人数の契約者に対し、利用料金を無料として本サービスを提供します（以下「初期無料枠」）。初期無料枠の人数および受付状況は、当社のウェブサイトに掲載します。</li>
+    <li>初期無料枠の契約者は、当社が有料プランへの移行を通知するまで、無料で本サービスを利用できます。当社が有料プランへの移行を求める場合は、移行日の30日前までに条件を通知し、契約者が移行日までに解約しない場合は有料契約に移行するものとします。</li>
+    <li>初期無料枠の定員に達した後に新たに申し込む契約者は、契約成立日から14日間、本サービスを無料で利用できます（以下「無料トライアル期間」）。無料トライアル期間の利用は、1契約者につき1回限りとします。</li>
+    <li>無料トライアル期間の開始時に、契約者は支払いに利用するクレジットカードを登録するものとします。</li>
+    <li>無料トライアル期間の終了日までに第7条の解約手続きを行わない場合、無料トライアル期間の終了日の翌日から自動的に有料の利用契約に移行し、登録されたクレジットカードで利用料金の決済が行われます。</li>
+    <li>当社は、無料トライアル期間が終わる前に、有料契約へ移行する日と料金をメール等でお知らせします。</li>
+  </ol>
+
+  <h3 class="article-title">第5条（利用料金と支払い）</h3>
+  <ol class="tos-list">
+    <li>利用料金は月額制とし、金額は当社のウェブサイトに掲載する料金表に定めるとおりとします（消費税込み）。</li>
+    <li>支払い方法は、当社が指定する決済代行事業者（Stripe）を通じたクレジットカード決済とします。当社はカード番号を自ら保持しません。</li>
+    <li>利用料金は、有料契約の開始日に初回分を、以後は毎月同じ日に翌1か月分を前払いで決済します。</li>
+    <li>支払済みの利用料金は、本規約に定める場合を除き返金しません。月の途中で解約した場合も、日割りによる返金は行いません。</li>
+    <li>LINE公式アカウントの月額料金・メッセージ配信料金など外部サービスの利用料は利用料金に含まれず、契約者が各事業者に直接支払うものとします。</li>
+    <li>決済ができなかった場合、当社は契約者に通知のうえ、支払いが確認できるまで本サービスの全部または一部の利用を停止することがあります。</li>
+    <li>当社は、利用料金を変更する場合、変更の30日前までに契約者に通知します。</li>
+  </ol>
+
+  <h3 class="article-title">第6条（契約期間と自動更新）</h3>
+  <ol class="tos-list">
+    <li>有料契約の期間は、決済日から1か月とします。</li>
+    <li>契約者が解約手続きを行わない限り、契約は同じ条件で1か月ごとに自動で更新されます。最低契約期間はありません。</li>
+  </ol>
+
+  <h3 class="article-title">第7条（解約）</h3>
+  <ol class="tos-list">
+    <li>契約者は、本サービスの管理画面内のマイページから、いつでも解約できます。</li>
+    <li>解約した場合も、支払済みの契約期間の最終日まで本サービスを利用でき、次回以降の請求は行いません。</li>
+    <li>無料トライアル期間中に解約した場合、利用料金は一切発生しません。初期無料枠の契約者が解約した場合も同様とします。</li>
+    <li>当社は、契約終了日から30日を過ぎた契約者データを削除できるものとします。契約者は、必要なデータ（友だち一覧のCSV等）を契約期間中に自ら保存するものとします。</li>
+  </ol>
+
+  <!-- 第3章 利用上のルール -->
+  <h2 class="chapter-title">第3章 利用上のルール</h2>
+
+  <h3 class="article-title">第8条（アカウントの管理）</h3>
+  <ol class="tos-list">
+    <li>契約者および利用者は、自己の責任でアカウントを管理し、第三者に使用させたり、貸与・譲渡したりしてはなりません。</li>
+    <li>アカウントを使って行われた操作は、そのアカウントを持つ利用者によるものとみなします。</li>
+    <li>アカウントの不正使用やそのおそれに気づいた場合は、ただちに当社に連絡し、当社の指示に従うものとします。</li>
+  </ol>
+
+  <h3 class="article-title">第9条（外部サービスの利用）</h3>
+  <ol class="tos-list">
+    <li>契約者は、自らの責任と費用でLINE公式アカウントその他の外部サービスを用意し、その利用規約・ガイドラインを守るものとします。</li>
+    <li>外部サービスの仕様変更、提供停止、アカウントの停止・凍結などにより本サービスの機能が使えなくなった場合、当社は責任を負いません。</li>
+    <li>本サービスからのメッセージ配信は、契約者のLINE公式アカウントから契約者の名義で行われます。配信内容とその結果については、契約者が責任を負います。</li>
+  </ol>
+
+  <h3 class="article-title">第10条（禁止事項）</h3>
+  <p class="tos-text">契約者および利用者は、本サービスの利用にあたり、次の行為をしてはなりません。</p>
+  <ol class="tos-list">
+    <li>法令、公序良俗、外部サービスの利用規約に違反する行為</li>
+    <li>受信者の同意のない広告・宣伝の送信その他、特定電子メール法等に反する配信</li>
+    <li>虚偽・誤解を招く表示、景品表示法に反する表示を含む配信</li>
+    <li>第三者の知的財産権、プライバシー、名誉その他の権利を侵害する行為</li>
+    <li>本人の同意なく取得した個人情報を登録・利用する行為</li>
+    <li>本サービスのサーバーやネットワークに過度な負荷をかける行為、不正アクセス、リバースエンジニアリング</li>
+    <li>本サービスを第三者に再販売・貸与する行為（当社が書面で承諾した場合を除きます）</li>
+    <li>反社会的勢力への利益供与その他の協力行為</li>
+    <li>その他、当社が不適切と判断する行為</li>
+  </ol>
+
+  <h3 class="article-title">第11条（契約者データの取扱い）</h3>
+  <ol class="tos-list">
+    <li>契約者データの権利は契約者に帰属します。</li>
+    <li>当社は、契約者データを本サービスの提供、障害対応、サポート、機能改善のために必要な範囲でのみ利用し、法令に基づく場合を除き第三者に開示しません。ただし、個人や契約者を特定できない形に加工した統計情報は、本サービスの改善に利用することがあります。</li>
+    <li>当社は、本サービスの運営に必要な範囲で、クラウドサーバー等の外部事業者に契約者データの保管を委託することがあります。</li>
+    <li>契約者は、友だち等の個人情報を個人情報保護法その他の法令に従って取得・利用する責任を負います。</li>
+    <li>当社による個人情報の取扱いは、別に定めるプライバシーポリシーによります。</li>
+    <li>当社は契約者データの安全な保管に努めますが、契約者は重要なデータを自ら定期的に保存するものとします。</li>
+  </ol>
+
+  <!-- 第4章 サービス運営と責任 -->
+  <h2 class="chapter-title">第4章 サービス運営と責任</h2>
+
+  <h3 class="article-title">第12条（サービスの変更・停止・終了）</h3>
+  <ol class="tos-list">
+    <li>当社は、本サービスの内容を変更・追加することがあります。契約者に重大な影響がある変更は、事前に通知します。</li>
+    <li>当社は、次の場合、事前の通知なく本サービスの全部または一部を一時停止することがあります。
+      <ol class="tos-sublist">
+        <li>システムの保守・点検・更新を行う場合</li>
+        <li>停電、天災、障害、外部サービスの停止などで提供が困難な場合</li>
+        <li>その他、当社がやむを得ないと判断した場合</li>
+      </ol>
+    </li>
+    <li>当社は、本サービスの提供を終了する場合、終了の90日前までに契約者に通知します。</li>
+  </ol>
+
+  <h3 class="article-title">第13条（当社による契約解除）</h3>
+  <p class="tos-text">当社は、契約者が次のいずれかに該当する場合、事前の通知なく本サービスの利用を停止し、または契約を解除できます。</p>
+  <ol class="tos-list">
+    <li>本規約に違反し、是正を求めても相当の期間内に改めない場合</li>
+    <li>利用料金の支払いを怠った場合</li>
+    <li>申込内容に虚偽があった場合</li>
+    <li>反社会的勢力であること、またはそれと関係があることが判明した場合</li>
+    <li>その他、当社が契約の継続を不適当と判断した場合</li>
+  </ol>
+
+  <h3 class="article-title">第14条（保証の否認と免責）</h3>
+  <ol class="tos-list">
+    <li>当社は、本サービスが契約者の特定の目的に合うこと、配信により特定の売上や集客の成果が出ること、障害や不具合が生じないことを保証しません。</li>
+    <li>当社は、第9条に定める外部サービスに起因する損害について責任を負いません。</li>
+    <li>当社の責めに帰すべき事由により契約者に損害が生じた場合、当社の責任は、損害が生じた月の前月までの直近12か月間に契約者が当社に支払った利用料金の総額を上限とし、逸失利益その他の間接損害は含みません。</li>
+    <li>前項の制限は、当社に故意または重大な過失がある場合には適用しません。</li>
+  </ol>
+
+  <h3 class="article-title">第15条（反社会的勢力の排除）</h3>
+  <p class="tos-text">契約者は、自らおよびその役員が、暴力団その他の反社会的勢力に該当しないこと、および将来にわたって該当しないことを表明し、保証します。</p>
+
+  <h3 class="article-title">第16条（規約の変更）</h3>
+  <p class="tos-text">当社は、民法の定型約款の変更の定めに従い、本規約を変更できます。変更する場合は、変更後の内容と効力が生じる日を、効力が生じる日の相当期間前までに当社のウェブサイトへの掲載やメール等でお知らせします。</p>
+
+  <h3 class="article-title">第17条（権利義務の譲渡禁止）</h3>
+  <p class="tos-text">契約者は、当社の書面による承諾なく、利用契約上の地位や権利義務を第三者に譲渡し、または担保に入れることはできません。</p>
+
+  <h3 class="article-title">第18条（準拠法・管轄裁判所）</h3>
+  <p class="tos-text">本規約は日本法に準拠します。本サービスに関する紛争は、東京地方裁判所を第一審の専属的合意管轄裁判所とします。</p>
+
+  <p class="tos-appendix">附則：本規約は、2026年　月　日から施行します。</p>
+</main>
+
+<footer class="footer">
+  <div class="footer-logo">LIF-Hub</div>
+  <div style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;">
+    <a href="/tokushoho">特定商取引法に基づく表記</a>
+    <a href="/kiyaku">利用規約</a>
+    <span class="footer-copy">© 2026 株式会社LIF. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
