@@ -116,6 +116,14 @@ body {
   border-bottom: 2px solid var(--accent);
 }
 
+.subsection-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--fg);
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
 .pp-text {
   font-size: 0.92rem;
   color: var(--fg-secondary);
@@ -211,7 +219,7 @@ body {
 
 <main class="page-content">
   <h1 class="page-title">プライバシーポリシー</h1>
-  <p class="page-date">2026年10月23日 制定</p>
+  <p class="page-date">2026年10月23日 制定／最終改定日：2026年10月23日</p>
 
   <p class="pp-text">株式会社LIF（以下「当社」）は、当社が提供するクラウドサービス「LIF-Hub」（以下「本サービス」）における個人情報の取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」）を定めます。</p>
 
@@ -294,7 +302,33 @@ body {
     <li>契約者は、友だちの個人情報を個人情報保護法その他の法令に従って取得・利用する責任を負います。</li>
   </ol>
 
-  <h2 class="section-title">7. Cookieの利用</h2>
+  <h2 class="section-title">7. 外部サービス連携データの取扱い（Instagram・Facebook・Threads・LINE）</h2>
+  <p class="pp-text">本サービスでは、お客様の同意に基づき、Meta Platforms, Inc. が提供するInstagram、Facebook、Threadsおよび LINEヤフー株式会社が提供するLINEの各APIを通じて、以下の情報を取得・利用します。</p>
+
+  <h3 class="subsection-title">（1）取得する情報</h3>
+  <ul class="pp-list">
+    <li>連携したアカウントの基本情報（アカウントID、ユーザー名、表示名、プロフィール画像、アクセストークン）</li>
+    <li>お客様のアカウントに届いたダイレクトメッセージおよびその送信者の公開プロフィール情報（ユーザー名、表示名、プロフィール画像）</li>
+    <li>お客様の投稿に寄せられたコメントおよびコメント投稿者の公開プロフィール情報</li>
+    <li>お客様が本サービスから投稿・返信したコンテンツ</li>
+  </ul>
+
+  <h3 class="subsection-title">（2）利用目的</h3>
+  <ul class="pp-list">
+    <li>お客様が本サービス上で自身のSNSアカウントの投稿、コメント返信、メッセージ返信を行うため</li>
+    <li>上記機能の提供に必要な範囲でのデータの表示・保存</li>
+  </ul>
+
+  <h3 class="subsection-title">（3）利用の制限</h3>
+  <p class="pp-text">取得した情報は上記目的以外には利用せず、広告配信、第三者への販売・提供、他のお客様との共有は行いません。自動送信や一斉送信には利用しません。当社は、Metaプラットフォーム利用規約、Instagram APIの利用規約、およびLINEヤフー株式会社の各種規約を遵守します。</p>
+
+  <h3 class="subsection-title">（4）保存と削除</h3>
+  <p class="pp-text">取得した情報は、サービス提供に必要な期間、当社が利用するクラウドサービス（Vercel Inc.、Supabase Inc.）上に暗号化して保存します。お客様は、本サービスの「SNS連携」画面からいつでも連携を解除でき、解除時にアクセストークンは無効化されます。保存されたメッセージ・コメント等のデータの削除を希望される場合、または連携解除後にデータの完全な削除を希望される場合は、下記お問い合わせ窓口（<a href="mailto:keisuke.yoshida@lif.jp" style="color:var(--accent)">keisuke.yoshida@lif.jp</a>）までご連絡ください。ご本人確認の上、30日以内に削除します。</p>
+
+  <h3 class="subsection-title">（5）データ削除のリクエスト方法</h3>
+  <p class="pp-text">Meta（Instagram / Facebook / Threads）のアプリ設定から「LIF-Hub SNS」の連携を削除した場合、または <a href="mailto:keisuke.yoshida@lif.jp" style="color:var(--accent)">keisuke.yoshida@lif.jp</a> へ「データ削除希望」とご連絡いただいた場合、当社は該当アカウントに関連する保存データを30日以内に削除します。</p>
+
+  <h2 class="section-title">8. Cookieの利用</h2>
   <p class="pp-text">当社は、本サービスおよび関連するウェブサイトにおいて、以下の目的でCookieを使用しています。</p>
   <ol class="pp-list">
     <li>ログイン状態の維持</li>
@@ -303,7 +337,7 @@ body {
   </ol>
   <p class="pp-text">ブラウザの設定によりCookieの受け入れを拒否できますが、本サービスの一部機能が利用できなくなる場合があります。</p>
 
-  <h2 class="section-title">8. 安全管理措置</h2>
+  <h2 class="section-title">9. 安全管理措置</h2>
   <p class="pp-text">当社は、個人情報の漏えい、滅失、毀損の防止のため、以下の安全管理措置を講じます。</p>
   <ol class="pp-list">
     <li>通信の暗号化（SSL/TLS）</li>
@@ -312,14 +346,14 @@ body {
     <li>定期的なセキュリティの見直し</li>
   </ol>
 
-  <h2 class="section-title">9. 個人情報の開示・訂正・削除</h2>
+  <h2 class="section-title">10. 個人情報の開示・訂正・削除</h2>
   <p class="pp-text">ご本人からの個人情報の開示・訂正・利用停止・削除のご請求には、本人確認のうえ、合理的な期間内に対応いたします。以下の窓口までご連絡ください。</p>
   <p class="pp-text">メール：<a href="mailto:keisuke.yoshida@lif.jp" style="color:var(--accent)">keisuke.yoshida@lif.jp</a></p>
 
-  <h2 class="section-title">10. 本ポリシーの変更</h2>
+  <h2 class="section-title">11. 本ポリシーの変更</h2>
   <p class="pp-text">当社は、法令の改正や事業内容の変更に伴い、本ポリシーを変更することがあります。重要な変更がある場合は、本サービスのウェブサイトへの掲載またはメールによりお知らせします。</p>
 
-  <h2 class="section-title">11. お問い合わせ窓口</h2>
+  <h2 class="section-title">12. お問い合わせ窓口</h2>
   <table class="pp-table">
     <tr>
       <th>事業者名</th>
